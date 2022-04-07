@@ -16,7 +16,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.grid}>
-          <Image layout="fill" className={styles.mayday} src={mayday} />
+          <div className={styles.imgContainer}>
+            <Image className={styles.mayday} src={mayday} />
+          </div>
+          <a className={styles.title}>COMING SOON</a>
         </div>
       </main>
     </div>
