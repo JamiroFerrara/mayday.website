@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
 import mayday from '../public/mayday03.png'
+import style from '../styles/Navbar.module.css'
 
 export const Navbar = () => {
   const [active, setActive] = useState(false)
@@ -12,10 +13,12 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="flex flex-wrap items-center bg-black p-3 ">
+      <nav className="absolute z-10 flex w-full flex-wrap items-center bg-stone-900 p-3">
         <Link href="/">
           <a className="mr-4 inline-flex items-center p-2 ">
-            <Image src={mayday} width={35} height={35} />
+            <div className={style.image}>
+              <Image src={mayday} />
+            </div>
             <span className="mx-3 text-xl font-bold tracking-wide text-white">
               MAYDAYSOUNDSYSTEM
             </span>
@@ -52,9 +55,29 @@ export const Navbar = () => {
                 Home
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/music">
               <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
-                Services
+                Music
+              </a>
+            </Link>
+            <Link href="/shop">
+              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+                Shop
+              </a>
+            </Link>
+            <Link href="/video">
+              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+                Video
+              </a>
+            </Link>
+            <Link href="/events">
+              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+                Events
+              </a>
+            </Link>
+            <Link href="/booking">
+              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+                Booking
               </a>
             </Link>
           </div>
