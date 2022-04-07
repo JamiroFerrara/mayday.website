@@ -14,14 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.grid}>
-          <div className={styles.imgContainer}>
-            <Image className={styles.mayday} src={mayday} />
-          </div>
-          <a className={styles.title}>COMING SOON</a>
-        </div>
-      </main>
+      <main className={styles.main}></main>
     </div>
   )
 }
