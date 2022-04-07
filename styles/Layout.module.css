@@ -6,6 +6,10 @@
   position: absolute;
 }
 
+.mayday {
+    object-fit: contain;
+}
+
 .main {
   flex: 1;
   display: flex;
