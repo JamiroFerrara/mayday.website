@@ -80,7 +80,7 @@ export async function getStaticProps() {
   const data = await storefront(productsQuery)
   return {
     props: {
-      products: data.products,
+      products: data,
     },
   }
 }
@@ -92,6 +92,7 @@ const productsQuery = gql`
     products(first: 6) {
       edges {
         node {
+          id
           title
           handle
           tags
