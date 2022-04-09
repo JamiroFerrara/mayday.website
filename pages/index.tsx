@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
+import Carousel from '../components/Carousel'
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Carousel/>
         <a className={styles.title}>HOME</a>
       </main>
     </div>

@@ -9,6 +9,10 @@
     "prod:build": "NODE_ENV=production yarn run build:css && yarn run build"
   },
   "dependencies": {
+    "daisyui": "^2.13.6",
+    "date-fns": "^2.28.0",
+    "headlessui": "^0.0.0",
+    "heroicons": "^1.0.6",
     "next": "latest",
     "next-videos": "1.4.0",
     "postcss-cli": "^9.1.0",
