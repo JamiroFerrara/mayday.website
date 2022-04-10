@@ -1,13 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/api/hello": "pages/api/hello.js",
-  "/booking": "pages/booking.html",
-  "/events": "pages/events.html",
-  "/": "pages/index.html",
-  "/music": "pages/music.html",
-  "/shop": "pages/shop.js",
-  "/video": "pages/video.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/shop": "pages/shop.js"
 }
