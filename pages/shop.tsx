@@ -4,19 +4,6 @@ import styles from '../styles/Layout.module.css'
 import ProductList from '../components/ProductList'
 import { storefront, formatPrice } from '../utils'
 
-const staticProducts = [
-  {
-    id: 1,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$13',
-    description: '3 sizes available',
-    imageSrc:
-      'https:tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.'
-  },
-]
-
 const Shop: NextPage = ({products} : any) => {
   console.log({products})
   return (
@@ -82,6 +69,7 @@ export async function getStaticProps() {
     props: {
       products: data,
     },
+    revalidate: 10,
   }
 }
 

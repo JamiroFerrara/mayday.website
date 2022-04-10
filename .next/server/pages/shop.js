@@ -1,53 +1,211 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/shop";
-exports.ids = ["pages/shop"];
+exports.id = 800;
+exports.ids = [800];
 exports.modules = {
 
-/***/ "./styles/Layout.module.css":
-/*!**********************************!*\
-  !*** ./styles/Layout.module.css ***!
-  \**********************************/
+/***/ 2136:
 /***/ ((module) => {
 
-eval("// Exports\nmodule.exports = {\n\t\"container\": \"Layout_container__S4aNf\",\n\t\"imgContainer\": \"Layout_imgContainer__Si3Gl\",\n\t\"main\": \"Layout_main__c1pHS\",\n\t\"title\": \"Layout_title__aN7Jd\",\n\t\"description\": \"Layout_description__tvpUW\",\n\t\"code\": \"Layout_code__wA5R5\",\n\t\"grid\": \"Layout_grid__oB4Ql\",\n\t\"card\": \"Layout_card__t1tJC\",\n\t\"logo\": \"Layout_logo__dBXl_\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdHlsZXMvTGF5b3V0Lm1vZHVsZS5jc3MuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3R5bGVzL0xheW91dC5tb2R1bGUuY3NzPzgzYTMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwiY29udGFpbmVyXCI6IFwiTGF5b3V0X2NvbnRhaW5lcl9fUzRhTmZcIixcblx0XCJpbWdDb250YWluZXJcIjogXCJMYXlvdXRfaW1nQ29udGFpbmVyX19TaTNHbFwiLFxuXHRcIm1haW5cIjogXCJMYXlvdXRfbWFpbl9fYzFwSFNcIixcblx0XCJ0aXRsZVwiOiBcIkxheW91dF90aXRsZV9fYU43SmRcIixcblx0XCJkZXNjcmlwdGlvblwiOiBcIkxheW91dF9kZXNjcmlwdGlvbl9fdHZwVVdcIixcblx0XCJjb2RlXCI6IFwiTGF5b3V0X2NvZGVfX3dBNVI1XCIsXG5cdFwiZ3JpZFwiOiBcIkxheW91dF9ncmlkX19vQjRRbFwiLFxuXHRcImNhcmRcIjogXCJMYXlvdXRfY2FyZF9fdDF0SkNcIixcblx0XCJsb2dvXCI6IFwiTGF5b3V0X2xvZ29fX2RCWGxfXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./styles/Layout.module.css\n");
+// Exports
+module.exports = {
+	"container": "Layout_container__S4aNf",
+	"imgContainer": "Layout_imgContainer__Si3Gl",
+	"main": "Layout_main__c1pHS",
+	"title": "Layout_title__aN7Jd",
+	"description": "Layout_description__tvpUW",
+	"code": "Layout_code__wA5R5",
+	"grid": "Layout_grid__oB4Ql",
+	"card": "Layout_card__t1tJC",
+	"logo": "Layout_logo__dBXl_"
+};
+
 
 /***/ }),
 
-/***/ "./pages/shop.tsx":
-/*!************************!*\
-  !*** ./pages/shop.tsx ***!
-  \************************/
+/***/ 9684:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getStaticProps\": () => (/* binding */ getStaticProps),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _styles_Layout_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/Layout.module.css */ \"./styles/Layout.module.css\");\n/* harmony import */ var _styles_Layout_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_Layout_module_css__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ \"./utils/index.js\");\n\n\n\n\nconst staticProducts = [\n    {\n        id: 1,\n        name: \"Focus Paper Refill\",\n        href: \"#\",\n        price: \"$13\",\n        description: \"3 sizes available\",\n        imageSrc: \"https:tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg\",\n        imageAlt: \"Person using a pen to cross a task off a productivity paper card.\"\n    }, \n];\nconst Shop = ({ products  })=>{\n    console.log({\n        products\n    });\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: \"Mayday - Home\"\n                    }, void 0, false, {\n                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                        lineNumber: 25,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"description\",\n                        content: \"Music\"\n                    }, void 0, false, {\n                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                        lineNumber: 26,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                        rel: \"icon\",\n                        href: \"/favicon.ico\"\n                    }, void 0, false, {\n                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                        lineNumber: 27,\n                        columnNumber: 9\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                lineNumber: 24,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"main\", {\n                className: (_styles_Layout_module_css__WEBPACK_IMPORTED_MODULE_3___default().main),\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"bg-white\",\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                            className: \"mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8\",\n                            children: [\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n                                    className: \"text-2xl font-extrabold tracking-tight text-gray-900\",\n                                    children: \"Digital Downloads\"\n                                }, void 0, false, {\n                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                    lineNumber: 34,\n                                    columnNumber: 11\n                                }, undefined),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                    className: \"mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8\",\n                                    children: products.data.products.edges.map((item)=>{\n                                        const product = item.node;\n                                        const image = product.images.edges[0].node;\n                                        return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                            className: \"group relative\",\n                                            children: [\n                                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                                    className: \"min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80\",\n                                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                                                        src: image.transformedSrc,\n                                                        alt: image.altText,\n                                                        className: \"h-full w-full object-cover object-center lg:h-full lg:w-full\"\n                                                    }, void 0, false, {\n                                                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                        lineNumber: 47,\n                                                        columnNumber: 19\n                                                    }, undefined)\n                                                }, void 0, false, {\n                                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                    lineNumber: 46,\n                                                    columnNumber: 17\n                                                }, undefined),\n                                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                                    className: \"mt-4 flex justify-between\",\n                                                    children: [\n                                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                                            children: [\n                                                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n                                                                    className: \"text-sm text-gray-700\",\n                                                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"a\", {\n                                                                        href: \"#\",\n                                                                        children: [\n                                                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                                                                \"aria-hidden\": \"true\",\n                                                                                className: \"absolute inset-0\"\n                                                                            }, void 0, false, {\n                                                                                fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                                                lineNumber: 57,\n                                                                                columnNumber: 25\n                                                                            }, undefined),\n                                                                            product.title\n                                                                        ]\n                                                                    }, void 0, true, {\n                                                                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                                        lineNumber: 56,\n                                                                        columnNumber: 23\n                                                                    }, undefined)\n                                                                }, void 0, false, {\n                                                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                                    lineNumber: 55,\n                                                                    columnNumber: 21\n                                                                }, undefined),\n                                                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                                                    className: \"mt-1 text-sm text-gray-500\",\n                                                                    children: product.tags\n                                                                }, void 0, false, {\n                                                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                                    lineNumber: 64,\n                                                                    columnNumber: 21\n                                                                }, undefined)\n                                                            ]\n                                                        }, void 0, true, {\n                                                            fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                            lineNumber: 54,\n                                                            columnNumber: 19\n                                                        }, undefined),\n                                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                                            className: \"text-sm font-medium text-gray-900\",\n                                                            children: (0,_utils__WEBPACK_IMPORTED_MODULE_2__.formatPrice)(product.priceRange.minVariantPrice.amount)\n                                                        }, void 0, false, {\n                                                            fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                            lineNumber: 66,\n                                                            columnNumber: 19\n                                                        }, undefined)\n                                                    ]\n                                                }, void 0, true, {\n                                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                                    lineNumber: 53,\n                                                    columnNumber: 17\n                                                }, undefined)\n                                            ]\n                                        }, product.id, true, {\n                                            fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                            lineNumber: 45,\n                                            columnNumber: 15\n                                        }, undefined);\n                                    })\n                                }, void 0, false, {\n                                    fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                                    lineNumber: 38,\n                                    columnNumber: 11\n                                }, undefined)\n                            ]\n                        }, void 0, true, {\n                            fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                            lineNumber: 33,\n                            columnNumber: 9\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                        lineNumber: 32,\n                        columnNumber: 7\n                    }, undefined)\n                }, void 0, false)\n            }, void 0, false, {\n                fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n                lineNumber: 30,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/stiwie/Github/websites/maydaysoundsystem/pages/shop.tsx\",\n        lineNumber: 23,\n        columnNumber: 5\n    }, undefined);\n};\nasync function getStaticProps() {\n    const data = await (0,_utils__WEBPACK_IMPORTED_MODULE_2__.storefront)(productsQuery);\n    return {\n        props: {\n            products: data\n        }\n    };\n}\nconst gql = String.raw;\nconst productsQuery = gql`\n  query Products {\n    products(first: 6) {\n      edges {\n        node {\n          id\n          title\n          handle\n          tags\n          priceRange {\n            minVariantPrice {\n              amount\n            }\n          }\n          images(first: 1) {\n            edges {\n              node {\n                transformedSrc\n                altText\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n`;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shop);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QixFQUFFOzs7O3FEQXVCZCxDQUNQO3FDQUFDLENBQUM7Ozs7OzZDQUNDOzs7Ozs7cUNBQ0Y7Ozs7O2lDQUNGO2lDQUNMOzs7Ozt5QkFDTTs7Ozs7O2lCQUNILENBQ1A7Q0FDRjtBQUVNLGVBQWUwQyxjQUFjLEdBQUc7SUFDckMsTUFBTXRCLElBQUksR0FBRyxNQUFNdkIsa0RBQVUsQ0FBQzhDLGFBQWEsQ0FBQztJQUM1QyxPQUFPO1FBQ0xDLEtBQUssRUFBRTtZQUNMcEMsUUFBUSxFQUFFWSxJQUFJO1NBQ2Y7S0FDRjtDQUNGO0FBRUQsTUFBTXlCLEdBQUcsR0FBR0MsTUFBTSxDQUFDQyxHQUFHO0FBRXRCLE1BQU1KLGFBQWEsR0FBR0UsR0FBRyxDQUFDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQTBCMUIsQ0FBQztBQUNELGlFQUFldEMsSUFBSSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3BhZ2VzL3Nob3AudHN4PzlhMjkiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHR5cGUgeyBOZXh0UGFnZSB9IGZyb20gJ25leHQnXG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4uL3N0eWxlcy9MYXlvdXQubW9kdWxlLmNzcydcbmltcG9ydCBQcm9kdWN0TGlzdCBmcm9tICcuLi9jb21wb25lbnRzL1Byb2R1Y3RMaXN0J1xuaW1wb3J0IHsgc3RvcmVmcm9udCwgZm9ybWF0UHJpY2UgfSBmcm9tICcuLi91dGlscydcblxuY29uc3Qgc3RhdGljUHJvZHVjdHMgPSBbXG4gIHtcbiAgICBpZDogMSxcbiAgICBuYW1lOiAnRm9jdXMgUGFwZXIgUmVmaWxsJyxcbiAgICBocmVmOiAnIycsXG4gICAgcHJpY2U6ICckMTMnLFxuICAgIGRlc2NyaXB0aW9uOiAnMyBzaXplcyBhdmFpbGFibGUnLFxuICAgIGltYWdlU3JjOlxuICAgICAgJ2h0dHBzOnRhaWx3aW5kdWkuY29tL2ltZy9lY29tbWVyY2UtaW1hZ2VzL2NhdGVnb3J5LXBhZ2UtMDEtaW1hZ2UtY2FyZC0wMS5qcGcnLFxuICAgIGltYWdlQWx0OiAnUGVyc29uIHVzaW5nIGEgcGVuIHRvIGNyb3NzIGEgdGFzayBvZmYgYSBwcm9kdWN0aXZpdHkgcGFwZXIgY2FyZC4nXG4gIH0sXG5dXG5cbmNvbnN0IFNob3A6IE5leHRQYWdlID0gKHtwcm9kdWN0c30gOiBhbnkpID0+IHtcbiAgY29uc29sZS5sb2coe3Byb2R1Y3RzfSlcbiAgcmV0dXJuIChcbiAgICA8ZGl2PlxuICAgICAgPEhlYWQ+XG4gICAgICAgIDx0aXRsZT5NYXlkYXkgLSBIb21lPC90aXRsZT5cbiAgICAgICAgPG1ldGEgbmFtZT1cImRlc2NyaXB0aW9uXCIgY29udGVudD1cIk11c2ljXCIgLz5cbiAgICAgICAgPGxpbmsgcmVsPVwiaWNvblwiIGhyZWY9XCIvZmF2aWNvbi5pY29cIiAvPlxuICAgICAgPC9IZWFkPlxuXG4gICAgICA8bWFpbiBjbGFzc05hbWU9e3N0eWxlcy5tYWlufT5cbiAgICA8PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZVwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm14LWF1dG8gbWF4LXctMnhsIHB5LTE2IHB4LTQgc206cHktMjQgc206cHgtNiBsZzptYXgtdy03eGwgbGc6cHgtOFwiPlxuICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWV4dHJhYm9sZCB0cmFja2luZy10aWdodCB0ZXh0LWdyYXktOTAwXCI+XG4gICAgICAgICAgICBEaWdpdGFsIERvd25sb2Fkc1xuICAgICAgICAgIDwvaDI+XG5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTYgZ3JpZCBncmlkLWNvbHMtMSBnYXAteS0xMCBnYXAteC02IHNtOmdyaWQtY29scy0yIGxnOmdyaWQtY29scy00IHhsOmdhcC14LThcIj5cbiAgICAgICAgICAgIHtwcm9kdWN0cy5kYXRhLnByb2R1Y3RzLmVkZ2VzLm1hcCgoaXRlbSkgPT4ge1xuICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgY29uc3QgcHJvZHVjdCA9IGl0ZW0ubm9kZVxuICAgICAgICAgICAgICBjb25zdCBpbWFnZSA9IHByb2R1Y3QuaW1hZ2VzLmVkZ2VzWzBdLm5vZGVcblxuICAgICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICA8ZGl2IGtleT17cHJvZHVjdC5pZH0gY2xhc3NOYW1lPVwiZ3JvdXAgcmVsYXRpdmVcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1pbi1oLTgwIGFzcGVjdC13LTEgYXNwZWN0LWgtMSBsZzphc3BlY3Qtbm9uZSB3LWZ1bGwgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQtbWQgYmctZ3JheS0yMDAgZ3JvdXAtaG92ZXI6b3BhY2l0eS03NSBsZzpoLTgwXCI+XG4gICAgICAgICAgICAgICAgICA8aW1nXG4gICAgICAgICAgICAgICAgICAgIHNyYz17aW1hZ2UudHJhbnNmb3JtZWRTcmN9XG4gICAgICAgICAgICAgICAgICAgIGFsdD17aW1hZ2UuYWx0VGV4dH1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaC1mdWxsIHctZnVsbCBvYmplY3QtY292ZXIgb2JqZWN0LWNlbnRlciBsZzpoLWZ1bGwgbGc6dy1mdWxsXCJcbiAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC00IGZsZXgganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNzAwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIiNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuXG4gICAgICAgICAgICAgICAgICAgICAgICAgIGFyaWEtaGlkZGVuPVwidHJ1ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImFic29sdXRlIGluc2V0LTBcIlxuICAgICAgICAgICAgICAgICAgICAgICAgPjwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgICB7cHJvZHVjdC50aXRsZX1cbiAgICAgICAgICAgICAgICAgICAgICA8L2E+XG4gICAgICAgICAgICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTEgdGV4dC1zbSB0ZXh0LWdyYXktNTAwXCI+e3Byb2R1Y3QudGFnc308L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTkwMFwiPntmb3JtYXRQcmljZShwcm9kdWN0LnByaWNlUmFuZ2UubWluVmFyaWFudFByaWNlLmFtb3VudCl9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICl9KX1cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8Lz5cbiAgICAgIDwvbWFpbj5cbiAgICA8L2Rpdj5cbiAgKVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0U3RhdGljUHJvcHMoKSB7XG4gIGNvbnN0IGRhdGEgPSBhd2FpdCBzdG9yZWZyb250KHByb2R1Y3RzUXVlcnkpXG4gIHJldHVybiB7XG4gICAgcHJvcHM6IHtcbiAgICAgIHByb2R1Y3RzOiBkYXRhLFxuICAgIH0sXG4gIH1cbn1cblxuY29uc3QgZ3FsID0gU3RyaW5nLnJhd1xuXG5jb25zdCBwcm9kdWN0c1F1ZXJ5ID0gZ3FsYFxuICBxdWVyeSBQcm9kdWN0cyB7XG4gICAgcHJvZHVjdHMoZmlyc3Q6IDYpIHtcbiAgICAgIGVkZ2VzIHtcbiAgICAgICAgbm9kZSB7XG4gICAgICAgICAgaWRcbiAgICAgICAgICB0aXRsZVxuICAgICAgICAgIGhhbmRsZVxuICAgICAgICAgIHRhZ3NcbiAgICAgICAgICBwcmljZVJhbmdlIHtcbiAgICAgICAgICAgIG1pblZhcmlhbnRQcmljZSB7XG4gICAgICAgICAgICAgIGFtb3VudFxuICAgICAgICAgICAgfVxuICAgICAgICAgIH1cbiAgICAgICAgICBpbWFnZXMoZmlyc3Q6IDEpIHtcbiAgICAgICAgICAgIGVkZ2VzIHtcbiAgICAgICAgICAgICAgbm9kZSB7XG4gICAgICAgICAgICAgICAgdHJhbnNmb3JtZWRTcmNcbiAgICAgICAgICAgICAgICBhbHRUZXh0XG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbmBcbmV4cG9ydCBkZWZhdWx0IFNob3BcbiJdLCJuYW1lcyI6WyJIZWFkIiwic3R5bGVzIiwic3RvcmVmcm9udCIsImZvcm1hdFByaWNlIiwic3RhdGljUHJvZHVjdHMiLCJpZCIsIm5hbWUiLCJocmVmIiwicHJpY2UiLCJkZXNjcmlwdGlvbiIsImltYWdlU3JjIiwiaW1hZ2VBbHQiLCJTaG9wIiwicHJvZHVjdHMiLCJjb25zb2xlIiwibG9nIiwiZGl2IiwidGl0bGUiLCJtZXRhIiwiY29udGVudCIsImxpbmsiLCJyZWwiLCJtYWluIiwiY2xhc3NOYW1lIiwiaDIiLCJkYXRhIiwiZWRnZXMiLCJtYXAiLCJpdGVtIiwicHJvZHVjdCIsIm5vZGUiLCJpbWFnZSIsImltYWdlcyIsImltZyIsInNyYyIsInRyYW5zZm9ybWVkU3JjIiwiYWx0IiwiYWx0VGV4dCIsImgzIiwiYSIsInNwYW4iLCJhcmlhLWhpZGRlbiIsInAiLCJ0YWdzIiwicHJpY2VSYW5nZSIsIm1pblZhcmlhbnRQcmljZSIsImFtb3VudCIsImdldFN0YXRpY1Byb3BzIiwicHJvZHVjdHNRdWVyeSIsInByb3BzIiwiZ3FsIiwiU3RyaW5nIiwicmF3Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/shop.tsx\n");
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ shop),
+  "getStaticProps": () => (/* binding */ getStaticProps)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__(968);
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+// EXTERNAL MODULE: ./styles/Layout.module.css
+var Layout_module = __webpack_require__(2136);
+var Layout_module_default = /*#__PURE__*/__webpack_require__.n(Layout_module);
+;// CONCATENATED MODULE: ./utils/index.js
+async function storefront(query, variables = {}) {
+    const response = await fetch("https://mayday-sound-system.myshopify.com/api/2022-04/graphql.json", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Shopify-Storefront-Access-Token": "db56b07b09f9f3e2bc43adab18dc4573"
+        },
+        body: JSON.stringify({
+            query,
+            variables
+        })
+    });
+    return response.json();
+}
+function formatPrice(number) {
+    return Intl.NumberFormat("it-it", {
+        style: "currency",
+        currency: "EUR",
+        minimumFractionDigits: 0
+    }).format(number);
+}
+
+;// CONCATENATED MODULE: ./pages/shop.tsx
+
+
+
+
+const Shop = ({ products  })=>{
+    console.log({
+        products
+    });
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                        children: "Mayday - Home"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        name: "description",
+                        content: "Music"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                        rel: "icon",
+                        href: "/favicon.ico"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("main", {
+                className: (Layout_module_default()).main,
+                children: /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "bg-white",
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                                    className: "text-2xl font-extrabold tracking-tight text-gray-900",
+                                    children: "Digital Downloads"
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
+                                    children: products.data.products.edges.map((item)=>{
+                                        const product = item.node;
+                                        const image = product.images.edges[0].node;
+                                        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                            className: "group relative",
+                                            children: [
+                                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                                    className: "min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80",
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                        src: image.transformedSrc,
+                                                        alt: image.altText,
+                                                        className: "h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                                    })
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                    className: "mt-4 flex justify-between",
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                                                                    className: "text-sm text-gray-700",
+                                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
+                                                                        href: "#",
+                                                                        children: [
+                                                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                                                                "aria-hidden": "true",
+                                                                                className: "absolute inset-0"
+                                                                            }),
+                                                                            product.title
+                                                                        ]
+                                                                    })
+                                                                }),
+                                                                /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                                    className: "mt-1 text-sm text-gray-500",
+                                                                    children: product.tags
+                                                                })
+                                                            ]
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                                            className: "text-sm font-medium text-gray-900",
+                                                            children: formatPrice(product.priceRange.minVariantPrice.amount)
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        }, product.id);
+                                    })
+                                })
+                            ]
+                        })
+                    })
+                })
+            })
+        ]
+    });
+};
+async function getStaticProps() {
+    const data = await storefront(productsQuery);
+    return {
+        props: {
+            products: data
+        },
+        revalidate: 10
+    };
+}
+const gql = String.raw;
+const productsQuery = gql`
+  query Products {
+    products(first: 6) {
+      edges {
+        node {
+          id
+          title
+          handle
+          tags
+          priceRange {
+            minVariantPrice {
+              amount
+            }
+          }
+          images(first: 1) {
+            edges {
+              node {
+                transformedSrc
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+/* harmony default export */ const shop = (Shop);
+
 
 /***/ }),
 
-/***/ "./utils/index.js":
-/*!************************!*\
-  !*** ./utils/index.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"storefront\": () => (/* binding */ storefront),\n/* harmony export */   \"formatPrice\": () => (/* binding */ formatPrice)\n/* harmony export */ });\nasync function storefront(query, variables = {}) {\n    const response = await fetch(\"https://mayday-sound-system.myshopify.com/api/2022-04/graphql.json\", {\n        method: \"POST\",\n        headers: {\n            \"Content-Type\": \"application/json\",\n            \"X-Shopify-Storefront-Access-Token\": \"db56b07b09f9f3e2bc43adab18dc4573\"\n        },\n        body: JSON.stringify({\n            query,\n            variables\n        })\n    });\n    return response.json();\n}\nfunction formatPrice(number) {\n    return Intl.NumberFormat(\"it-it\", {\n        style: \"currency\",\n        currency: \"EUR\",\n        minimumFractionDigits: 0\n    }).format(number);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi91dGlscy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7OztBQUFPLGVBQWVBLFVBQVUsQ0FBQ0MsS0FBSyxFQUFFQyxTQUFTLEdBQUcsRUFBRSxFQUFDO0lBQ25ELE1BQU1DLFFBQVEsR0FBRyxNQUFNQyxLQUFLLENBQ3hCLG9FQUFvRSxFQUNwRTtRQUNJQyxNQUFNLEVBQUUsTUFBTTtRQUNkQyxPQUFPLEVBQUU7WUFDTCxjQUFjLEVBQUUsa0JBQWtCO1lBQ2xDLG1DQUFtQyxFQUFFLGtDQUFrQztTQUMxRTtRQUNEQyxJQUFJLEVBQUVDLElBQUksQ0FBQ0MsU0FBUyxDQUFDO1lBQUNSLEtBQUs7WUFBRUMsU0FBUztTQUFDLENBQUM7S0FDM0MsQ0FDSjtJQUNELE9BQU9DLFFBQVEsQ0FBQ08sSUFBSSxFQUFFO0NBQ3pCO0FBRU0sU0FBU0MsV0FBVyxDQUFDQyxNQUFNLEVBQUU7SUFDaEMsT0FBT0MsSUFBSSxDQUFDQyxZQUFZLENBQUMsT0FBTyxFQUFFO1FBQzlCQyxLQUFLLEVBQUUsVUFBVTtRQUNqQkMsUUFBUSxFQUFFLEtBQUs7UUFDZkMscUJBQXFCLEVBQUUsQ0FBQztLQUMzQixDQUFDLENBQUNDLE1BQU0sQ0FBQ04sTUFBTSxDQUFDO0NBQ3BCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vdXRpbHMvaW5kZXguanM/ZDJlNCJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgYXN5bmMgZnVuY3Rpb24gc3RvcmVmcm9udChxdWVyeSwgdmFyaWFibGVzID0ge30pe1xuICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goXG4gICAgICAgIFwiaHR0cHM6Ly9tYXlkYXktc291bmQtc3lzdGVtLm15c2hvcGlmeS5jb20vYXBpLzIwMjItMDQvZ3JhcGhxbC5qc29uXCIsXG4gICAgICAgIHtcbiAgICAgICAgICAgIG1ldGhvZDogXCJQT1NUXCIsXG4gICAgICAgICAgICBoZWFkZXJzOiB7XG4gICAgICAgICAgICAgICAgXCJDb250ZW50LVR5cGVcIjogXCJhcHBsaWNhdGlvbi9qc29uXCIsXG4gICAgICAgICAgICAgICAgXCJYLVNob3BpZnktU3RvcmVmcm9udC1BY2Nlc3MtVG9rZW5cIjogXCJkYjU2YjA3YjA5ZjlmM2UyYmM0M2FkYWIxOGRjNDU3M1wiXG4gICAgICAgICAgICB9LFxuICAgICAgICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoe3F1ZXJ5LCB2YXJpYWJsZXN9KVxuICAgICAgICB9XG4gICAgKVxuICAgIHJldHVybiByZXNwb25zZS5qc29uKClcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGZvcm1hdFByaWNlKG51bWJlcikge1xuICAgIHJldHVybiBJbnRsLk51bWJlckZvcm1hdCgnaXQtaXQnLCB7XG4gICAgICAgIHN0eWxlOiAnY3VycmVuY3knLFxuICAgICAgICBjdXJyZW5jeTogJ0VVUicsXG4gICAgICAgIG1pbmltdW1GcmFjdGlvbkRpZ2l0czogMCxcbiAgICB9KS5mb3JtYXQobnVtYmVyKVxufSJdLCJuYW1lcyI6WyJzdG9yZWZyb250IiwicXVlcnkiLCJ2YXJpYWJsZXMiLCJyZXNwb25zZSIsImZldGNoIiwibWV0aG9kIiwiaGVhZGVycyIsImJvZHkiLCJKU09OIiwic3RyaW5naWZ5IiwianNvbiIsImZvcm1hdFByaWNlIiwibnVtYmVyIiwiSW50bCIsIk51bWJlckZvcm1hdCIsInN0eWxlIiwiY3VycmVuY3kiLCJtaW5pbXVtRnJhY3Rpb25EaWdpdHMiLCJmb3JtYXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./utils/index.js\n");
-
-/***/ }),
-
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
+/***/ 968:
 /***/ ((module) => {
 
 "use strict";
@@ -55,14 +213,11 @@ module.exports = require("next/head");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
@@ -73,7 +228,7 @@ module.exports = require("react/jsx-dev-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/shop.tsx"));
+var __webpack_exports__ = (__webpack_exec__(9684));
 module.exports = __webpack_exports__;
 
 })();
