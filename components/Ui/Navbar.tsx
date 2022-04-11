@@ -11,9 +11,13 @@ export const Navbar = () => {
     setActive(!active)
   }
 
+  const handleItemClick = () => {
+    setActive(false)
+  }
+
   return (
     <>
-      <nav className="absolute z-10 flex w-full flex-wrap items-center bg-transparent p-3">
+      <nav className={style.container}>
         <Link href="/">
           <a className="mr-4 inline-flex items-center p-2 ">
             <div className={style.image}>
@@ -51,17 +55,26 @@ export const Navbar = () => {
         >
           <div className="flex w-full flex-col items-start lg:ml-auto lg:inline-flex lg:h-auto  lg:w-auto lg:flex-row lg:items-center">
             <Link href="/">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto ">
+              <a
+                onClick={handleItemClick}
+                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto "
+              >
                 Home
               </a>
             </Link>
             <Link href="/music">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+              <a
+                onClick={handleItemClick}
+                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+              >
                 Music
               </a>
             </Link>
             <Link href="/shop">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+              <a
+                onClick={handleItemClick}
+                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+              >
                 Shop
               </a>
             </Link>
@@ -71,7 +84,10 @@ export const Navbar = () => {
               </a>
             </Link>
             <Link href="/events">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+              <a
+                onClick={handleItemClick}
+                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+              >
                 Events
               </a>
             </Link>
