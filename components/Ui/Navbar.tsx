@@ -23,7 +23,9 @@ export const Navbar = () => {
             <div className={style.image}>
               <Image src={mayday} />
             </div>
-            <span className="mx-3 font-bold tracking-wide text-white"></span>
+            <span className="mx-3 font-bold tracking-wide text-white">
+              MAYDAYSOUNDSYSTEM
+            </span>
           </a>
         </Link>
         <button
