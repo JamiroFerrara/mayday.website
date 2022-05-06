@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
-import Carousel from '../components/Media/Carousel'
+import Carousel from '../components/Media/Carousel/Carousel'
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Carousel/>
+        <Carousel />
       </main>
     </div>
   )

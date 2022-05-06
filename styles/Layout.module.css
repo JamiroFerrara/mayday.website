@@ -9,6 +9,16 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  border: gray solid 1px;
+  position: absolute;
+  border-radius: 10px;
+  min-height: 100%;
 }
 
 .imgContainer {
