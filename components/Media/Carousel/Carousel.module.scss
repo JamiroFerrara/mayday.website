@@ -24,8 +24,12 @@ $border: 1px solid gray;
 .container {
     @extend .animate;
     position: relative;
+    display: absolute;
     transition: 0.1s ease;
     opacity: 0.9;
+
+    display: flex;
+    justify-content: center;
 
     &:hover {
         opacity: 1;
@@ -33,21 +37,28 @@ $border: 1px solid gray;
 }
 
 .mediaGroup {
+    max-width: 100%;
+    border: $border;
     grid-auto-columns: 100%;
     transition: 1s ease;
 }
 
 .mediaElement {
+    border: white solid 1px;
+    height: 20px;
+    width: 60px;
     border-radius: 5px;
     overflow: hidden;
-    position: relative;
     transition: 1s ease;
+}
 
-    & > img {
-        width: 100%;
-        aspect-ratio: 16 / 4;
-        object-fit: cover;
-    }
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  aspect-ratio: 16 / 4;
+  object-fit: cover;
 }
 
 .btn {
@@ -62,7 +73,7 @@ $border: 1px solid gray;
   transition: 0.1s ease;
   border-radius: 50%;
   user-select: none;
-  z-index: 1;
+  z-index: 3;
 
   &:hover {
       transform: scale(1.2);

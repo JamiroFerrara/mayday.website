@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import Carousel from '../components/Media/Carousel/Carousel'
+import VideoContainer from '../components/Media/Carousel/VideoContainer/VideoContainer'
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Carousel />
+        <Carousel/>
+
+        <div className={styles.content}>
+          <div className={styles.box}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eius itaque quo quidem architecto placeat repellendus mollitia cupiditate delectus aperiam.
+          </div>
+        </div>
       </main>
     </div>
   )

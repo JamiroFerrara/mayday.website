@@ -9,13 +9,9 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
-  position: fixed;
-  display: flex;
-  justify-content: center;
 }
 
 .page {
-  border: gray solid 1px;
   position: absolute;
   border-radius: 10px;
   min-height: 100%;
@@ -27,12 +23,21 @@
 }
 
 .main {
-  flex: 1;
   display: flex;
-  height: inherit;
+  justify-content: center;
   flex-direction: column;
-  justify-content: Top;
-  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  border: white 1px solid;
+  margin: 30px;
+  padding: 20px;
+  max-width: 500px;
 }
 
 .title a {

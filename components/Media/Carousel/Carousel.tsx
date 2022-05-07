@@ -1,5 +1,7 @@
 import React from 'react'
 import st from './Carousel.module.scss'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const imgSourcesStatic = [
   'https://res.cloudinary.com/mayday-soundsystem/image/upload/c_crop,h_398,w_1080/v1649490823/TP1_9536_oobzfm.jpg',
@@ -9,21 +11,17 @@ const imgSourcesStatic = [
 ]
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0)
 
   return (
     <div className={st.container}>
-      <div className={st.btnRight} onClick={() => setCurrentIndex(cicleImages(currentIndex))}>{'>'}</div>
-      <div className={st.btnLeft} onClick={() => setCurrentIndex(cicleImagesBack(currentIndex))}>{'<'}</div>
-
       <div className={st.mediaGroup}>
-        <div className={st.mediaElement}>
-          <img
-            key={currentIndex}
-            src={imgSourcesStatic[currentIndex]}
-            alt="Carousel"
-          />
-        </div>
+        <Swiper spaceBetween={0} slidesPerView={1}>
+          {
+            imgSourcesStatic.map((item)=> {return (
+                <SwiperSlide><img className={st.img} src={item}/></SwiperSlide>
+            )})
+          }
+        </Swiper>
       </div>
     </div>
   )
