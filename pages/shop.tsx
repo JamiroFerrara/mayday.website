@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import ProductList from '../components/Shop/ProductList'
 import { storefront } from '../utils'
+import Navbar from '../components/Ui/Navbar'
 
 const Shop: NextPage = ({products} : any) => {
   console.log({products})
@@ -13,6 +14,7 @@ const Shop: NextPage = ({products} : any) => {
         <meta name="description" content="Music" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar></Navbar>
 
       <main className={styles.main}>
         <ProductList title={"Digital Products"} products={products}/>

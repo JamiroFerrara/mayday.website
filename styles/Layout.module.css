@@ -1,14 +1,19 @@
 .container {
-  padding: 5rem 0rem;
-  background-color: #292929;
   width: 100%;
   min-height: 100%;
   height: auto;
   position: absolute;
-  background-image: url('https://cdn.pixabay.com/photo/2020/10/31/09/52/black-5700721_960_720.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
+}
+
+.video {
+  position: absolute;
+  margin-top: 30rem;
+  height: 100%;
+  width: 100%;
+  border: white 1px solid;
 }
 
 .page {
@@ -30,6 +35,7 @@
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -37,7 +43,7 @@
   border: white 1px solid;
   margin: 30px;
   padding: 20px;
-  max-width: 500px;
+  height: 200px;
 }
 
 .title a {

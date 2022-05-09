@@ -1,0 +1,46 @@
+.container {
+    transition: 0.2s ease;
+    box-shadow: 10px 10px;
+    border: black 1px solid;
+    border-radius: 8px;
+
+    &:hover {
+        transform: scale(101%);
+    }
+
+    &:hover .itemPrice {
+    }
+
+    &:hover .itemTitle {
+    }
+
+    &:hover .itemTags {
+
+    }
+}
+
+.itemTitle {
+    padding: 15px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.1s ease;
+}
+
+.itemSubtitle {
+
+}
+
+.itemPrice {
+    @extend .itemTitle;
+    font-size: 20px;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

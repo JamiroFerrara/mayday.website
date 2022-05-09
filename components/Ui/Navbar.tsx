@@ -54,7 +54,7 @@ export const Navbar = () => {
           }   w-full lg:inline-flex lg:w-auto lg:flex-grow`}
         >
           <div className="flex w-full flex-col items-start lg:ml-auto lg:inline-flex lg:h-auto  lg:w-auto lg:flex-row lg:items-center">
-            <Link href="/">
+            <Link href="/home">
               <a
                 onClick={handleItemClick}
                 className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto "

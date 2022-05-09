@@ -8,7 +8,6 @@ interface Props {}
 const Layout: FC<Props> = ({ children }) => {
   return (
     <>
-    <Navbar></Navbar>
       <div className={styles.container}>
         <main className={styles.main}>{children}</main>
       </div>
