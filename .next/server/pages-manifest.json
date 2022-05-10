@@ -2,8 +2,11 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/music": "pages/music.js",
+  "/products/[handle]": "pages/products/[handle].js",
   "/shop": "pages/shop.js",
+  "/music": "pages/music.js",
+  "/home": "pages/home.js",
+  "/video": "pages/video.js",
   "/events": "pages/events.js",
-  "/products/[handle]": "pages/products/[handle].js"
+  "/booking": "pages/booking.js"
 }

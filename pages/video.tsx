@@ -15,8 +15,7 @@ const Video: NextPage = () => {
       <Navbar></Navbar>
 
       <main className={styles.main}>
-        <a className={styles.title}>VIDEO</a>
-          <ReactPlayer className="w-24" url='https://www.youtube.com/watch?v=3sJPTE1YJOs&t=1036s' playing={true} controls={true} />
+            <ReactPlayer className="w-24" url='https://www.youtube.com/watch?v=3sJPTE1YJOs&t=1036s' playing={true} controls={true} />
       </main>
     </div>
   )

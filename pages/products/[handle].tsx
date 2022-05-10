@@ -1,11 +1,12 @@
-import React from 'react'
+import {useState} from 'react'
 import { storefront } from '../../utils'
 import Head from 'next/head'
 import Navbar from '../../components/Ui/Navbar'
 import styles from '../../styles/Layout.module.css'
+import ProductPage from '../../components/Shop/ProductPage'
 
 function products ({product}) {
-  console.log(product);
+  const variantId = product.variants.edges[0].node.id;
 
   return (
     <div>
@@ -16,10 +17,8 @@ function products ({product}) {
       </Head>
       <Navbar></Navbar>
 
-
         <main className={styles.main}>
-          <div className={styles.title}>{product.title}</div>
-          <div className={styles.title}>{product.updatedAt}</div>
+          <ProductPage product={product} checkoutMutation={checkoutsMutation} variantId={variantId}/>
         </main>
     </div>
   )
@@ -73,6 +72,27 @@ query SingleProduct ($handle: String!){
           altText
         }
       }
+    }
+    variants(first:1) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+}
+`
+const checkoutsMutation = gql`
+mutation CheckoutCreate($variantId: ID!) {
+  checkoutCreate(input: {
+    lineItems: {
+      variantId: $variantId,
+      quantity: 1
+    }
+  }) {
+    checkout {
+      webUrl
     }
   }
 }
