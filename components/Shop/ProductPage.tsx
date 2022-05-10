@@ -15,8 +15,8 @@ async function checkout(){
 }
 
   return (
-        <div className="h-screen align-middle md:items-center flex p-5">
-            <div className="bg-white px-4 mt-2 sm:py-10 sm:px-6 lg:max-w-7xl w-full rounded mb-8 align-middle p-5 border-2">
+        <div className="md:h-screen align-middle md:items-center flex p-5">
+            <div className="bg-white px-4 mt-2 lg:max-w-7xl w-full rounded mb-8 p-5">
               <h2 className="text-2xl mx-4 font-extrabold tracking-tight text-gray-900">
                   {product.title}
               </h2>
