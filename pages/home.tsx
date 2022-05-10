@@ -19,8 +19,6 @@ const home = () => {
 
         <div className={styles.homePage}>
         <Carousel/>
-            <div className="h-96">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat porro dicta, rem obcaecati quod aut provident, ad quos ipsum repellendus culpa minus nemo ipsam deleniti, ducimus nihil qui maxime animi!</div>
-            <div className="h-96"></div>
         </div>
       </div>
   )
