@@ -23,7 +23,7 @@ export const Navbar = () => {
             <div className={style.image}>
               <Image src={mayday} />
             </div>
-            <span className="mx-3 font-bold tracking-wide text-white">
+            <span className="mx-3 font-bold tracking-wide text-white transition">
               MAYDAYSOUNDSYSTEM
             </span>
           </a>

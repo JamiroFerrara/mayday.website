@@ -25,30 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/booking": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/booking.js"
-    ],
     "/home": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/home.js"
     ],
-    "/music": [
+    "/products/[handle]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/music.js"
-    ],
-    "/shop": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/shop.js"
-    ],
-    "/video": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/video.js"
+      "static/chunks/pages/products/[handle].js"
     ]
   },
   "ampFirstPages": []

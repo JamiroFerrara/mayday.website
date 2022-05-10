@@ -1,10 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/video": "pages/video.js",
-  "/shop": "pages/shop.js",
-  "/music": "pages/music.js",
-  "/home": "pages/home.js",
-  "/booking": "pages/booking.js"
+  "/_document": "pages/_document.js"
 }
