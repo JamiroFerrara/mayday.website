@@ -14,13 +14,14 @@ const Shop: NextPage = ({products} : any) => {
         <meta name="description" content="Music" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Navbar></Navbar>
 
-      <main className={styles.main}>
-        <ProductList title={"Digital Products"} products={products}/>
-        <ProductList title={"Vinyls"} products={products}/>
-        <ProductList title={"Courses"} products={products}/>
-      </main>
+        <main className={styles.main}>
+          <ProductList title={"Digital Products"} products={products}/>
+          <ProductList title={"Vinyls"} products={products}/>
+          <ProductList title={"Courses"} products={products}/>
+        </main>
     </div>
   )
 }

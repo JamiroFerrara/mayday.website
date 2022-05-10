@@ -4,9 +4,9 @@ import styles from '../styles/Layout.module.css'
 import Carousel from '../components/Media/Carousel/Carousel'
 import VideoContainer from '../components/Media/Carousel/VideoContainer/VideoContainer'
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
   return (
-    <a href='/shop'>
+    <a href='/home'>
       <Head>
         <title>Mayday - Home</title>
         <meta name="description" content="Home" />
@@ -18,4 +18,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Index

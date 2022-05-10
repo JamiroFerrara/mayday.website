@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <>
       <nav className={style.container}>
-        <Link href="/">
+        <Link href="/home">
           <a className="mr-4 inline-flex items-center p-2 ">
             <div className={style.image}>
               <Image src={mayday} />

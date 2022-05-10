@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../components/Ui/Navbar'
 import styles from '../styles/Layout.module.css'
+import ReactPlayer from 'react-player'
 
 const Music: NextPage = () => {
   return (
@@ -14,7 +15,7 @@ const Music: NextPage = () => {
       <Navbar/>
 
       <main className={styles.main}>
-        <a className={styles.title}>MUSIC</a>
+        <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' playing={true} controls={true} />
       </main>
     </div>
   )

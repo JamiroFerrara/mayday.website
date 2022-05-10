@@ -16,7 +16,7 @@ const staticProducts = [
 const ProductList = ({title, products}) => {
   return (
     <>
-        <div className="bg-white mt-16 max-w-2xl px-4 sm:py-10 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="bg-white px-4 sm:py-10 sm:px-6 lg:max-w-7xl w-full rounded mb-8">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
             {title}
           </h2>
