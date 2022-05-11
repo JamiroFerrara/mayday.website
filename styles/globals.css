@@ -6,7 +6,7 @@ html { height: 10px;} body {min-height: 100%;}
 
 @layer components {
     .footer-icons {
-        @apply transition hover:translate-y-1 hover:text-red-900;
+        @apply transition cursor-pointer hover:translate-y-1 hover:text-red-900;
     }
     .center {
         @apply flex justify-center text-center;

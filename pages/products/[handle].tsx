@@ -6,6 +6,7 @@ import styles from '../../styles/Layout.module.css'
 import ProductPage from '../../components/Shop/ProductPage'
 
 function products ({product}) {
+  console.log(product)
   const variantId = product.variants.edges[0].node.id;
 
   return (
@@ -27,7 +28,7 @@ function products ({product}) {
 export async function getStaticPaths() {
   const {data} = await storefront(gql`
   {
-    products(first: 6) {
+    products(first: 100) {
       edges {
         node {
           handle

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import mayday from '../../public/mayday03.png'
 import style from '../../styles/Navbar.module.css'
+import { FaAngleLeft } from 'react-icons/fa'
 
 export const Navbar = () => {
   const [active, setActive] = useState(false)
@@ -55,37 +56,38 @@ export const Navbar = () => {
         >
           <div className="flex flex-col items-start w-full lg:ml-auto lg:inline-flex lg:h-auto lg:w-auto lg:flex-row lg:items-center">
             <Link href="/home">
-              <a
-                onClick={handleItemClick}
+              <a onClick={handleItemClick}
                 className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto "
               >
                 Home
               </a>
             </Link>
             <Link href="/music">
-              <a
-                onClick={handleItemClick}
+              <a onClick={handleItemClick}
                 className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Music
               </a>
             </Link>
-            <Link href="/shop">
-              <a
-                onClick={handleItemClick}
-                className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
-              >
-                Shop
-              </a>
-            </Link>
+            <div className="flex flex-col w-full ">
+              <div className="flex items-center w-full px-3 py-2 rounded hover:bg-gray-700 hover:text-white ">
+                <Link href="/shop">
+                    <a onClick={handleItemClick}
+                      className="flex items-center w-11/12 font-bold text-white lg:inline-flex lg:w-auto"
+                    >
+                      Shop
+                    </a>
+                </Link>
+                {/* <FaAngleLeft className="flex flex-col hover:text-red-900 hover:-rotate-90" size={20}></FaAngleLeft> */}
+              </div>
+            </div>
             <Link href="/video">
               <a className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
                 Video
               </a>
             </Link>
             <Link href="/events">
-              <a
-                onClick={handleItemClick}
+              <a onClick={handleItemClick}
                 className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Events

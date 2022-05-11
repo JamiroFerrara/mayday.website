@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import ProductList from '../components/Shop/ProductList'
-import { storefront } from '../utils'
+import { getProductsFromCollection } from '../utils'
 import Navbar from '../components/Ui/Navbar'
 
 const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects} : any) => {
@@ -32,7 +32,7 @@ export async function getStaticProps() {
   const samplePacks = await getProductsFromCollection('Sample')
   const vinyls = await getProductsFromCollection('Vinyls')
   const tracks = await getProductsFromCollection('tracks')
-  const tutorials = await getProductsFromCollection('Tutorials')
+  const tutorials = await getProductsFromCollection('tutorials')
   const projects = await getProductsFromCollection('projects')
   const wear = await getProductsFromCollection('wear')
 
@@ -47,56 +47,6 @@ export async function getStaticProps() {
     },
     revalidate: 10,
   }
-}
-
-const gql = String.raw
-
-async function getAllCollections() {
-  const collectionsQuery = gql`
-  query getCollections {
-    collections(first:100){
-      edges{
-        node{
-          handle
-        }
-      }
-    }
-  }
-  `
-  return await storefront(collectionsQuery)
-}
-
-async function getProductsFromCollection(collection: string){
-  const productsQuery = gql`
-  query ProductsByCollection ($handle: String!){
-    collectionByHandle(handle: $handle){
-      products (first: 100){
-        edges{
-          node{
-            id
-            title
-            handle
-            tags
-            priceRange {
-              minVariantPrice {
-                amount
-              }
-            }
-            images(first: 1){
-              edges{
-                node{
-                  transformedSrc
-                  altText
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  `
-  return await storefront(productsQuery, {handle: collection})
 }
 
 export default Shop

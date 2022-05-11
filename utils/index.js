@@ -20,3 +20,38 @@ export function formatPrice(number) {
         minimumFractionDigits: 0,
     }).format(number)
 }
+
+const gql = String.raw
+
+export async function getProductsFromCollection(collection){
+  const productsQuery = gql`
+  query ProductsByCollection ($handle: String!){
+    collectionByHandle(handle: $handle){
+      products (first: 100){
+        edges{
+          node{
+            id
+            title
+            handle
+            tags
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            images(first: 1){
+              edges{
+                node{
+                  transformedSrc
+                  altText
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `
+  return await storefront(productsQuery, {handle: collection})
+}
