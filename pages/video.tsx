@@ -8,7 +8,7 @@ const Video: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Mayday - Home</title>
+        <title>Mayday - Video</title>
         <meta name="description" content="Music" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

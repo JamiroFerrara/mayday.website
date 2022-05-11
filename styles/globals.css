@@ -14,4 +14,7 @@ html { height: 10px;} body {min-height: 100%;}
     .title-bold {
         @apply text-2xl font-extrabold tracking-tight text-gray-900;
     }
+    .hover-opacity {
+        @apply hover:opacity-100 opacity-90; 
+    }
 }

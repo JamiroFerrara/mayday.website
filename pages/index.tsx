@@ -8,7 +8,7 @@ const Index: NextPage = () => {
   return (
     <a href='/home'>
       <Head>
-        <title>Mayday - Home</title>
+        <title>MaydaySoundSystem</title>
         <meta name="description" content="Home" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

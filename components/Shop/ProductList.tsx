@@ -1,17 +1,5 @@
 import ProductItem from './ProductItem'
-
-const staticProducts = [
-  {
-    id: 1,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$13',
-    description: '3 sizes available',
-    imageSrc:
-      'https:tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.'
-  },
-]
+import { storefront } from '../../utils'
 
 const ProductList = ({title, products}) => {
   return (
@@ -22,7 +10,7 @@ const ProductList = ({title, products}) => {
           </h2>
 
           <div className="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.data.products.edges.map((item) => {
+            {products.edges.map((item) => {
               
               const product = item.node
               const image = product.images.edges[0].node
@@ -35,6 +23,5 @@ const ProductList = ({title, products}) => {
     </>
   )
 }
-
 
 export default ProductList

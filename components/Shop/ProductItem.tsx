@@ -6,21 +6,20 @@ const ProductItem = ({ product, image }) => {
   return (
     <Link key={product.id} href={`/products/${product.handle}`}>
       <div className={styles.container}>
-        <div  className="group relative">
-          <div className="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+        <div  className="relative group">
+          <div className="w-full overflow-hidden bg-gray-200 rounded-md min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none group-hover:opacity-75 lg:h-80">
             <img src={image.transformedSrc} alt={image.altText}
-              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              className="object-cover object-center w-full h-full lg:h-full lg:w-full"
             />
           </div>
-          <div className="mt-4 flex justify-between">
+          <div className="flex justify-between mt-4">
             <div>
               <h3 className={styles.itemTitle}>
                 <a href="#">
-                  <span aria-hidden="true" className="absolute  inset-0"></span>
+                  <span aria-hidden="true" className="absolute inset-0"></span>
                   {product.title}
                 </a>
               </h3>
-              <p className={styles.tags}>{product.tags}</p>
             </div>
             <p className={styles.itemPrice}>
               {formatPrice(product.priceRange.minVariantPrice.amount)}

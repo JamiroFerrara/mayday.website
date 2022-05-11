@@ -5,32 +5,45 @@ import ProductList from '../components/Shop/ProductList'
 import { storefront } from '../utils'
 import Navbar from '../components/Ui/Navbar'
 
-const Shop: NextPage = ({products} : any) => {
-  console.log({products})
+const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects} : any) => {
   return (
     <div>
       <Head>
         <title>Mayday - Shop</title>
-        <meta name="description" content="Music" />
+        <meta name="Store for Mayday Sound System" content="Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar></Navbar>
 
         <main className={styles.main}>
-          <ProductList title={"Digital Products"} products={products}/>
-          <ProductList title={"Vinyls"} products={products}/>
-          <ProductList title={"Courses"} products={products}/>
+          <ProductList title={'Sample Packs'} products={samplePacks.data.collectionByHandle.products} />
+          <ProductList title={'Digital Tracks'} products={tracks.data.collectionByHandle.products} />
+          <ProductList title={'Vinyls'} products={vinyls.data.collectionByHandle.products} />
+          <ProductList title={'Projects'} products={projects.data.collectionByHandle.products} />
+          <ProductList title={'Wear'} products={wear.data.collectionByHandle.products} />
+          <ProductList title={'Tutorials'} products={tutorials.data.collectionByHandle.products} />
         </main>
     </div>
   )
 }
 
 export async function getStaticProps() {
-  const data = await storefront(productsQuery)
+  const samplePacks = await getProductsFromCollection('Sample')
+  const vinyls = await getProductsFromCollection('Vinyls')
+  const tracks = await getProductsFromCollection('tracks')
+  const tutorials = await getProductsFromCollection('Tutorials')
+  const projects = await getProductsFromCollection('projects')
+  const wear = await getProductsFromCollection('wear')
+
   return {
     props: {
-      products: data,
+      samplePacks: samplePacks,
+      vinyls: vinyls,
+      tracks: tracks,
+      tutorials: tutorials,
+      projects: projects,
+      wear: wear,
     },
     revalidate: 10,
   }
@@ -38,25 +51,43 @@ export async function getStaticProps() {
 
 const gql = String.raw
 
-const productsQuery = gql`
-  query Products {
-    products(first: 6) {
-      edges {
-        node {
-          id
-          title
+async function getAllCollections() {
+  const collectionsQuery = gql`
+  query getCollections {
+    collections(first:100){
+      edges{
+        node{
           handle
-          tags
-          priceRange {
-            minVariantPrice {
-              amount
+        }
+      }
+    }
+  }
+  `
+  return await storefront(collectionsQuery)
+}
+
+async function getProductsFromCollection(collection: string){
+  const productsQuery = gql`
+  query ProductsByCollection ($handle: String!){
+    collectionByHandle(handle: $handle){
+      products (first: 100){
+        edges{
+          node{
+            id
+            title
+            handle
+            tags
+            priceRange {
+              minVariantPrice {
+                amount
+              }
             }
-          }
-          images(first: 1) {
-            edges {
-              node {
-                transformedSrc
-                altText
+            images(first: 1){
+              edges{
+                node{
+                  transformedSrc
+                  altText
+                }
               }
             }
           }
@@ -64,5 +95,8 @@ const productsQuery = gql`
       }
     }
   }
-`
+  `
+  return await storefront(productsQuery, {handle: collection})
+}
+
 export default Shop

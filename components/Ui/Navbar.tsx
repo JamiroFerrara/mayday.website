@@ -19,21 +19,21 @@ export const Navbar = () => {
     <>
       <nav className={style.container}>
         <Link href="/home">
-          <a className="mr-4 inline-flex items-center p-2 ">
+          <a className="inline-flex items-center p-2 mr-4">
             <div className={style.image}>
-              <Image src={mayday} />
+              <Image className='hover-opacity' src={mayday} />
             </div>
-            <span className="mx-3 font-bold tracking-wide text-white transition">
+            <span className="mx-3 font-bold tracking-wide text-white transition hover-opacity">
               MAYDAYSOUNDSYSTEM
             </span>
           </a>
         </Link>
         <button
-          className=" ml-auto inline-flex rounded p-3 text-white outline-none hover:bg-gray-700 hover:text-white lg:hidden"
+          className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-gray-700 hover:text-white lg:hidden"
           onClick={handleClick}
         >
           <svg
-            className="h-6 w-6"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -53,11 +53,11 @@ export const Navbar = () => {
             active ? '' : 'hidden'
           }   w-full lg:inline-flex lg:w-auto lg:flex-grow`}
         >
-          <div className="flex w-full flex-col items-start lg:ml-auto lg:inline-flex lg:h-auto  lg:w-auto lg:flex-row lg:items-center">
+          <div className="flex flex-col items-start w-full lg:ml-auto lg:inline-flex lg:h-auto lg:w-auto lg:flex-row lg:items-center">
             <Link href="/home">
               <a
                 onClick={handleItemClick}
-                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto "
+                className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto "
               >
                 Home
               </a>
@@ -65,7 +65,7 @@ export const Navbar = () => {
             <Link href="/music">
               <a
                 onClick={handleItemClick}
-                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+                className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Music
               </a>
@@ -73,26 +73,26 @@ export const Navbar = () => {
             <Link href="/shop">
               <a
                 onClick={handleItemClick}
-                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+                className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Shop
               </a>
             </Link>
             <Link href="/video">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+              <a className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
                 Video
               </a>
             </Link>
             <Link href="/events">
               <a
                 onClick={handleItemClick}
-                className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
+                className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Events
               </a>
             </Link>
             <Link href="/booking">
-              <a className="w-full items-center justify-center rounded px-3 py-2 font-bold text-white hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
+              <a className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
                 Booking
               </a>
             </Link>
