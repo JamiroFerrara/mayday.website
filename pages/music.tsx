@@ -4,7 +4,7 @@ import Navbar from '../components/Ui/Navbar'
 import styles from '../styles/Layout.module.css'
 import ReactPlayer from 'react-player'
 
-const Music: NextPage = () => {
+function Music ({players}){
   return (
     <div>
       <Head>
