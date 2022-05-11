@@ -48,8 +48,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       product: data.productByHandle
-    }
-
+    },
+    revalidate:10
   }
 }
 
