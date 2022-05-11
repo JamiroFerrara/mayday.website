@@ -16,12 +16,12 @@ const staticProducts = [
 const ProductList = ({title, products}) => {
   return (
     <>
-        <div className="bg-white px-4 sm:py-10 sm:px-6 lg:max-w-7xl w-full rounded mb-8">
+        <div className="w-full px-4 py-10 mb-8 bg-gray-100 rounded sm:px-6 lg:max-w-7xl">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
             {title}
           </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.data.products.edges.map((item) => {
               
               const product = item.node

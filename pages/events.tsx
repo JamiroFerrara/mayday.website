@@ -15,7 +15,7 @@ const Events: NextPage = () => {
       <Navbar></Navbar>
 
       <main className={styles.main}>
-        <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' playing={true} controls={true} />
+        <ReactPlayer width={"80%"} url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' playing={true} controls={true} />
       </main>
     </div>
   )

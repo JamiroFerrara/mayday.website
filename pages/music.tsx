@@ -15,7 +15,12 @@ const Music: NextPage = () => {
       <Navbar/>
 
       <main className={styles.main}>
-        <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' playing={true} controls={true} />
+        <div className="flex flex-wrap gap-2 rounded center">
+          <ReactPlayer width={"48%"} url='https://soundcloud.com/edo-et-ganesh' controls={true} />
+          <ReactPlayer width={"48%"} url='https://soundcloud.com/stiwi23' controls={true} />
+          <ReactPlayer width={"48%"} url='https://soundcloud.com/the_discoutsider' controls={true} />
+          <ReactPlayer width={"48%"} url='https://soundcloud.com/tekaproduction' controls={true} />
+        </div>
       </main>
     </div>
   )
