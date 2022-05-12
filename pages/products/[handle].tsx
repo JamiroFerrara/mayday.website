@@ -6,7 +6,6 @@ import styles from '../../styles/Layout.module.css'
 import ProductPage from '../../components/Shop/ProductPage'
 
 function products ({product}) {
-  console.log(product)
   const variantId = product.variants.edges[0].node.id;
 
   return (
@@ -98,5 +97,4 @@ mutation CheckoutCreate($variantId: ID!) {
   }
 }
 `
-
 export default products
