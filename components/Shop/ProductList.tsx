@@ -46,21 +46,15 @@ function filterJSONFuse(items, searchTerm)
 {
   const options = {
     includeScore: true,
-    keys: [{
-      name: 'node.title',
-      weight: '0.7'
-    },{
-      name: 'node.tags',
-      weight: '0.3'
-    }]
+    keys: ['node.title', 'node.tags',]
   }
   const fuse = new Fuse(items, options)
 
   if (searchTerm != ""){
-    return fuse.search(searchTerm)
+    return fuse.search<any>(searchTerm)
   }
   else {
-    return fuse.search(" ")
+    return fuse.search<any>(" ")
   }
 }
 
