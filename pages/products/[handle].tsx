@@ -17,9 +17,9 @@ function products ({product}) {
       </Head>
       <Navbar></Navbar>
 
-        <main className={styles.main}>
-          <ProductPage product={product} checkoutMutation={checkoutsMutation} variantId={variantId}/>
-        </main>
+      <main className={styles.main}>
+        <ProductPage product={product} checkoutMutation={checkoutsMutation} variantId={variantId}/>
+      </main>
     </div>
   )
 }

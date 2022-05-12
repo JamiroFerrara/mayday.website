@@ -86,13 +86,13 @@ export const Navbar = () => {
                 Video
               </a>
             </Link>
-            <Link href="/events">
+            {/* <Link href="/events">
               <a onClick={handleItemClick}
                 className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto"
               >
                 Events
               </a>
-            </Link>
+            </Link> */}
             <Link href="/booking">
               <a className="items-center justify-center w-full px-3 py-2 font-bold text-white rounded hover:bg-gray-700 hover:text-white lg:inline-flex lg:w-auto">
                 Booking

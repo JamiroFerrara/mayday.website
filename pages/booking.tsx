@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import ReactPlayer from 'react-player'
 import Navbar from '../components/Ui/Navbar'
+import ContactUs from '../components/Ui/ContactUs'
 
 const Booking: NextPage = () => {
   return (
@@ -15,7 +16,7 @@ const Booking: NextPage = () => {
       <Navbar></Navbar>
 
       <main className={styles.main}>
-        <ReactPlayer width={"80%"} url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' playing={true} controls={true} />
+        <ContactUs/>
       </main>
     </div>
   )
