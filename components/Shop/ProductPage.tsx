@@ -2,6 +2,7 @@ import React from 'react'
 import s from "./ProductPage.module.scss"
 import { formatPrice, storefront } from '../../utils'
 import {FaAngleLeft } from 'react-icons/fa'
+import Image from 'next/image'
 
 function ProductPage ({product, checkoutMutation, variantId}) {
 const image = product.images.edges[0].node
@@ -27,7 +28,7 @@ async function checkout(){
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full p-4 md:w-3/5">
                             <div className={s.container}>
-                                <img src={image.transformedSrc} alt={image.altText}
+                                <Image src={image.transformedSrc} alt={image.altText} height={1000} width={1000}
                                 className="object-cover object-center w-full h-full rounded"
                                 />
                             </div>
