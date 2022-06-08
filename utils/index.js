@@ -1,4 +1,5 @@
 export async function storefront(query, variables = {}){
+
     const response = await fetch(
         "https://mayday-sound-system.myshopify.com/api/2022-04/graphql.json",
         {
