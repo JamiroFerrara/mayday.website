@@ -1,0 +1,11 @@
+.image{
+    max-height: 2.5rem;
+    max-width: 2.5rem;
+}
+
+.container{
+    z-index: 10;
+    background-image: url('https://cdn.pixabay.com/photo/2020/10/31/09/52/black-5700721_960_720.jpg');
+    background-attachment: fixed;
+    background-position: center;
+}
