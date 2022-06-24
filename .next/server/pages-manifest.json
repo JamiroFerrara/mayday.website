@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/sandbox": "pages/sandbox.js",
+  "/shop": "pages/shop.js",
   "/home": "pages/home.js",
   "/music": "pages/music.js",
-  "/shop": "pages/shop.js"
+  "/booking": "pages/booking.js",
+  "/video": "pages/video.js"
 }

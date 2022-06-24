@@ -30,20 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/home.js"
     ],
-    "/music": [
+    "/video": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/music.js"
-    ],
-    "/sandbox": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/sandbox.js"
-    ],
-    "/shop": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/shop.js"
+      "static/chunks/pages/video.js"
     ]
   },
   "ampFirstPages": []
