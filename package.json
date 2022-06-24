@@ -9,6 +9,7 @@
     "prod:build": "NODE_ENV=production yarn run build:css && yarn run build"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.5",
     "@react-spring/parallax": "^9.4.5",
     "@shopify/shopify-api": "^3.0.0",
     "daisyui": "^2.13.6",
