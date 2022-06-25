@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../../styles/Layout.module.css'
+import styles from '../styles/Layout.module.css'
 import ReactPlayer from 'react-player'
 import Navbar from '../components/Ui/Navbar'
 import ContactUs from '../components/Ui/ContactUs'

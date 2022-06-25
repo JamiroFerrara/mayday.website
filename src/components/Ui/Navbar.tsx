@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
-import mayday from '../../../public/mayday03.png'
-import style from '../../../styles/Navbar.module.css'
+import mayday from '../../public/mayday03.png'
+import style from '../../styles/Navbar.module.css'
 import { FaAngleLeft } from 'react-icons/fa'
 
 export const Navbar = () => {

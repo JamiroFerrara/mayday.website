@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../../styles/Layout.module.css'
+import styles from '../styles/Layout.module.css'
 import Carousel from '../components/Media/Carousel/Carousel'
 import Navbar from '../components/Ui/Navbar'
 import ContactUs from '../components/Ui/ContactUs'

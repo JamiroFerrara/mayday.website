@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { storefront } from '../../utils'
 import Head from 'next/head'
 import Navbar from '../../components/Ui/Navbar'
-import styles from '../../../styles/Layout.module.css'
+import styles from '../../styles/Layout.module.css'
 import ProductPage from '../../components/Shop/ProductPage'
 
 function products ({product}) {
