@@ -1,8 +1,21 @@
-import * as trpc from '@trpc/server';
 import { z } from 'zod';
+import { createRouter } from '../context'
 
-export const appRouter = trpc
-  .router()
+const goodbye = createRouter()
+  .query('goodbye', {
+    input: z
+      .object({
+        text: z.string().nullish(),
+      })
+      .nullish(),
+    resolve({ input }) {
+      return {
+        greeting: `goodbye ${input?.text ?? 'world'}`,
+      };
+    },
+  });
+
+const hello = createRouter()
   .query('hello', {
     input: z
       .object({
@@ -16,5 +29,8 @@ export const appRouter = trpc
     },
   });
 
-// export type definition of API
-export type AppRouter = typeof appRouter;
+
+export const appRouter = createRouter()
+  .merge(hello)
+  .merge(goodbye)
+  ;
