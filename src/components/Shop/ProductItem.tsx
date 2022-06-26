@@ -1,4 +1,4 @@
-import { formatPrice } from '../../utils/shopify'
+import { formatPrice } from '../../utils/shopify/helpers'
 import Link from 'next/link'
 import styles from './products.module.scss'
 

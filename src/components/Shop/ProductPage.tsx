@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './ProductPage.module.scss'
-import { formatPrice, storefront } from '../../utils/shopify'
+import { storefront } from '../../utils/shopify'
+import { formatPrice } from '../../utils/shopify/helpers'
 import { FaAngleLeft } from 'react-icons/fa'
 import Image from 'next/image'
 
