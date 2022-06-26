@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 import Script from 'next/script'
 import { withTRPC } from '@trpc/next';
-import type { AppRouter } from '@/backend/router'
+import type { AppRouter } from '../backend/router'
 import { AppType } from 'next/dist/shared/lib/utils';
 
 function MyApp({ Component, pageProps }: AppProps) {

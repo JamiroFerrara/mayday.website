@@ -34,3 +34,5 @@ export const appRouter = createRouter()
   .merge(hello)
   .merge(goodbye)
   ;
+
+export type AppRouter = typeof appRouter;
