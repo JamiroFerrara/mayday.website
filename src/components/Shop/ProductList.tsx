@@ -1,12 +1,10 @@
 import ProductItem from './ProductItem'
 import { useState } from 'react'
-import { storefront } from '../../utils'
 import Fuse from 'fuse.js'
 
 const ProductList = ({title, products}) => {
   const [searchTerm, setSearchTerm] = useState("")
   const fItems = filterJSONFuse(products.edges, searchTerm)
-  console.log(fItems, products.edges)
 
   return (
     <>
@@ -19,27 +17,17 @@ const ProductList = ({title, products}) => {
           </div>
 
           <div className="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {fItems.map((item) => {
+            {fItems.map((item, index) => {
               const product = item.item.node
               const image = product.images.edges[0].node
 
               return (
-                <ProductItem product={product} image={image}></ProductItem>
+                <ProductItem key={index} product={product} image={image}></ProductItem>
             )})}
           </div>
         </div>
     </>
   )
-}
-
-function filterJSON(value, searchTerm)
-{
-  const sVal = JSON.stringify(value);
-  if (searchTerm == "") {
-    return value
-  } else if (sVal.includes(searchTerm)){
-    return value
-        }
 }
 
 function filterJSONFuse(items, searchTerm)

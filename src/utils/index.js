@@ -35,6 +35,7 @@ export async function getProductsFromCollection(collection){
             title
             handle
             tags
+            totalInventory
             priceRange {
               minVariantPrice {
                 amount
