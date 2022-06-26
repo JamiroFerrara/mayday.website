@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { storefront } from '../../utils'
+import storefront from '../../utils/shopify/storefront'
 import Head from 'next/head'
 import Navbar from '../../components/Ui/Navbar'
 import styles from '../../styles/Layout.module.css'
