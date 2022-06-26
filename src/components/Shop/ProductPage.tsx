@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ProductPage.module.scss'
-import { formatPrice, storefront } from '../../utils'
+import { formatPrice, storefront } from '../../utils/shopify'
 import { FaAngleLeft } from 'react-icons/fa'
 import Image from 'next/image'
 
@@ -29,7 +29,7 @@ function ProductPage({ product, checkoutMutation, variantId }) {
         <div className="flex flex-col md:flex-row">
           <div className="w-full p-4 md:w-3/5">
             <div className={s.container}>
-              <img
+              <Image
                 src={image.transformedSrc}
                 alt={image.altText}
                 height={1000}

@@ -23,9 +23,7 @@ export function formatPrice(number) {
 }
 
 const gql = String.raw
-
-export async function getProductsFromCollection(collection){
-  const productsQuery = gql`
+export async function getProductsFromCollection(collection){ const productsQuery = gql`
   query ProductsByCollection ($handle: String!){
     collectionByHandle(handle: $handle){
       products (first: 100){
@@ -56,4 +54,17 @@ export async function getProductsFromCollection(collection){
   }
   `
   return await storefront(productsQuery, {handle: collection})
+}
+
+export async function createCart(){ const createCartQuery = gql`
+  mutation CreateCart {
+    cartCreate {
+      cart {
+        checkoutUrl
+        id
+      }
+    }
+  }
+  `
+  return await storefront(createCartQuery)
 }

@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import ProductList from '../components/Shop/ProductList'
-import { getProductsFromCollection } from '../utils'
+import { getProductsFromCollection } from '../utils/shopify'
 import Navbar from '../components/Ui/Navbar'
 
 const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects} : any) => {
