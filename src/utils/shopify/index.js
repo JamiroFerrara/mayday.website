@@ -91,7 +91,6 @@ export async function addToCart() { const addToCartMutation = gql`
   return await storefront(addToCartMutation, {cartId: Cart.id, variantId: "gid://shopify/ProductVariant/42878097719470"})
 }
 
-
 export async function getCart() { const getCartQuery = gql`
   query GetCart($cartId: ID!) {
         cart(id: $cartId) {
