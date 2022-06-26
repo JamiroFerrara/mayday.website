@@ -19,7 +19,7 @@ const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects}
         <main className={styles.main}>
           <ProductList title={'Sample Packs'} products={samplePacks.data.collectionByHandle.products} />
           <ProductList title={'Digital Tracks'} products={tracks.data.collectionByHandle.products} />
-          <ProductList title={'Vinyls'} products={vinyls.data.collectionByHandle.products} />
+          {/* <ProductList title={'Vinyls'} products={vinyls.data.collectionByHandle.products} /> */}
           {/* <ProductList title={'Wear'} products={wear.data.collectionByHandle.products} /> */}
           {/* <ProductList title={'Projects'} products={projects.data.collectionByHandle.products} /> */}
           {/* <ProductList title={'Tutorials'} products={tutorials.data.collectionByHandle.products} /> */}

@@ -12,7 +12,7 @@ const ProductItem = ({ product, image }) => {
       <div className={styles.container}>
         <div  className="relative group">
           <div className="w-full overflow-hidden bg-gray-200 rounded-md min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none group-hover:opacity-75 lg:h-80">
-            <div className="object-cover object-center w-full h-full bg-red-500 lg:h-full lg:w-full" >
+            <div className={`${isOutOfStock ? 'bg-red-500' : ''} object-cover object-center w-full h-full lg:h-full lg:w-full`} >
               <div className={`${isOutOfStock ? '' : 'hidden'}  w-full rounded text-white pl-2`}>Out of Stock</div>
               <img src={image.transformedSrc} alt={image.altText}
                 className={`${isOutOfStock ? 'opacity-50' : ''} object-cover object-center w-full h-full`}/>
