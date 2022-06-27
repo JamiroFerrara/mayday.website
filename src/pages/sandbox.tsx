@@ -6,7 +6,7 @@ export default function SandboxPage(){
 
   async function CreateCart(){
     const res = await createCart();
-    console.log("Cart --> ", res);
+    console.log("Created Cart! --> ", res);
   }
 
   async function GetCart(){
@@ -23,6 +23,7 @@ export default function SandboxPage(){
     <>
       {/* <Navbar/> */}
       <div className="h-4"></div>
+      <Navbar/>
       <Center>
         <button className="btn" onClick={() => CreateCart()}>Create cart</button>
         <div className="w-6"></div>

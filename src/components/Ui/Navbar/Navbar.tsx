@@ -24,7 +24,7 @@ export default function Navbar(){
               <NavButton href="/music" title="Music"/>
               <Dropdown title="Shop" items={["Vinyls", "Shirts", "Digital"]}/>
               <NavButton href="/video" title="Video"/>
-              <NavButton href="/booking" title="Booking"/>
+              <NavButton href="/cart" title="Cart"/>
             </ul>
           </div>
 

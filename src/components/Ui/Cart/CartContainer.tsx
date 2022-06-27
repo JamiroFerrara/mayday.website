@@ -1,53 +1,41 @@
 import { Center } from '@mantine/core'
 import { Cart, getCart, createCart, addToCart } from '../../../utils/shopify'
 import { useEffect, useState } from 'react'
+import CartItem from './CartItem'
 
-let cartData;
+let cartData
 
-interface Props{
-cartItems: any
+interface Props {
+  cartItems: any
 }
 
-export default function CartContainer(props:Props){
-  const {cartItems} = props
-  const [isLoading, setisLoading] = useState(true);
+export default function CartContainer(props: Props) {
+  const { cartItems } = props
+  const [isLoading, setisLoading] = useState(true)
 
-  useEffect(()=> {
-    if (isLoading){
-      const getCartData = async () => {
-        await createCart();
-        await addToCart();
-
-        const ret = await getCart();
-        cartData = ret;
-        console.log(cartData.data.cart.lines);
-        
-        setisLoading(false);
-      }
-      getCartData();
-    }
-  })
-
-  if (isLoading){
-      return (
-        <div></div>
-      )
+  if (isLoading) {
+    return (
+      <>
+        <div className="h-20"></div>
+        <Center>
+          <div>Loading..</div>
+        </Center>
+      </>
+    )
   }
 
   return (
     <>
-      <div className='h-12'></div>
+      <div className="h-20"></div>
 
-      <Center className='p-10'>
-        <div className='bg-white rounded w-full p-8'>
-          <div className='flex text-2xl text-black font-extrabold'>Cart</div>
-          {/* { */}
-            {/* cartData.data.cart.lines.edges.map((index, cartItem) => { */}
-              {/* return ( */}
-                {/* <div>item</div> */}
-              {/* ) */}
-          {/* }) */}
-          {/* } */}
+      <Center className="p-10">
+        <div className="w-full rounded bg-white p-8">
+          <div className="flex text-2xl font-extrabold text-black">Cart</div>
+          {cartData.data.cart.lines.edges.map((cartItem:any) => {
+            return (
+              <CartItem item={cartItem}/>
+            )
+          })}
         </div>
       </Center>
     </>
