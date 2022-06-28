@@ -1,6 +1,4 @@
 import React from 'react'
-import mayday from '../../public/mayday03.png'
-import Image from 'next/image'
 import {FaFacebookF, FaInstagram, FaYoutube, FaSoundcloud } from 'react-icons/fa'
 
 const Footer = () => {

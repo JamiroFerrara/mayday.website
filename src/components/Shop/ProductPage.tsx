@@ -4,6 +4,8 @@ import storefront from '../../utils/shopify/storefront'
 import { formatPrice } from '../../utils/shopify/helpers'
 import { FaAngleLeft } from 'react-icons/fa'
 import Image from 'next/image'
+import { addToCart } from '../../utils/shopify'
+import { FaCartPlus } from 'react-icons/fa'
 
 function ProductPage({ product, checkoutMutation, variantId }) {
   const image = product.images.edges[0].node
@@ -13,6 +15,10 @@ function ProductPage({ product, checkoutMutation, variantId }) {
     console.log(checkoutMutation, variantId)
     const { webUrl } = data.checkoutCreate.checkout
     window.location.href = webUrl
+  }
+
+  async function addToCartClicked(){
+    addToCart(variantId);
   }
 
   return (
@@ -53,7 +59,7 @@ function ProductPage({ product, checkoutMutation, variantId }) {
                 </div>
               </div>
               <div className={s.container}>
-                <button className="btn w-full gap-2" onClick={checkout}>
+                <button className="btn bg-slate-800 hover:bg-slate-900 w-full gap-2" onClick={checkout}>
                   <svg
                     fill="#FFFFFF"
                     className="h-6 w-6"
@@ -67,6 +73,14 @@ function ProductPage({ product, checkoutMutation, variantId }) {
                   Buy
                 </button>
               </div>
+
+              <div className={s.container}>
+                <button className="btn w-full gap-2" onClick={addToCartClicked}>
+                  <FaCartPlus className='h-6 w-6 text-white'/>
+                  add to cart
+                </button>
+              </div>
+
             </div>
           </div>
         </div>

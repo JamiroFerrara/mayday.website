@@ -1,4 +1,5 @@
 import storefront from './storefront'
+import { useEffect, useState } from 'react'
 
 const gql = String.raw
 
@@ -62,7 +63,8 @@ export async function createCart() {
   return Cart
 }
 
-export async function addToCart() { const addToCartMutation = gql`
+export async function addToCart(item) {
+  const addToCartMutation = gql`
     mutation AddToCart($cartId: ID!, $variantId: ID!) {
       cartLinesAdd(
         cartId: $cartId
@@ -88,11 +90,12 @@ export async function addToCart() { const addToCartMutation = gql`
       }
     }
   `
-  console.log(Cart.checkoutUrl)
-  return await storefront(addToCartMutation, {cartId: Cart.id, variantId: "gid://shopify/ProductVariant/42878097719470"})
+
+  let localCartData = JSON.parse( window.localStorage.getItem("mdy:shopify:cart") || '{}');
+  return await storefront(addToCartMutation, {cartId: localCartData.id, variantId: item})
 }
 
-export async function getCart() { const getCartQuery = gql`
+export async function getCart(cartId) { const getCartQuery = gql`
     query GetCart($cartId: ID!) {
           cart(id: $cartId) {
             checkoutUrl
@@ -134,5 +137,53 @@ export async function getCart() { const getCartQuery = gql`
         }
     `
 
-  return await storefront(getCartQuery, {cartId: Cart.id})
+  return await storefront(getCartQuery, {cartId: cartId})
+}
+
+// HOOKS
+//-------------------------------------
+export function useCart() {
+  const [cart, setCart] = useState({id: null, lines: [], checkoutUrl: "", estimatedCost: null});
+
+  useEffect(()=> {
+    async function getShopCart(){
+      let localCartData = JSON.parse( window.localStorage.getItem("mdy:shopify:cart") || '{}');
+
+      if (Object.keys(localCartData).length !== 0){
+        const existingCart = await getCart(localCartData.id);
+
+        setCart({
+          id: localCartData.id,
+          checkoutUrl: localCartData.checkoutUrl,
+          estimatedCost: existingCart.data.cart.estimatedCost,
+          lines: existingCart.data.cart.lines.edges,
+        });
+
+        return;
+      }
+
+      localCartData = await createCart();
+
+      setCart({
+        id: localCartData.id,
+        checkoutUrl: localCartData.checkoutUrl,
+        estimatedCost: null,
+        lines: [],
+      })
+
+      window.localStorage.setItem(
+        'mdy:shopify:cart', JSON.stringify(localCartData)
+      )
+    }
+
+    getShopCart();
+  }, [])
+
+  return {cart, setCart};
+}
+
+// FUNCTIONS
+//-------------------------------------
+export function emptyCart(){
+    window.localStorage.removeItem('mdy:shopify:cart');
 }

@@ -1,42 +1,63 @@
 import { Center } from '@mantine/core'
-import { Cart, getCart, createCart, addToCart } from '../../../utils/shopify'
-import { useEffect, useState } from 'react'
 import CartItem from './CartItem'
+import { useCart, emptyCart } from '../../../utils/shopify'
+import {useRouter} from 'next/router'
+import { FaCartArrowDown } from 'react-icons/fa'
 
-let cartData
+export default function CartContainer() {
+  const { cart } = useCart()
+  const router = useRouter();
 
-interface Props {
-  cartItems: any
-}
+  function clearCart(){
+      emptyCart();
+  }
 
-export default function CartContainer(props: Props) {
-  const { cartItems } = props
-  const [isLoading, setisLoading] = useState(true)
-
-  if (isLoading) {
-    return (
-      <>
-        <div className="h-20"></div>
-        <Center>
-          <div>Loading..</div>
-        </Center>
-      </>
-    )
+  function checkout(){
+    const checkoutUrl = cart?.checkoutUrl;
+    router.push(checkoutUrl);
+    emptyCart();
   }
 
   return (
     <>
       <div className="h-20"></div>
 
-      <Center className="p-10">
+      <Center className="p-10 text-black">
         <div className="w-full rounded bg-white p-8">
-          <div className="flex text-2xl font-extrabold text-black">Cart</div>
-          {cartData.data.cart.lines.edges.map((cartItem:any) => {
-            return (
-              <CartItem item={cartItem}/>
-            )
-          })}
+
+          <div className="flex flex-row justify-between">
+            <div className="text-2xl font-extrabold">Cart</div>
+            <FaCartArrowDown className='text-black h-5 w-5 m-2'/>
+          </div>
+
+          {cart.lines.length > 0 ? (
+            <>
+              <ul>
+                {cart.lines.map((item: any) => (
+                  <>
+                    <CartItem item={item}/>
+                  </>
+                ))}
+              </ul>
+
+              <div className='border-black border mt-4'></div>
+
+              <div className="flex flex-row justify-between pt-2">
+                <div>Total</div>
+                <div className='flex flex-row space-x-2 font-extrabold text-red-800'>
+                  <div>{cart.estimatedCost.totalAmount.amount}</div>
+                  <div>€</div>
+                </div>
+              </div>
+            </>
+          ) : <div>No items in cart..</div>}
+
         </div>
+      </Center>
+
+      <Center className='space-x-2'>
+        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white" onClick={() => clearCart()}>Clear cart!</button>
+        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white" onClick={() => checkout()}>Checkout</button>
       </Center>
     </>
   )
