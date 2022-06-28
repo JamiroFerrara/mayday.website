@@ -15,7 +15,8 @@ export default function CartContainer() {
   }
 
   function clearCart(){
-      emptyCart();
+    emptyCart();
+    router.reload();
   }
 
   function checkout(){
