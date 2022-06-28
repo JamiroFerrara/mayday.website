@@ -4,9 +4,15 @@ import { useCart, emptyCart } from '../../../utils/shopify'
 import {useRouter} from 'next/router'
 import { FaCartArrowDown } from 'react-icons/fa'
 
+let total = 0;
+
 export default function CartContainer() {
   const { cart } = useCart()
   const router = useRouter();
+
+  if (cart.estimatedCost != null){
+    total = cart.estimatedCost['totalAmount'];
+  }
 
   function clearCart(){
       emptyCart();
@@ -43,7 +49,7 @@ export default function CartContainer() {
               <div className="flex flex-row justify-between pt-2">
                 <div>Total</div>
                 <div className='flex flex-row space-x-2 font-extrabold text-red-800'>
-                  <div>{cart.estimatedCost.totalAmount.amount}</div>
+                  <div>{total['amount']}</div>
                   <div>€</div>
                 </div>
               </div>
