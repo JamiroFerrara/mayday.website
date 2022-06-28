@@ -34,7 +34,8 @@ export default function Navbar(){
                 <ul className="flex flex-col w-full mt-auto lg:space-y-0 space-y-2 lg:space-x-2 lg:flex-row">
                   <NavButton href="/home" title="Home"/>
                   <NavButton href="/music" title="Music"/>
-                  <Dropdown title="Shop" items={["Packs", "Digital", "Vinyl"]}/>
+                  <NavButton href="/shop" title="Shop"/>
+                  {/* <Dropdown title="Shop" items={["Packs", "Digital", "Vinyl"]}/> */}
                   <NavButton href="/video" title="Video"/>
 
                   <a href='/cart' className='transition self-center p-2 border border-transparent hover:text-red-500 hover:-translate-y-1 hover:border-b-red-500'>
