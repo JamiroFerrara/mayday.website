@@ -38,8 +38,8 @@ export default function Navbar(){
                   {/* <Dropdown title="Shop" items={["Packs", "Digital", "Vinyl"]}/> */}
                   <NavButton href="/video" title="Video"/>
 
-                  <a href='/cart' className='transition self-center p-2 border border-transparent hover:text-red-500 hover:-translate-y-1 hover:border-b-red-500'>
-                    <BsCart size={20} className='text-white '/>
+                  <a href='/cart' className='transition self-center p-2 border border-transparent hover:text-red-500 hover:-translate-y-1 hover:border-b-red-500 invisible h-0 lg:h-10 lg:visible'>
+                    <BsCart size={20} className='text-white'/>
                   </a>
 
                 </ul>
