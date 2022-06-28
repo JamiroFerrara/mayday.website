@@ -3,7 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import ProductList from '../components/Shop/ProductList'
 import { getProductsFromCollection } from '../utils/shopify'
-import Navbar from '../components/Ui/Navbar'
+import Navbar from '../components/Ui/Navbar/Navbar'
 
 const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects} : any) => {
   return (

@@ -6,6 +6,7 @@ import { FaAngleLeft } from 'react-icons/fa'
 import Image from 'next/image'
 import { addToCart } from '../../utils/shopify'
 import { FaCartPlus } from 'react-icons/fa'
+import { ItemAddedNotification } from '../../utils/notifications'
 
 function ProductPage({ product, checkoutMutation, variantId }) {
   const image = product.images.edges[0].node
@@ -19,6 +20,7 @@ function ProductPage({ product, checkoutMutation, variantId }) {
 
   async function addToCartClicked(){
     addToCart(variantId);
+    ItemAddedNotification(product.title);
   }
 
   return (

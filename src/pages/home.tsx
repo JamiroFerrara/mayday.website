@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Layout.module.css'
 import Carousel from '../components/Media/Carousel/Carousel'
-import Navbar from '../components/Ui/Navbar'
+import Navbar from '../components/Ui/Navbar/Navbar'
 import ContactUs from '../components/Ui/ContactUs'
 
 const home = ({imgSourcesStatic}) => {
@@ -12,11 +12,10 @@ const home = ({imgSourcesStatic}) => {
         <meta name="description" content="Home" />
         <link rel="icon" href="/favicon.ico" />
         </Head>
+
         <Navbar></Navbar>
 
-        <div className={styles.homePage}>
-          <Carousel imgSourcesStatic={imgSourcesStatic}/>
-        </div>
+        <Carousel imgSourcesStatic={imgSourcesStatic}/>
 
         <main className="main">
           <ContactUs/>

@@ -23,17 +23,12 @@
   min-height: 100%;
 }
 
-.homePage {
-  padding-top: 80px;
-}
-
 .imgContainer {
     height: 25rem;
     width: 25rem;
 }
 
 .main {
-  padding-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;

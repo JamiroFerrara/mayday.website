@@ -13,11 +13,11 @@ export default function Dropdown(props: Props){
   return(
       <li className="relative">
         <NavButton onPress={() => setIsOpen(!isOpen)} title={title}/>
-        <div className={`${ isOpen ? '' : 'hidden' } left-0 p-2 text-black bg-white transition-all lg:w-44 top-18 mt-2 full lg:absolute rounded-md`}>
+        <div className={`${ isOpen ? '' : 'hidden' } left-0 p-2 text-white bg-transparent transition-all lg:w-44 top-18 mt-2 full lg:absolute rounded-md`}>
           <ul className="flex flex-col space-y-2">
             {items.map((title) => (
               <a href="/shop">
-                <li className="p-2 pl-4 border-b-2 hover:border-b-blue-500 transition">
+                <li className="p-2 pl-4 border-b-2 hover:border-b-red-500 transition">
                   <div className="w-full" >{title}</div>
                 </li>
               </a>

@@ -20,8 +20,6 @@ export default function CartContainer() {
 
   return (
     <>
-      <div className="h-20"></div>
-
       <Center className="p-10 text-black">
         <div className="w-full rounded bg-white p-8">
 
@@ -56,8 +54,8 @@ export default function CartContainer() {
       </Center>
 
       <Center className='space-x-2'>
-        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white" onClick={() => clearCart()}>Clear cart!</button>
-        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white" onClick={() => checkout()}>Checkout</button>
+        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white w-28" onClick={() => clearCart()}>Clear</button>
+        <button className="border border-gray-500 rounded p-2 hover:border-white hover:text-white w-28" onClick={() => checkout()}>Checkout</button>
       </Center>
     </>
   )

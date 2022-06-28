@@ -4,6 +4,8 @@ import Layout from '../components/Layout'
 import Script from 'next/script'
 import { withTRPC } from '@trpc/next';
 import type { AppRouter } from '../backend/router'
+import { NotificationsProvider } from '@mantine/notifications';
+import { MantineProvider } from '@mantine/core'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -22,9 +24,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
       </Script>
 
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <MantineProvider>
+        <NotificationsProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </NotificationsProvider>
+      </MantineProvider>
     </>
   )
 }
