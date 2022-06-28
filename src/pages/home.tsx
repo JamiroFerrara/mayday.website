@@ -1,12 +1,22 @@
 import Head from 'next/head'
-import styles from '../styles/Layout.module.css'
 import Carousel from '../components/Media/Carousel/Carousel'
 import Navbar from '../components/Ui/Navbar/Navbar'
 import ContactUs from '../components/Ui/ContactUs'
+import { WelcomeHomeNotification } from '../utils/notifications'
+
+let loaded = false;
 
 const home = ({imgSourcesStatic}) => {
+
+  function onPageLoaded(){
+    if (!loaded){
+      WelcomeHomeNotification();
+      loaded = true;
+    }
+  }
+
   return (
-      <div>
+    <div onLoad={() => onPageLoaded()}>
         <Head>
         <title>Mayday - Home</title>
         <meta name="description" content="Home" />

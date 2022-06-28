@@ -4,10 +4,21 @@ import styles from '../styles/Layout.module.css'
 import ProductList from '../components/Shop/ProductList'
 import { getProductsFromCollection } from '../utils/shopify'
 import Navbar from '../components/Ui/Navbar/Navbar'
+import { WelcomeShopNotification } from '../utils/notifications'
+
+let loaded = false;
 
 const Shop: NextPage = ({samplePacks, vinyls, tracks, wear, tutorials, projects} : any) => {
+
+  function onPageLoaded(){
+    if (!loaded){
+      WelcomeShopNotification();
+      loaded = true;
+    }
+  }
+
   return (
-    <div>
+    <div onLoad={() => onPageLoaded()}>
       <Head>
         <title>Mayday - Shop</title>
         <meta name="Store for Mayday Sound System" content="Shop" />
