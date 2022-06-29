@@ -44,7 +44,7 @@ const ProductItem = ({ product, image }) => {
           </div>
         </Link>
 
-        <button onClick={() => addToCartClicked()} className="hover:text-red-500 hover:-translate-y-1 transition absolute m-2 right-2 bottom-2">
+        <button onClick={() => addToCartClicked()} className={`${isOutOfStock ? 'hidden' : ''} hover:text-red-500 hover:-translate-y-1 transition absolute m-2 right-2 bottom-2`}>
           <FaCartPlus size={25}/>
         </button>
     </div>
