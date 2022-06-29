@@ -47,13 +47,12 @@ export default function Navbar(){
                     {title: "Tribe", link: "/shop/digital/tribe"},
                     {title: "Acid", link: "/shop/digital/acidcore"},
                     {title: "Hardtek", link: "/shop/digital/hardtek"},
-                    {title: "Hybrid", link: "/shop/digital/hybrid"},
                   ]}/>
 
                   <Dropdown isNavOpen={isOpen} title="Vinyls" link="/shop/vinyls" items={[
                     {title: "Tribe", link: "/shop/vinyls/tribe"},
                     {title: "Acidcore", link: "/shop/vinyls/acidcore"},
-                    {title: "Pumping Tribe", link: "/shop/vinyls/pumping-tribe"},
+                    // {title: "Pumping Tribe", link: "/shop/vinyls/pumping-tribe"},
                   ]}/>
 
                   <a href='/cart' className='transition self-center p-2 border border-transparent hover:text-red-500 hover:-translate-y-1 hover:border-b-red-500 invisible h-0 lg:h-10 lg:visible'>
