@@ -1,28 +1,55 @@
 import NavButton  from "./NavButton"
 import {useState} from "react"
+import st from '../../../styles/Layout.module.css'
+import {useRouter} from 'next/router'
 
 interface Props {
-  items: string[]
+  items: any[]
   title: string
+  isNavOpen: any
+  link: string
 }
 
 export default function Dropdown(props: Props){
   const [isOpen, setIsOpen] = useState(false)
-  const {items, title} = props
+  const {items, title, link, isNavOpen} = props
+  const router = useRouter();
+
+  function onMouseEnter(){
+    if (!isNavOpen){
+      setIsOpen(true);
+    }
+  }
+
+  function onMouseLeave(){
+    if(!isNavOpen){
+      setIsOpen(false);
+    }
+  }
+
+  function onButtonPressed(){
+    if (isNavOpen){
+      setIsOpen(!isOpen)
+    } else {
+      router.push(link)
+    }
+  }
 
   return(
-      <li className="relative">
-        <NavButton onPress={() => setIsOpen(!isOpen)} title={title}/>
-        <div className={`${ isOpen ? '' : 'hidden' } left-0 p-2 text-white bg-transparent transition-all lg:w-44 top-18 mt-2 full lg:absolute rounded-md`}>
-          <ul className="flex flex-col space-y-2">
-            {items.map((title) => (
-              <a href="/shop">
-                <li className="p-2 pl-4 border-b-2 hover:border-b-red-500 transition">
-                  <div className="w-full" >{title}</div>
-                </li>
-              </a>
-            ))}
-          </ul>
+    <li onMouseLeave={() => onMouseLeave()} onMouseEnter={() => onMouseEnter()} className="relative">
+        <NavButton onPress={() => onButtonPressed()} title={title}/>
+        <div className={`${ isOpen ? '' : 'hidden' } left-0 p-2 text-white transition-all lg:w-44 top-18 full lg:absolute rounded-md`}>
+          <div className={st.backgroundContainer}>
+            <ul className="flex flex-col space-y-2">
+              {items.map((item) => (
+                <a href={item.link}>
+                  <li className="p-2 pl-4 border-b-2 hover:border-b-red-500 transition">
+                    <div className="w-full" >{item.title}</div>
+                  </li>
+                </a>
+              ))}
+            </ul>
+          </div>
         </div>
       </li>
   )

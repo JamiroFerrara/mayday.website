@@ -9,6 +9,18 @@
   background-repeat: repeat;
 }
 
+.backgroundContainer {
+  border-radius: 5px;
+  padding: 2px;
+  padding-bottom: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background-image: url('https://cdn.pixabay.com/photo/2020/10/31/09/52/black-5700721_960_720.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat;
+}
+
 .video {
   position: absolute;
   margin-top: 30rem;
