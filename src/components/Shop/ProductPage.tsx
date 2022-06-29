@@ -7,9 +7,11 @@ import Image from 'next/image'
 import { addToCart } from '../../utils/shopify'
 import { FaCartPlus } from 'react-icons/fa'
 import { ItemAddedNotification } from '../../utils/notifications'
+import {useRouter} from 'next/router'
 
 function ProductPage({ product, checkoutMutation, variantId }) {
   const image = product.images.edges[0].node
+  const router = useRouter();
 
   async function checkout() {
     const { data } = await storefront(checkoutMutation, { variantId })
@@ -21,18 +23,19 @@ function ProductPage({ product, checkoutMutation, variantId }) {
   async function addToCartClicked(){
     addToCart(variantId);
     ItemAddedNotification(product.title);
+    router.back();
   }
 
   return (
     <div className="flex p-5 align-middle md:h-screen md:items-center">
       <div className="mt-2 mb-8 w-full rounded bg-white p-5 px-4 lg:max-w-7xl">
         <div className="flex flex-row">
-          <a href="/shop">
+          <div onClick={() => router.back()} className='cursor-pointer'>
             <FaAngleLeft
               className="mx-2 transition hover:-translate-x-1 hover:text-red-900"
               size={40}
             />
-          </a>
+          </div>
           <h2 className="title-bold">{product.title}</h2>
         </div>
         <div className="flex flex-col md:flex-row">
