@@ -26,7 +26,7 @@ function ProductPage({ product, checkoutMutation, variantId }) {
   async function addToCartClicked(){
     addToCart(variantId);
     ItemAddedNotification(product.title);
-    router.back();
+    // router.back();
   }
 
   return (
