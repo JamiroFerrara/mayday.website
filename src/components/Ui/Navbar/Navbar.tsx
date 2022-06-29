@@ -13,7 +13,7 @@ export default function Navbar(){
     <>
       <div onMouseLeave={() => setIsOpen(false)} className="absolute z-10 w-full">
         <body className={style.container}>
-          <nav className="py-2 mx-3 lg:flex justify-between pr-4">
+          <nav className="py-2 mx-3 lg:flex justify-between pr-6">
 
             <div className="container flex flex-wrap w-auto align-middle bottom-2 justify-between">
               <NavbarTitle/>
