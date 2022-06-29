@@ -3,6 +3,7 @@ import CartItem from './CartItem'
 import { useCart, emptyCart } from '../../../utils/shopify'
 import {useRouter} from 'next/router'
 import { FaCartArrowDown } from 'react-icons/fa'
+import { CartClearedNotification } from '../../../utils/notifications'
 
 let total = 0;
 
@@ -16,6 +17,7 @@ export default function CartContainer() {
 
   function clearCart(){
     emptyCart();
+    CartClearedNotification();
     router.reload();
   }
 

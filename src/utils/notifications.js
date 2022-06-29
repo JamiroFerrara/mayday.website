@@ -59,6 +59,14 @@ export function WelcomeVinylsNotfication(){
   })
 }
 
+export function CartClearedNotification(){
+  showNotification({
+    title: "Cart has been cleared..",
+    message: '',
+    styles: (theme) => (getDefaultStyle(theme)),
+  })
+}
+
 function getDefaultStyle(theme){
   return (
     {
