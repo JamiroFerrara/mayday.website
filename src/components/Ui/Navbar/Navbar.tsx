@@ -29,18 +29,32 @@ export default function Navbar(){
               </div>
             </div>
 
-              <div className={`${ isOpen ? '' : 'hidden' } flex my-auto w-full lg:w-auto lg:inline-flex`}>
+              <div className={`${ isOpen ? '' : 'hidden' } mr-2 flex my-auto w-full lg:w-auto lg:inline-flex`}>
                 <ul className="flex flex-col w-full mt-auto lg:space-y-0 space-y-2 lg:space-x-2 lg:flex-row">
-                  <NavButton href="/home" title="Home"/>
-                  <NavButton href="/music" title="Music"/>
-                  {/* <NavButton href="/shop" title="Shop"/> */}
-                  <Dropdown isNavOpen={isOpen} title="Shop" link="/shop" items={[
-                  {title: "Digital Tracks", link: "/shop/digital-tracks"},
-                  {title: "Sample Packs", link: "/shop/sample-packs"},
-                  {title: "Vinyls", link: "/shop/vinyls"},
+
+                  <Dropdown isNavOpen={isOpen} link="/home" title="Home" items={[
+                    {title: "Music", link: "/music"},
+                    {title: "Video", link: "/video"},
                   ]}/>
 
-                  <NavButton href="/video" title="Video"/>
+                  <Dropdown isNavOpen={isOpen} title="Shop" link="/shop" items={[
+                    {title: "Digital Tracks", link: "/shop/digital-tracks"},
+                    {title: "Sample Packs", link: "/shop/sample-packs"},
+                    {title: "Vinyls", link: "/shop/vinyls"},
+                  ]}/>
+
+                  <Dropdown isNavOpen={isOpen} title="Tracks" link="/shop/digital-tracks" items={[
+                    {title: "Tribe", link: "/shop/digital-tracks"},
+                    {title: "Acid", link: "/shop/digital-tracks"},
+                    {title: "Hardtek", link: "/shop/digital-tracks"},
+                    {title: "Hybrid", link: "/shop/digital-tracks"},
+                  ]}/>
+
+                  <Dropdown isNavOpen={isOpen} title="Vinyls" link="/shop/vinyls" items={[
+                    {title: "Tribe", link: "/shop/vinyls"},
+                    {title: "Acidcore", link: "/shop/vinyls"},
+                    {title: "Pumping Tribe", link: "/shop/vinyls"},
+                  ]}/>
 
                   <a href='/cart' className='transition self-center p-2 border border-transparent hover:text-red-500 hover:-translate-y-1 hover:border-b-red-500 invisible h-0 lg:h-10 lg:visible'>
                     <BsCart size={20} className='text-white'/>
