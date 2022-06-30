@@ -11,6 +11,8 @@ const Index: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <audio autoPlay src="/quad.mp3"/>
+
       <VideoContainer/>
     </a>
   )
