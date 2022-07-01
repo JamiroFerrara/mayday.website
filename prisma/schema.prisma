@@ -10,26 +10,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Vote {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  votedFor     Int
-  votedAgainst Int
-}
-
 model Profile { 
   id        String   @id @default(cuid())
   bio String?
-  userId Int @unique
+  userId String @unique
   User   User    @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id        Int   @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   
   Username String
   Password String
   Email String
   Profile Profile?
+  Posts Post[]
+}
+
+model Post {
+  id String @id @default(cuid())
+  title String
+  content String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
 }
