@@ -3,18 +3,20 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 model Profile { 
   id        String   @id @default(cuid())
   bio String?
   userId String @unique
-  User   User    @relation(fields: [userId], references: [id])
+  // User   User    @relation(fields: [userId], references: [id])
 }
 
 model User {
@@ -24,14 +26,12 @@ model User {
   Username String
   Password String
   Email String
-  Profile Profile?
-  Posts Post[]
 }
 
-model Post {
-  id String @id @default(cuid())
-  title String
-  content String
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
-}
+// model Post {
+  // id String @id @default(cuid())
+  // title String
+  // content String
+  // author    User     @relation(fields: [authorId], references: [id])
+  // authorId  String
+// }

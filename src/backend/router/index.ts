@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createRouter } from '../context'
+import { prisma } from '../utils/prisma'
 
 const goodbye = createRouter()
   .query('goodbye', {
@@ -29,10 +30,30 @@ const hello = createRouter()
     },
   });
 
+const createUser = createRouter()
+  .mutation('createUser', {
+    input: z .object({ 
+      Username: z.string(), 
+      Password: z.string(),
+      Email: z.string(),
+    }),
+    async resolve({ input }) {
+      const userInDb = await prisma.user.create({
+        data: {
+          ...input,
+        }
+      })
+      return {
+        success: true, vote: userInDb
+      };
+    },
+  });
+
 
 export const appRouter = createRouter()
   .merge(hello)
   .merge(goodbye)
+  .merge(createUser)
   ;
 
 export type AppRouter = typeof appRouter;
