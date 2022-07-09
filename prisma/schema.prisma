@@ -1,29 +1,32 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
-model Profile { 
-  id        String   @id @default(cuid())
-  bio String?
-  userId String @unique
-  // User   User    @relation(fields: [userId], references: [id])
+model Profile {
+  id     String  @id @default(cuid())
+  bio    String?
+  userId String  @unique
+  owner  User    @relation(fields: [userId], references: [id])
 }
 
 model User {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  
-  Username String
-  Password String
-  Email String
+  Username  String
+  Password  String
+  Email     String
+  Profile   Profile?
+}
+
+model Comment {
+  id        String @id @default(cuid())
+  createdAt DateTime @default(now())
+  content   String 
 }

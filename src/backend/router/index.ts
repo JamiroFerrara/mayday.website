@@ -1,3 +1,4 @@
+import {mergeRefs} from '@mantine/hooks';
 import { z } from 'zod';
 import { createRouter } from '../context'
 import { prisma } from '../utils/prisma'
@@ -49,11 +50,39 @@ const createUser = createRouter()
     },
   });
 
+const createComment = createRouter()
+  .mutation('createComment', {
+    input: z .object({ 
+      content: z.string()
+    }),
+    async resolve({ input }) {
+      const comment = await prisma.comment.create({
+        data: {
+          ...input,
+        }
+      })
+      return {
+        success: true, comment: comment
+      };
+    },
+  });
+
+const getComments = createRouter()
+  .query('getComments', {
+    async resolve() {
+      const comments = await prisma.comment.findMany()
+      return {
+        success: true, comments: comments
+      };
+    },
+  });
 
 export const appRouter = createRouter()
   .merge(hello)
   .merge(goodbye)
   .merge(createUser)
+  .merge(createComment)
+  .merge(getComments)
   ;
 
 export type AppRouter = typeof appRouter;
