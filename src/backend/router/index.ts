@@ -77,12 +77,23 @@ const getComments = createRouter()
     },
   });
 
+const removeAllComments = createRouter()
+  .mutation('removeAllComments', {
+    async resolve() {
+      const res = await prisma.comment.deleteMany({})
+      return {
+        success: true, res: res
+      };
+    },
+  });
+
 export const appRouter = createRouter()
   .merge(hello)
   .merge(goodbye)
   .merge(createUser)
   .merge(createComment)
   .merge(getComments)
+  .merge(removeAllComments)
   ;
 
 export type AppRouter = typeof appRouter;

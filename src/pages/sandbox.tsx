@@ -13,11 +13,17 @@ export default function SandboxPage() {
   const router = useRouter();
   const userMutation = trpc.useMutation(['createUser'])
   const createComment = trpc.useMutation(['createComment'])
+  const removeAllComments = trpc.useMutation(['removeAllComments'])
   const comments = trpc.useQuery(['getComments'])
   console.log(comments)
 
   function handleCommentClick() {
     createComment.mutate({ content: 'Hello World!' })
+    router.reload()
+  }
+
+  function handleRemoveCommentClick() {
+    removeAllComments.mutate();
     router.reload()
   }
 
@@ -48,9 +54,17 @@ export default function SandboxPage() {
             <div className='text-center m-4 text-black'>{JSON.stringify(comment.content, null, 2)}</div>
           ))}
         </div>
-        <button onClick={() => handleCommentClick()} className="btn m-4">
-          InsertComment
-        </button>
+
+        <div className="flex flex-row">
+          <button onClick={() => handleCommentClick()} className="btn m-4">
+            InsertComment
+          </button>
+
+          <button onClick={() => handleRemoveCommentClick()} className="btn m-4">
+            RemoveComments
+          </button>
+        </div>
+
       </Center>
     </>
   )
