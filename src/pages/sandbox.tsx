@@ -1,4 +1,4 @@
-import { Group, Button } from '@mantine/core';
+import { Group, Button, Center } from '@mantine/core';
 import { ItemAddedNotification } from '../utils/notifications'
 import { useRef } from 'react'
 import {trpc} from '../utils/trpc'
@@ -13,6 +13,10 @@ const userMutation = trpc.useMutation(["createUser"])
 
   return(
     <>
+      <Center className='flex flex-row space-x-1 m-4'>
+        <input type="text"/>
+        <input type="text"/>
+      </Center>
       <Group position="center">
         <button className='btn' onClick={() => userMutation.mutate({Username: "jamiro", Password: "admin", Email: "Jakthebest@hotmail.it"})}>Create User</button>
       </Group>
