@@ -63,7 +63,7 @@ export default function IndexPage({ url, image, title, artist }) {
   }
 
   return (
-    <Center className='space-x-4 relative border-stone-600 shadow shadow-sm hover:scale-x-[100.5%] shadow-black p-4 rounded hover:bg-black rounded-xl transition'>
+    <Center className='space-x-4 relative border-stone-600 shadow shadow-sm shadow-black p-4 rounded hover:bg-black rounded-xl transition'>
 
       <img src={image} className='transition absolute w-full h-full object-none opacity-50 rounded-xl' alt=""/>
 
@@ -76,8 +76,8 @@ export default function IndexPage({ url, image, title, artist }) {
       </div>
 
       <div className="z-10 w-11/12 space-y-2 flex flex-col">
-        <div className='flex justify-between'>
-          <div>
+        <div className='flex justify-between -translate-x-14 mb-2'>
+          <div className='bg-black/[0.4] rounded-xl p-2'>
             <div className='text-xl font-extrabold text-white'>{title}</div>
             <div className='text-sm'>{artist}</div>
           </div>
