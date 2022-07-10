@@ -43,11 +43,14 @@ export default function IndexPage({ url, image, title, artist }) {
   useEffect(() => {
     create()
 
+    setOpened(false)
+
     return () => {
       if (wavesurfer.current) {
         wavesurfer.current.destroy()
       }
     }
+
   }, [])
 
   const create = async () => {
@@ -80,7 +83,7 @@ export default function IndexPage({ url, image, title, artist }) {
 
       <div className="z-10 w-11/12 space-y-2 flex flex-col">
         <div className='flex justify-between -translate-x-14 mb-2'>
-          <div onClick={() => setOpened(!opened)} className='bg-black/[0.4]  hover:border-slate-200 border-black/[0] border-2 rounded-xl p-2'>
+          <div onClick={() => setOpened(!opened)} className='bg-black/[0.4] cursor-pointer hover:border-slate-200 border-black/[0] border-2 rounded-xl p-2'>
             <div className='text-xl font-extrabold text-white'>{title}</div>
             <div className='text-sm'>{artist}</div>
           </div>
