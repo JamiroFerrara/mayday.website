@@ -9,8 +9,8 @@ const formWaveSurferOptions = (ref) => ({
   waveColor: '#eee',
   progressColor: 'OrangeRed',
   cursorColor: 'OrangeRed',
-  barWidth: 2,
-  barGap: 5,
+  barWidth: 3,
+  barGap: 6,
   barRadius: 3,
   responsive: true,
   height: 50,
@@ -33,7 +33,7 @@ const formWaveSurferOptions = (ref) => ({
     // })
 // ]
 
-export default function IndexPage({ url }) {
+export default function IndexPage({ url, image, title, artist }) {
   const waveformRef = useRef(null)
   const wavesurfer = useRef(null)
   const [playing, setPlaying] = useState(false)
@@ -63,7 +63,10 @@ export default function IndexPage({ url }) {
   }
 
   return (
-    <Center className='space-x-4 border-b-2 border-stone-600 p-4 rounded hover:bg-stone-900/[0.7]'>
+    <Center className='space-x-4 relative border-stone-600 shadow shadow-sm hover:scale-x-[100.5%] shadow-black p-4 rounded hover:bg-black rounded-xl transition'>
+
+      <img src={image} className='transition absolute w-full h-full object-none opacity-50 rounded-xl' alt=""/>
+
       <div onClick={handlePlayPause} className='flex flex-col translate-y-8 justify-center h-full'>
         {!playing ? 
           player(playing)
@@ -72,16 +75,16 @@ export default function IndexPage({ url }) {
         }
       </div>
 
-      <div className="w-11/12 space-y-2 flex flex-col">
+      <div className="z-10 w-11/12 space-y-2 flex flex-col">
         <div className='flex justify-between'>
           <div>
-            <div className='text-xl font-extrabold text-white'>Title</div>
-            <div className='text-sm'>Artist</div>
+            <div className='text-xl font-extrabold text-white'>{title}</div>
+            <div className='text-sm'>{artist}</div>
           </div>
 
           <div className="p-2 flex flex-row justify-center hover:text-red-500 space-x-2">
             <div className='rounded-lg border flex justify-center border-white h-8 w-8 hover:rotate-12 transition'>
-              <div className='flex flex-col justify-center transition'>
+              <div className='flex flex-col justify-center transition cursor-pointer'>
                 <AiFillHeart/>
               </div>
             </div>
@@ -99,7 +102,7 @@ export default function IndexPage({ url }) {
 function player(playing) {
   if (playing){
     return (
-        <div className='ml-2 w-10 h-10 rounded-full bg-orange-500 text-white flex justify-center'>
+      <div className='ml-2 w-10 h-10 rounded-full bg-orange-500 text-white flex justify-center hover:scale-105 transition'>
           <div className='flex flex-col justify-center'>
             <BiPause size={24}/>
           </div>
@@ -108,7 +111,7 @@ function player(playing) {
       
   } else {
     return (
-        <div className='ml-2 w-10 h-10 rounded-full bg-orange-500 text-white flex justify-center'>
+        <div className='ml-2 w-10 h-10 rounded-full bg-orange-500 text-white flex justify-center hover:scale-105 transition'>
           <div className='flex flex-col justify-center'>
             <BiPlay size={24}/>
           </div>
