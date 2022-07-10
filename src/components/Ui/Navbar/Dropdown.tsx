@@ -38,7 +38,7 @@ export default function Dropdown(props: Props){
   return(
     <li onMouseLeave={() => onMouseLeave()} onMouseEnter={() => onMouseEnter()} className="relative">
         <NavButton onPress={() => onButtonPressed()} title={title}/>
-        <div className={`${ isOpen ? '' : 'hidden' } p-2 text-white transition-all lg:w-44 top-18 full lg:absolute -left-6 rounded-md`}>
+        <div className={`${ isOpen ? '' : 'translate-y-7 opacity-0' } p-2 text-white transition-all lg:w-44 top-18 full lg:absolute -left-6 rounded-md`}>
           <div className={st.backgroundContainer}>
             <ul className="flex flex-col space-y-2">
               {items.map((item) => (
