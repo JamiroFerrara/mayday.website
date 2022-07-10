@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Center } from '@mantine/core'
+import { Center, Col } from '@mantine/core'
 import { BiPlay, BiPause, BiUpload } from 'react-icons/bi'
 import { AiFillHeart } from 'react-icons/ai'
+import { Collapse } from '@mantine/core';
 
 const formWaveSurferOptions = (ref) => ({
   container: ref,
@@ -36,6 +37,7 @@ const formWaveSurferOptions = (ref) => ({
 export default function IndexPage({ url, image, title, artist }) {
   const waveformRef = useRef(null)
   const wavesurfer = useRef(null)
+  const [opened, setOpened] = useState(true)
   const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
@@ -65,9 +67,10 @@ export default function IndexPage({ url, image, title, artist }) {
   return (
     <Center className='space-x-4 relative border-stone-600 shadow shadow-sm shadow-black p-4 rounded hover:bg-black rounded-xl transition'>
 
+
       <img src={image} className='transition absolute w-full h-full object-none opacity-50 rounded-xl' alt=""/>
 
-      <div onClick={handlePlayPause} className='flex flex-col translate-y-8 justify-center h-full'>
+      <div onClick={handlePlayPause} className={`${opened ? '' : 'opacity-0'} transition flex flex-col translate-y-8 justify-center h-full`}>
         {!playing ? 
           player(playing)
         : 
@@ -77,12 +80,12 @@ export default function IndexPage({ url, image, title, artist }) {
 
       <div className="z-10 w-11/12 space-y-2 flex flex-col">
         <div className='flex justify-between -translate-x-14 mb-2'>
-          <div className='bg-black/[0.4] rounded-xl p-2'>
+          <div onClick={() => setOpened(!opened)} className='bg-black/[0.4]  hover:border-slate-200 border-black/[0] border-2 rounded-xl p-2'>
             <div className='text-xl font-extrabold text-white'>{title}</div>
             <div className='text-sm'>{artist}</div>
           </div>
 
-          <div className="p-2 flex flex-row justify-center hover:text-red-500 space-x-2">
+          <div className={`${opened ? '' : 'translate-y-4'} transition p-2 flex flex-row justify-center hover:text-red-500 space-x-2`}>
             <div className='rounded-lg border flex justify-center border-white h-8 w-8 hover:rotate-12 transition'>
               <div className='flex flex-col justify-center transition cursor-pointer'>
                 <AiFillHeart/>
@@ -91,7 +94,9 @@ export default function IndexPage({ url, image, title, artist }) {
           </div>
         </div>
 
-        <div id="waveform" ref={waveformRef} />
+        <Collapse in={opened} className='w-full' transitionDuration={100}>
+          <div id="waveform" ref={waveformRef} />
+        </Collapse>
 
       </div>
 
