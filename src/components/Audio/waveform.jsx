@@ -2,17 +2,18 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Center } from '@mantine/core'
 import { BiPlay, BiPause, BiUpload } from 'react-icons/bi'
+import { AiFillHeart } from 'react-icons/ai'
 
 const formWaveSurferOptions = (ref) => ({
   container: ref,
   waveColor: '#eee',
   progressColor: 'OrangeRed',
   cursorColor: 'OrangeRed',
-  barWidth: 3,
-  barGap: 4,
-  barRadius: 2,
+  barWidth: 2,
+  barGap: 5,
+  barRadius: 3,
   responsive: true,
-  height: 150,
+  height: 50,
   normalize: true,
   partialRender: true,
   audioRate: 1,
@@ -62,8 +63,8 @@ export default function IndexPage({ url }) {
   }
 
   return (
-    <Center className='space-x-4'>
-      <div onClick={handlePlayPause}>
+    <Center className='space-x-4 border-b-2 border-stone-600 p-4 rounded hover:bg-stone-900/[0.7]'>
+      <div onClick={handlePlayPause} className='flex flex-col translate-y-8 justify-center h-full'>
         {!playing ? 
           player(playing)
         : 
@@ -71,8 +72,24 @@ export default function IndexPage({ url }) {
         }
       </div>
 
-      <div className="w-11/12">
+      <div className="w-11/12 space-y-2 flex flex-col">
+        <div className='flex justify-between'>
+          <div>
+            <div className='text-xl font-extrabold text-white'>Title</div>
+            <div className='text-sm'>Artist</div>
+          </div>
+
+          <div className="p-2 flex flex-row justify-center hover:text-red-500 space-x-2">
+            <div className='rounded-lg border flex justify-center border-white h-8 w-8 hover:rotate-12 transition'>
+              <div className='flex flex-col justify-center transition'>
+                <AiFillHeart/>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="waveform" ref={waveformRef} />
+
       </div>
 
     </Center>
