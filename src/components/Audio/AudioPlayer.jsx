@@ -13,6 +13,7 @@ export default function IndexPage({ url, image, title, artist }) {
 
   const handlePlayPause = () => {
     setPlaying(!playing)
+    setOpened(!playing)
     wavesurfer.current.playPause()
   }
 
@@ -28,7 +29,7 @@ export default function IndexPage({ url, image, title, artist }) {
       <div className="z-10 w-11/12 space-y-2 flex flex-col">
         <div className='flex justify-between mb-2'>
 
-          <TitleBox title={title} artist={artist} onClick={() => setOpened(!opened)}/>
+          <TitleBox title={title} artist={artist}/>
           <Buttons opened={opened}/>
         </div>
 
