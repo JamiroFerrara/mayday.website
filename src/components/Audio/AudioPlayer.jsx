@@ -29,7 +29,6 @@ export default function IndexPage({ url, image, title, artist }) {
         <div className='flex justify-between mb-2'>
 
           <TitleBox title={title} artist={artist} onClick={() => setOpened(!opened)}/>
-
           <Buttons opened={opened}/>
         </div>
 
