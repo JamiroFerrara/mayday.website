@@ -30,3 +30,23 @@ model Comment {
   createdAt DateTime @default(now())
   content   String 
 }
+
+model Track{
+  id        String @id @default(cuid())
+  title     String
+  artist    Artist @relation(fields: [artistId], references: [id])
+  artistId  Int
+  description String
+  url       String
+  waveData   String?
+  artworkUrl String
+  bannerUrl String
+}
+
+model Artist {
+  id        Int @id @default(autoincrement())
+  artistName String
+  name String
+  surname String
+  Tracks Track[]
+}

@@ -87,6 +87,21 @@ const removeAllComments = createRouter()
     },
   });
 
+const getAllTracks = createRouter()
+  .query('getAllTracks', {
+    async resolve() {
+      const tracks = await prisma.track.findMany({
+        include: {
+          artist: true
+        }
+      })
+      return {
+        success: true, tracks: tracks
+      };
+    },
+  });
+
+
 export const appRouter = createRouter()
   .merge(hello)
   .merge(goodbye)
@@ -94,6 +109,7 @@ export const appRouter = createRouter()
   .merge(createComment)
   .merge(getComments)
   .merge(removeAllComments)
+  .merge(getAllTracks)
   ;
 
 export type AppRouter = typeof appRouter;
