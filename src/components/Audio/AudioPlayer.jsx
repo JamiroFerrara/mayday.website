@@ -20,7 +20,9 @@ export default function IndexPage({ url, image, title, artist, description }) {
   return (
     <Center className='space-x-4 relative border-stone-600 shadow-black p-4 hover:bg-black rounded-xl transition'>
 
-      <img src={image} className='transition absolute w-full h-full object-cover opacity-50 rounded-xl' alt=""/>
+      <Center className='absolute overflow-hidden h-full w-full'>
+        <img src={image} className={`${playing ? '' : ''} transition object-cover opacity-50 rounded-xl`} alt=""/>
+      </Center>
 
       <div onClick={handlePlayPause} className={`${opened ? '' : ''} transition flex flex-col translate-y-8 justify-center h-full`}>
         <PlayBtn playing={playing}/>
@@ -30,6 +32,7 @@ export default function IndexPage({ url, image, title, artist, description }) {
         <div className='flex justify-between mb-2'>
 
           <TitleBox title={title} artist={artist}/>
+
           <Buttons opened={opened}/>
         </div>
 
