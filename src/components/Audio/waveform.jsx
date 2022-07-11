@@ -46,6 +46,8 @@ export default function IndexPage({ url, wavesurfer }) {
     wavesurfer.current.on('ready', () => {
       // peaks = wavesurfer.current.backend.getPeaks(300, 0, 300)
       wavesurfer.current.backend.media.mozPreservesPitch = false
+      wavesurfer.current.backend.media.preservesPitch = false
+      console.log(wavesurfer.current.backend)
       setLoaded(true);
     })
     wavesurfer.current.song = url;
