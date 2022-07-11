@@ -12,7 +12,7 @@ const formWaveSurferOptions = (ref) => ({
   cursorColor: 'OrangeRed',
   barWidth: 2,
   barGap: 6,
-  barRadius: 3,
+  barRadius: 2,
   responsive: true,
   height: 50,
   normalize: true,
@@ -43,7 +43,7 @@ export default function IndexPage({ url, image, title, artist }) {
   useEffect(() => {
     create()
 
-    setOpened(false)
+    // setOpened(false)
 
     return () => {
       if (wavesurfer.current) {
@@ -68,17 +68,13 @@ export default function IndexPage({ url, image, title, artist }) {
   }
 
   return (
-    <Center className='space-x-4 relative border-stone-600 shadow shadow-sm shadow-black p-4 rounded hover:bg-black rounded-xl transition'>
+    <Center className='space-x-4 relative border-stone-600 shadow-black p-4 hover:bg-black rounded-xl transition'>
 
 
       <img src={image} className='transition absolute w-full h-full object-none opacity-50 rounded-xl' alt=""/>
 
       <div onClick={handlePlayPause} className={`${opened ? '' : 'opacity-0'} transition flex flex-col translate-y-8 justify-center h-full`}>
-        {!playing ? 
-          player(playing)
-        : 
-          player(playing)
-        }
+        {!playing ? player(playing) : player(playing)}
       </div>
 
       <div className="z-10 w-11/12 space-y-2 flex flex-col">
@@ -99,6 +95,7 @@ export default function IndexPage({ url, image, title, artist }) {
 
         <Collapse in={opened} className='w-full' transitionDuration={100}>
           <div id="waveform" ref={waveformRef} />
+          <div className='text-stone-200 mt-4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui autem fugit quo velit, cupiditate voluptate laboriosam sequi odio inventore et repellendus fugiat, quasi laudantium quod vitae totam sed molestiae facere!</div>
         </Collapse>
 
       </div>
