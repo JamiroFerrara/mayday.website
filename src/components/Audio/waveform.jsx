@@ -12,7 +12,7 @@ const formWaveSurferOptions = (ref) => ({
   cursorColor: 'OrangeRed',
   barWidth: 2,
   barGap: 6,
-  barRadius: 2,
+  barRadius: 1,
   responsive: true,
   height: 50,
   normalize: true,
@@ -43,7 +43,7 @@ export default function IndexPage({ url, image, title, artist }) {
   useEffect(() => {
     create()
 
-    // setOpened(false)
+    setOpened(false)
 
     return () => {
       if (wavesurfer.current) {
@@ -70,8 +70,7 @@ export default function IndexPage({ url, image, title, artist }) {
   return (
     <Center className='space-x-4 relative border-stone-600 shadow-black p-4 hover:bg-black rounded-xl transition'>
 
-
-      <img src={image} className='transition absolute w-full h-full object-none opacity-50 rounded-xl' alt=""/>
+      <img src={image} className='transition absolute w-full h-full object-cover opacity-50 rounded-xl' alt=""/>
 
       <div onClick={handlePlayPause} className={`${opened ? '' : 'opacity-0'} transition flex flex-col translate-y-8 justify-center h-full`}>
         {!playing ? player(playing) : player(playing)}
