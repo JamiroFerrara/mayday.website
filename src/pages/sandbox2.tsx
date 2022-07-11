@@ -1,5 +1,6 @@
 import AudioPlayer from '../components/Audio/AudioPlayer'
 import st from '../styles/Layout.module.css'
+import {useRef, useEffect} from 'react'
 
 export default function Sandbox2(){
   return (
@@ -15,4 +16,3 @@ export default function Sandbox2(){
     </div>
   )
 }
-

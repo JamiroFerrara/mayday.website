@@ -1,9 +1,27 @@
 import { useState, useEffect, useRef } from 'react'
 import { Center, Slider } from '@mantine/core'
 
+const formWaveSurferOptions = (ref) => ({
+  container: ref,
+  waveColor: '#eee',
+  progressColor: 'OrangeRed',
+  cursorColor: 'OrangeRed',
+  barWidth: 2,
+  barGap: 6,
+  barRadius: 1,
+  responsive: true,
+  height: 50,
+  normalize: true,
+  partialRender: true,
+  audioRate: 1,
+  hideScrollbar: true,
+  backend: "MediaElement"
+})
+
 export default function IndexPage({ url, wavesurfer }) {
   const waveformRef = useRef(null)
   const [value, setValue] = useState(50)
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     create()
@@ -23,38 +41,22 @@ export default function IndexPage({ url, wavesurfer }) {
 
   const create = async () => {
     const WaveSurfer = (await import('wavesurfer.js')).default
-    const formWaveSurferOptions = (ref) => ({
-      container: ref,
-      waveColor: '#eee',
-      progressColor: 'OrangeRed',
-      cursorColor: 'OrangeRed',
-      barWidth: 2,
-      barGap: 6,
-      barRadius: 1,
-      responsive: true,
-      height: 50,
-      normalize: true,
-      partialRender: true,
-      audioRate: 1,
-      hideScrollbar: true,
-    })
     const options = formWaveSurferOptions(waveformRef.current)
     wavesurfer.current = WaveSurfer.create(options)
     wavesurfer.current.on('ready', () => {
       // peaks = wavesurfer.current.backend.getPeaks(300, 0, 300)
+      wavesurfer.current.backend.media.mozPreservesPitch = false
+      setLoaded(true);
     })
-    console.log("loading")
-    wavesurfer.current.backend.peaks = peaks;
     wavesurfer.current.song = url;
-    wavesurfer.current.load(wavesurfer.current.song)
+    wavesurfer.current.load(wavesurfer.current.song, peaks)
     wavesurfer.current.drawBuffer();
     // wavesurfer.current.playPause();
   }
 
   return (
-    <div className="w-full">
+    <div className={`${ loaded ? '' : 'opacity-50' } w-full`}>
       <div id="waveform" ref={waveformRef} />
-        {/* <button onClick={() => } className='btn m-4'>1x</button> */}
         <Slider
           value={value}
           onChange={setValue}
@@ -65,7 +67,7 @@ export default function IndexPage({ url, wavesurfer }) {
             { value: 50, label: '100%' },
             { value: 85, label: '125%' },
           ]}
-          className="mt-2 w-full outline-none"
+          className="mt-4 w-full outline-none"
           styles={(theme) => ({
             bar: {
               backgroundColor: '#EA580C',
@@ -700,3 +702,5 @@ const peaks = [
   null,
   null
 ]
+
+
