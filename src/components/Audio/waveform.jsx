@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Center, Col } from '@mantine/core'
-import { AiFillHeart } from 'react-icons/ai'
 import { Collapse } from '@mantine/core';
+import Buttons from './Buttons'
 import PlayBtn from './playBtn'
 
 const formWaveSurferOptions = (ref) => ({
@@ -81,13 +81,7 @@ export default function IndexPage({ url, image, title, artist }) {
             <div className='text-sm'>{artist}</div>
           </div>
 
-          <div className={`${opened ? '' : 'translate-y-4'} transition p-2 flex flex-row justify-center hover:text-red-500 space-x-2`}>
-            <div className='rounded-lg border flex justify-center border-white h-8 w-8 hover:rotate-12 transition'>
-              <div className='flex flex-col justify-center transition cursor-pointer'>
-                <AiFillHeart/>
-              </div>
-            </div>
-          </div>
+          <Buttons opened={opened}/>
         </div>
 
         <div id="waveform" ref={waveformRef} />
