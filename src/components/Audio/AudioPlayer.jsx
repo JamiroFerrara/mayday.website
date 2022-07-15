@@ -20,7 +20,7 @@ export default function IndexPage({ url, image, title, artist, description }) {
   return (
     <Center className='space-x-4 relative border-stone-600 shadow-black p-4 hover:bg-black rounded-xl transition'>
 
-      <Center className='absolute overflow-hidden h-full w-full'>
+      <Center className='absolute overflow-hidden h-full w-full rounded-xl'>
         <img src={image} className={`${playing ? '' : ''} transition object-cover opacity-50 rounded-xl`} alt=""/>
       </Center>
 
