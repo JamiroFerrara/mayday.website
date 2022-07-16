@@ -9,6 +9,15 @@ html { height: 10px;} body {min-height: 100%;}
 }
 .rotate { animation: 7s rotate360 infinite linear; object-fit: cover; }
 
+.pMain{
+  margin-top: 2rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 @layer components {
     .main {
         @apply flex flex-col justify-center items-center mt-10
