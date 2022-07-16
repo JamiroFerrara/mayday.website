@@ -1,6 +1,67 @@
 import { Group, Text, useMantineTheme, MantineTheme } from '@mantine/core';
 import { Upload, Photo, X, Icon as TablerIcon } from 'tabler-icons-react';
-import { Dropzone, DropzoneStatus, IMAGE_MIME_TYPE } from '@mantine/dropzone';
+import { Dropzone, DropzoneStatus } from '@mantine/dropzone';
+import { useState } from 'react';
+
+interface Props {
+  className?: string
+  title: string
+  description?: string
+  icon?: TablerIcon
+}
+
+let Icon;
+
+export default function AdminDropzone(props:Props) {
+  const { className, title, description, icon } = props;
+  Icon = icon;
+  const [Image, setImage] = useState<string | ArrayBuffer | null>(null)
+  const theme = useMantineTheme();
+
+  function onFileDrop(files: any){
+    const reader = new FileReader();
+    reader.onload = function () { setImage(reader.result); };
+    reader.readAsDataURL(files[0]);
+  }
+
+  return (
+    <Dropzone
+      className={'bg-zinc-900 hover:bg-zinc-800 ' + className} 
+      onDrop={(files) => onFileDrop(files)}
+      onReject={(files) => console.log('rejected files', files)}
+      maxSize={3 * 1024 ** 2}
+      accept={['image/png', 'image/jpeg']}
+    >
+      {(status) => children(status, theme, Image, title, description)}
+    </Dropzone>
+  );
+}
+
+function children(status: DropzoneStatus, theme: MantineTheme, image: any, title: string, description: string | undefined){
+  if (image){
+    return (
+      <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
+        {/* <div className='flex flex-row justify-center'>Uploaded!</div> */}
+        <img className='h-full w-full' src={image} alt=""/>
+      </Group>
+    )
+  } else {
+    return (
+      <Group position="center" style={{ minHeight: 200, pointerEvents: 'none' }}>
+        <ImageUploadIcon className='' status={status} style={{ color: getIconColor(status, theme) }} size={80} />
+
+        <div>
+          <Text size="xl" inline>
+            {title}
+          </Text>
+          <Text size="sm" color="dimmed" inline mt={7}>
+            {description}
+          </Text>
+        </div>
+      </Group>
+    )
+  }
+}
 
 function getIconColor(status: DropzoneStatus, theme: MantineTheme) {
   return status.accepted
@@ -12,10 +73,7 @@ function getIconColor(status: DropzoneStatus, theme: MantineTheme) {
     : theme.colors.gray[7];
 }
 
-function ImageUploadIcon({
-  status,
-  ...props
-}: React.ComponentProps<TablerIcon> & { status: DropzoneStatus }) {
+function ImageUploadIcon({ status, ...props }: React.ComponentProps<TablerIcon> & { status: DropzoneStatus }) {
   if (status.accepted) {
     return <Upload {...props} />;
   }
@@ -24,35 +82,9 @@ function ImageUploadIcon({
     return <X {...props} />;
   }
 
-  return <Photo {...props} />;
-}
-
-export const dropzoneChildren = (status: DropzoneStatus, theme: MantineTheme) => (
-  <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
-    <ImageUploadIcon status={status} style={{ color: getIconColor(status, theme) }} size={80} />
-
-    <div>
-      <Text size="xl" inline>
-        Drag images here or click to select files
-      </Text>
-      <Text size="sm" color="dimmed" inline mt={7}>
-        Attach as many files as you like, each file should not exceed 5mb
-      </Text>
-    </div>
-  </Group>
-);
-
-export default function AdminDropzone() {
-  const theme = useMantineTheme();
-  return (
-    <Dropzone
-      className='bg-zinc-900 hover:bg-zinc-800'
-      onDrop={(files) => console.log('accepted files', files)}
-      onReject={(files) => console.log('rejected files', files)}
-      maxSize={3 * 1024 ** 2}
-      accept={IMAGE_MIME_TYPE}
-    >
-      {(status) => dropzoneChildren(status, theme)}
-    </Dropzone>
-  );
+  if(Icon){
+    return <Icon {...props} />;
+  } else {
+    return <Photo {...props} />;
+  }
 }
