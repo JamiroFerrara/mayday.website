@@ -1,8 +1,9 @@
 import WavDropzone from '../components/Admin/Dropzone/WavDropzone'
-import {Input, Textarea} from '@mantine/core'
+import {Input, Textarea, NumberInput} from '@mantine/core'
 import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
+import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
 
 export default function AdminPage() {
   return (
@@ -15,7 +16,7 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className="flex h-full w-full flex-row">
-            <ArtworkDropzone className='aspect-square h-64'
+            <ArtworkDropzone className='aspect-square w-72'
               title="Drag track artwork here!"
               description="This will the main track artwork"
             />
@@ -30,9 +31,12 @@ export default function AdminPage() {
             <div className="h-2"></div>
 
             <div className='flex flex-row space-x-2'>
-              <Input placeholder='BPM'/>
+              <NumberInput placeholder='BPM'/>
+              <NumberInput placeholder='Price ¢'
+                defaultValue={1.99}
+                precision={2}
+              />
               <Input placeholder='Genre'/>
-              <Input placeholder='Price ¢'/>
             </div>
 
             <div className="h-2"></div>
@@ -42,11 +46,14 @@ export default function AdminPage() {
           </div>
         </div>
 
+        <div className="h-2"></div>
+        <VinylReleaseAdder/>
+
         <div className="h-4"></div>
           <WavDropzone title="Drag .wav file here" description="This will be the main playable audio for the track" />
         <div className="h-4"></div>
 
-        <div className='flex-row justify-center mx-1'>
+        <div className='flex-row justify-center'>
           <div className='w-full border border-black p-2 text-center rounded bg-zinc-800 hover:bg-zinc-700 active:scale-x-[99%] active:bg-zinc-800 transition cursor-pointer select-none'>Upload!</div>
         </div>
 

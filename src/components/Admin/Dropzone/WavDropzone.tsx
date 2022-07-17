@@ -9,15 +9,16 @@ interface Props {
   description?: string
 }
 
-export default function AdminDropzone(props:Props) {
+export default function WavDropzone(props:Props) {
   const { className, title, description } = props;
-  const [Image, setImage] = useState<string | ArrayBuffer | null>(null)
+  const [Audio, setAudio] = useState<string | ArrayBuffer | null>(null)
   const theme = useMantineTheme();
 
   function onFileDrop(files: any){
-    const reader = new FileReader();
-    reader.onload = function () { setImage(reader.result); };
-    reader.readAsDataURL(files[0]);
+    setAudio(files[0].name)
+    // const reader = new FileReader();
+    // reader.onload = function () { setImage(reader.result); };
+    // reader.readAsDataURL(files[0]);
   }
 
   return (
@@ -26,19 +27,19 @@ export default function AdminDropzone(props:Props) {
       onDrop={(files) => onFileDrop(files)}
       onReject={(files) => console.log('rejected files', files)}
       maxSize={3 * 1024 ** 2}
-      accept={['image/png', 'image/jpeg']}
+      accept={['audio/wav']}
     >
-      {(status) => children(status, theme, Image, title, description)}
+      {(status) => children(status, theme, Audio, title, description)}
     </Dropzone>
   );
 }
 
-function children(status: DropzoneStatus, theme: MantineTheme, image: any, title: string, description: string | undefined){
-  if (image){
+function children(status: DropzoneStatus, theme: MantineTheme, audio: any, title: string, description: string | undefined){
+  if (audio){
     return (
       <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
         {/* <div className='flex flex-row justify-center'>Uploaded!</div> */}
-        <img className='h-full w-full' src={image} alt=""/>
+        <div>{audio}</div>
       </Group>
     )
   } else {
