@@ -18,6 +18,10 @@ html { height: 10px;} body {min-height: 100%;}
   flex-direction: column;
 }
 
+.bg-dark-800{
+  background-color: #2d3436;
+}
+
 @layer components {
     .main {
         @apply flex flex-col justify-center items-center mt-10

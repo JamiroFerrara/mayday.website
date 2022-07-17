@@ -1,35 +1,8 @@
 import {mergeRefs} from '@mantine/hooks';
+import {useQuery} from 'react-query';
 import { z } from 'zod';
 import { createRouter } from '../context'
 import { prisma } from '../utils/prisma'
-
-const goodbye = createRouter()
-  .query('goodbye', {
-    input: z
-      .object({
-        text: z.string().nullish(),
-      })
-      .nullish(),
-    resolve({ input }) {
-      return {
-        greeting: `goodbye ${input?.text ?? 'world'}`,
-      };
-    },
-  });
-
-const hello = createRouter()
-  .query('hello', {
-    input: z
-      .object({
-        text: z.string().nullish(),
-      })
-      .nullish(),
-    resolve({ input }) {
-      return {
-        greeting: `hello ${input?.text ?? 'world'}`,
-      };
-    },
-  });
 
 const createUser = createRouter()
   .mutation('createUser', {
@@ -101,15 +74,23 @@ const getAllTracks = createRouter()
     },
   });
 
+const getAllArtists = createRouter()
+  .query('getAllArtists', {
+    async resolve() {
+      const artist = await prisma.artist.findMany({ })
+      return {
+        success: true, artist: artist
+      };
+    },
+  });
 
 export const appRouter = createRouter()
-  .merge(hello)
-  .merge(goodbye)
   .merge(createUser)
   .merge(createComment)
   .merge(getComments)
   .merge(removeAllComments)
   .merge(getAllTracks)
+  .merge(getAllArtists)
   ;
 
 export type AppRouter = typeof appRouter;

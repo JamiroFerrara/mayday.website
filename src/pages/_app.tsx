@@ -24,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
       </Script>
 
-      <MantineProvider>
+      <MantineProvider theme={{
+        colorScheme: 'dark'
+        }}>
         <NotificationsProvider>
           <Layout>
             <Component {...pageProps} />
