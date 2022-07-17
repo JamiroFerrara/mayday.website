@@ -9,6 +9,8 @@ export default function AdminPage() {
   return (
     <div className="pMain">
       <div className="w-11/12 rounded-xl border-2 border-black bg-zinc-900 p-8">
+        <div className="title">Create a new track</div>
+
         <BannerDropzone title="Drag track banner here!"
           description="This will be used as the track banner"
         />
@@ -17,7 +19,7 @@ export default function AdminPage() {
 
         <div className="flex h-full w-full flex-row">
             <ArtworkDropzone className='aspect-square w-72'
-              title="Drag track artwork here!"
+              title="Track artwork here!"
               description="This will the main track artwork"
             />
 
@@ -50,7 +52,7 @@ export default function AdminPage() {
         <VinylReleaseAdder/>
 
         <div className="h-4"></div>
-          <WavDropzone title="Drag .wav file here" description="This will be the main playable audio for the track" />
+          <WavDropzone title="And finally the .wav file here" description="This will be the main playable audio for the track" />
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>

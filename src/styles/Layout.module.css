@@ -3,6 +3,7 @@
   min-height: 100%;
   height: auto;
   position: absolute;
+  background-color: #0C0C0E;
   background-image: url('https://cdn.pixabay.com/photo/2020/10/31/09/52/black-5700721_960_720.jpg');
   background-attachment: fixed;
   background-position: center;
