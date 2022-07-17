@@ -41,6 +41,7 @@ model Track{
   waveData   String?
   artworkUrl String
   bannerUrl String
+  vinyls    TracksOnVinyl[]
 }
 
 model Artist {
@@ -49,4 +50,27 @@ model Artist {
   name String
   surname String
   Tracks Track[]
+}
+
+model TracksOnVinyl {
+  id        String @id @default(cuid())
+  createdAt DateTime @default(now())
+  trackId   String @unique
+  vinylId   String  @unique
+  track     Track   @relation(fields: [trackId], references: [id])
+  vinyl     Vinyl   @relation(fields: [vinylId], references: [id])
+}
+
+model Vinyl {
+  id        String @id @default(cuid())
+  createdAt DateTime @default(now())
+  tracks    TracksOnVinyl[]
+  title     String
+  artistId  Int
+  description String?
+  url       String
+  artworkUrl String
+  bannerUrl String?
+  price    Int @default(15)
+  stock    Int @default(0)
 }
