@@ -6,7 +6,7 @@ let data : SelectItem[] = []
 
 export default function AristAdder(){
   const artists = trpc.useQuery(['getAllArtists'])
-  console.log(artists)
+  // console.log(artists)
 
   useEffect(()=> {
     artists.data?.artist.map((artist) => {

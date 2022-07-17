@@ -4,15 +4,15 @@ import { MultiSelect, SelectItem } from '@mantine/core';
 
 let data : SelectItem[] = []
 
-export default function AristAdder(){
-  const artists = trpc.useQuery(['getAllArtists'])
-  console.log(artists)
+export default function VinylAdder(){
+  const vinyls = trpc.useQuery(['getAllVinyls'])
+  console.log(vinyls)
 
   useEffect(()=> {
-    artists.data?.artist.map((artist) => {
-      data.push({label: artist.artistName, value: artist.id.toString()})
+    vinyls.data?.vinyls.map((vinyl) => {
+      data.push({label: vinyl.title, value: vinyl.id.toString()})
     })
-  }, [artists.data])
+  }, [vinyls.data])
 
   return (
     <>

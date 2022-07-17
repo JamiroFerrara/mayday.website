@@ -84,6 +84,16 @@ const getAllArtists = createRouter()
     },
   });
 
+const getAllVinyls = createRouter()
+  .query('getAllVinyls', {
+    async resolve() {
+      const vinyls = await prisma.vinyl.findMany({ })
+      return {
+        success: true, vinyls: vinyls
+      };
+    },
+  });
+
 export const appRouter = createRouter()
   .merge(createUser)
   .merge(createComment)
@@ -91,6 +101,7 @@ export const appRouter = createRouter()
   .merge(removeAllComments)
   .merge(getAllTracks)
   .merge(getAllArtists)
+  .merge(getAllVinyls)
   ;
 
 export type AppRouter = typeof appRouter;

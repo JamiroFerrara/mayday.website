@@ -33,7 +33,7 @@ export default function AdminPage() {
             <div className="h-2"></div>
 
             <div className='flex flex-row space-x-2'>
-              <NumberInput placeholder='BPM'/>
+              <NumberInput value={160} placeholder='BPM'/>
               <NumberInput placeholder='Price ¢'
                 defaultValue={1.99}
                 precision={2}
@@ -49,6 +49,7 @@ export default function AdminPage() {
         </div>
 
         <div className="h-2"></div>
+
         <VinylReleaseAdder/>
 
         <div className="h-4"></div>
