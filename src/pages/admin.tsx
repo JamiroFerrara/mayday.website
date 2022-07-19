@@ -17,6 +17,10 @@ export default function AdminPage() {
 
         <div className="h-4"></div>
 
+        <Input placeholder="..Or input banner URL!"/>
+
+        <div className="h-4"></div>
+
         <div className="flex h-full w-full flex-row">
             <ArtworkDropzone className='aspect-square w-72'
               title="Track artwork here!"
@@ -57,7 +61,7 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>
-          <div className='w-full border border-black p-2 text-center rounded bg-zinc-800 hover:bg-zinc-700 active:scale-x-[99%] active:bg-zinc-800 transition cursor-pointer select-none'>Upload!</div>
+          <div className='w-full btn-dark'>Upload!</div>
         </div>
 
       </div>

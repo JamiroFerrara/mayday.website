@@ -12,6 +12,7 @@ interface Props {
 export default function AdminDropzone(props:Props) {
   const { className, title, description } = props;
   const [Image, setImage] = useState<string | ArrayBuffer | null>(null)
+  const [isUrl, setIsUrl] = useState<boolean>(false)
   const theme = useMantineTheme();
 
   function onFileDrop(files: any){
@@ -21,15 +22,17 @@ export default function AdminDropzone(props:Props) {
   }
 
   return (
-    <Dropzone
-      className={'bg-zinc-900 hover:bg-zinc-800 ' + className} 
-      onDrop={(files) => onFileDrop(files)}
-      onReject={(files) => console.log('rejected files', files)}
-      maxSize={3 * 1024 ** 2}
-      accept={['image/png', 'image/jpeg']}
-    >
-      {(status) => children(status, theme, Image, title, description)}
-    </Dropzone>
+    <>
+      <Dropzone
+        className={'bg-zinc-900 hover:bg-zinc-800 ' + className} 
+        onDrop={(files) => onFileDrop(files)}
+        onReject={(files) => console.log('rejected files', files)}
+        maxSize={3 * 1024 ** 2}
+        accept={['image/png', 'image/jpeg']}
+      >
+        {(status) => children(status, theme, Image, title, description)}
+      </Dropzone>
+    </>
   );
 }
 
