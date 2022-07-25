@@ -4,8 +4,32 @@ import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
+import axios from 'axios'
 
 export default function AdminPage() {
+
+  const uploadFile = async () => {
+    const imageURL = 'https://res.cloudinary.com/maydayss/image/upload/v1649228691/sample.jpg'
+    const res = await fetch(imageURL)
+    const blob = await res.arrayBuffer()
+
+    let {data} = await axios.post('/api/aws/uploadFile', {
+      name: "test.png"
+    });
+
+    // Fetching out an URL
+    const url = data.url;
+    console.log(url)
+
+    //Uploading the file
+    await axios.put(url, blob, {
+      headers: {
+        "Content-Type": "image/png",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+  }
+
   return (
     <div className="pMain">
       <div className="w-11/12 rounded-xl border-2 border-black bg-zinc-900 p-8">
@@ -61,10 +85,11 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>
-          <div className='w-full btn-dark'>Upload!</div>
+          <div onClick={() => uploadFile()} className='w-full btn-dark'>Upload!</div>
         </div>
 
       </div>
     </div>
   )
 }
+

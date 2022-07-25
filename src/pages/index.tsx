@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import VideoContainer from '../components/Media/Carousel/VideoContainer/VideoContainer'
 
+
 const Index: NextPage = () => {
   //...
   return (
