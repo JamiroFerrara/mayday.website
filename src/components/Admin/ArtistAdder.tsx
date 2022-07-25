@@ -23,7 +23,7 @@ export default function AristAdder(){
           label="Pick the artists that worked on the track!"
           searchable
           transition="pop-top-left"
-          placeholder="Pick all that you like"
+          placeholder="Search for an artist"
         />
 
       </div>
