@@ -7,7 +7,6 @@ import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
 import { uploadFile} from '../backend/aws/s3'
 
 export default function AdminPage() {
-  let { banner, bannerUrl, artwork}
 
   return (
     <div className="pMain">
