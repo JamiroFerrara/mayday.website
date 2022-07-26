@@ -16,10 +16,10 @@ export default function WavDropzone(props:Props) {
   const theme = useMantineTheme();
 
   function onFileDrop(files: any){
-    setAudio(files[0].name)
-    // const reader = new FileReader();
-    // reader.onload = function () { setImage(reader.result); };
-    // reader.readAsDataURL(files[0]);
+    // setAudio(files[0].name)
+    const reader = new FileReader();
+    reader.onload = function () { setAudio(reader.result); };
+    reader.readAsDataURL(files[0]);
   }
 
   return (

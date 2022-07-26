@@ -60,6 +60,29 @@ const removeAllComments = createRouter()
     },
   });
 
+const addTrack = createRouter()
+  .mutation('addTrack', {
+    input: z.object({ 
+      title: z.string(),
+      artistId: z.number(),
+      description: z.string(),
+      price: z.number(),
+      url: z.string(),
+      artworkUrl: z.string(),
+      bannerUrl: z.string(),
+    }),
+    async resolve({ input }) {
+      const track = await prisma.track.create({
+        data: {
+          ...input,
+        }
+      })
+      return {
+        success: true, track: track
+      };
+    },
+  });
+
 const getAllTracks = createRouter()
   .query('getAllTracks', {
     async resolve() {
@@ -102,6 +125,7 @@ export const appRouter = createRouter()
   .merge(getAllTracks)
   .merge(getAllArtists)
   .merge(getAllVinyls)
+  .merge(addTrack)
   ;
 
 export type AppRouter = typeof appRouter;

@@ -3,9 +3,9 @@ import {dataURItoBlob} from '../../utils/'
 
 const CLOUDFRONT_URL="https://d2cojv32t8nxxy.cloudfront.net/"
 
-export const uploadFile = async (file, name, folder) => {
-  const fileName = folder + "/" + name + ".png"
+export const uploadFile = async (file, name, folder, type) => {
   const blob = dataURItoBlob(file);
+  const fileName = folder + "/" + name + "." + type;
 
   let {data} = await axios.post('/api/aws/uploadFile', {
     name: fileName,

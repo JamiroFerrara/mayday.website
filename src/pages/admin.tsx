@@ -6,8 +6,11 @@ import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
 import { uploadFile } from '../backend/aws/s3'
 import { useState, useRef } from 'react'
+import {trpc} from '../utils/trpc'
 
 export default function AdminPage() {
+  const createTrack = trpc.useMutation(['addTrack'])
+
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
   const [track, setTrack] = useState<string | ArrayBuffer | null>(null)
@@ -25,6 +28,7 @@ export default function AdminPage() {
     const price = priceRef.current?.value
     const genre = genreRef.current?.value
     const description = descriptionRef.current?.value
+    console.log(price)
 
     if ( !trackName || !artists || !bpm || !price || !genre || !description) {
       alert('Please fill out all fields')
@@ -33,7 +37,9 @@ export default function AdminPage() {
 
     const bannerUrl = await uploadFile(banner, trackName, 'Banners')
     const artworkUrl = await uploadFile(artwork, trackName, 'Artwork')
-    const trackUrl = await uploadFile(track, trackName, 'Tracks')
+    const trackUrl = await uploadFile(track, trackName, 'Tracks', "wav")
+    const ret = createTrack.mutate({title: trackName!, artistId: parseInt(artists[0]), description: description!, price: parseInt(price!), url: trackUrl, artworkUrl: artworkUrl, bannerUrl: bannerUrl})
+    console.log(ret);
   }
 
   return (
@@ -85,7 +91,7 @@ export default function AdminPage() {
 
             <div className="h-2"></div>
 
-            <Textarea autosize minRows={3} placeholder="Description" />
+            <Textarea ref={descriptionRef} autosize minRows={3} placeholder="Description" />
           </div>
         </div>
 
