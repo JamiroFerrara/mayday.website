@@ -4,12 +4,38 @@ import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
-import { uploadBanner} from '../backend/aws/s3'
+import { uploadImage} from '../backend/aws/s3'
 import { useState, useRef } from 'react'
 
 export default function AdminPage() {
-  const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
+  const [banner, setBanner] = useState<string | ArrayBuffer | null>(null);
+  const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null);
+  const [track, setTrack] = useState<string | ArrayBuffer | null>(null)
   const trackName = useRef<HTMLInputElement>(null)
+  const bannerUrl = useRef<HTMLInputElement>(null);
+  const artists = useRef<HTMLInputElement>(null)
+  const bpm = useRef<HTMLInputElement>(null)
+  const price = useRef<HTMLInputElement>(null)
+  const genre = useRef<HTMLInputElement>(null)
+  const description = useRef<HTMLTextAreaElement>(null)
+  const vinyls = useRef<HTMLInputElement>(null)
+
+  async function handleUpload(){
+    const trackNameValue = trackName.current?.value;
+    const bannerUrlValue = bannerUrl.current?.value;
+    const artistsValue = artists.current?.value;
+    const bpmValue = bpm.current?.value;
+    const priceValue = price.current?.value;
+    const genreValue = genre.current?.value;
+    const descriptionValue = description.current?.value;
+    const vinylsValue = vinyls.current?.value;
+    console.log(trackNameValue, bannerUrlValue, artistsValue, bpmValue, priceValue, genreValue, descriptionValue, vinylsValue)
+
+    const cfBannerUrl = await uploadImage(banner, trackNameValue, 'Banners');
+    // const cfArtworkUrl = uploadImage(artwork, trackNameValue, 'Artwork');
+    // const cfTrackUrl = uploadImage(track, trackNameValue, 'Tracks');
+    console.log(cfBannerUrl)
+  }
 
   return (
     <div className="pMain">
@@ -24,7 +50,7 @@ export default function AdminPage() {
 
         <div className="h-4"></div>
 
-        <Input placeholder="..Or input banner URL!"/>
+        <Input ref={bannerUrl} placeholder="..Or input banner URL!"/>
 
         <div className="h-4"></div>
 
@@ -44,12 +70,12 @@ export default function AdminPage() {
             <div className="h-2"></div>
 
             <div className='flex flex-row space-x-2'>
-              <NumberInput value={160} placeholder='BPM'/>
-              <NumberInput placeholder='Price ¢'
+              <NumberInput ref={bpm} value={160} placeholder='BPM'/>
+              <NumberInput ref={price} placeholder='Price ¢'
                 defaultValue={1.99}
                 precision={2}
               />
-              <Input placeholder='Genre'/>
+              <Input ref={genre} placeholder='Genre'/>
             </div>
 
             <div className="h-2"></div>
@@ -68,7 +94,7 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>
-          <div onClick={() => uploadBanner(banner, trackName.current?.value)} className='w-full btn-dark'>Upload!</div>
+          <div onClick={() => handleUpload()} className='w-full btn-dark'>Upload!</div>
         </div>
 
       </div>

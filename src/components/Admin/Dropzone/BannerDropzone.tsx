@@ -13,7 +13,7 @@ interface Props {
 export default function AdminDropzone(props:Props) {
   const { className, title, description, Image, setImage } = props
   const theme = useMantineTheme();
-  console.log(Image);
+  // console.log(Image);
 
   function onFileDrop(files: any){
     const reader = new FileReader();
