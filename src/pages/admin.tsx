@@ -4,7 +4,7 @@ import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
-import { uploadImage } from '../backend/aws/s3'
+import { uploadFile } from '../backend/aws/s3'
 import { useState, useRef } from 'react'
 
 export default function AdminPage() {
@@ -26,16 +26,14 @@ export default function AdminPage() {
     const genre = genreRef.current?.value
     const description = descriptionRef.current?.value
 
-    console.log(vinyls, artists)
-
-    if ( !trackName || !artists || !bpm || !price || !genre || !description || !vinyls) {
+    if ( !trackName || !artists || !bpm || !price || !genre || !description) {
       alert('Please fill out all fields')
       return
     }
 
-    const bannerUrl = await uploadImage(banner, trackName, 'Banners')
-    const artworkUrl = await uploadImage(artwork, trackName, 'Artwork')
-    const trackUrl = await uploadImage(track, trackName, 'Tracks')
+    const bannerUrl = await uploadFile(banner, trackName, 'Banners')
+    const artworkUrl = await uploadFile(artwork, trackName, 'Artwork')
+    const trackUrl = await uploadFile(track, trackName, 'Tracks')
   }
 
   return (

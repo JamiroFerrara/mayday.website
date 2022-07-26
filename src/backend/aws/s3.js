@@ -3,7 +3,7 @@ import {dataURItoBlob} from '../../utils/'
 
 const CLOUDFRONT_URL="https://d2cojv32t8nxxy.cloudfront.net/"
 
-export const uploadImage = async (file, name, folder) => {
+export const uploadFile = async (file, name, folder) => {
   const fileName = folder + "/" + name + ".png"
   const blob = dataURItoBlob(file);
 
