@@ -1,17 +1,17 @@
 import { Group, Text, useMantineTheme, MantineTheme } from '@mantine/core';
 import { Upload, Photo, X } from 'tabler-icons-react';
 import { Dropzone, DropzoneStatus } from '@mantine/dropzone';
-import { useState } from 'react';
 
 interface Props {
   className?: string
   title: string
   description?: string
+  Image: any
+  setImage: any
 }
 
 export default function AdminDropzone(props:Props) {
-  const { className, title, description} = props
-  const [Image, setImage] = useState<string | ArrayBuffer | null>(null)
+  const { className, title, description, Image, setImage } = props
   const theme = useMantineTheme();
   console.log(Image);
 

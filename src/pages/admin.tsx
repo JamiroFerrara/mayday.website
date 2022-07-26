@@ -4,9 +4,11 @@ import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
-import { uploadFile} from '../backend/aws/s3'
+import { uploadImage} from '../backend/aws/s3'
+import { useState } from 'react'
 
 export default function AdminPage() {
+  const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
 
   return (
     <div className="pMain">
@@ -15,6 +17,8 @@ export default function AdminPage() {
 
         <BannerDropzone title="Drag track banner here!"
           description="This will be used as the track banner"
+          Image={banner}
+          setImage={setBanner}
         />
 
         <div className="h-4"></div>
@@ -63,7 +67,7 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>
-          <div onClick={() => uploadFile(Image)} className='w-full btn-dark'>Upload!</div>
+          <div onClick={() => uploadImage(banner)} className='w-full btn-dark'>Upload!</div>
         </div>
 
       </div>
