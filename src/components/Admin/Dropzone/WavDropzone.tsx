@@ -7,11 +7,12 @@ interface Props {
   className?: string
   title: string
   description?: string
+  Audio: any
+  setAudio: any
 }
 
 export default function WavDropzone(props:Props) {
-  const { className, title, description } = props;
-  const [Audio, setAudio] = useState<string | ArrayBuffer | null>(null)
+  const { className, title, description, Audio, setAudio } = props;
   const theme = useMantineTheme();
 
   function onFileDrop(files: any){

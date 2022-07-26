@@ -25,13 +25,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    let {name} = req.body;
+    let {name, type} = req.body;
 
     // Setting parameteres - ACL will allow us to see a file
     const fileParams = {
       Bucket: "mayday-cloud",
       Key: name,
-      ContentType: "image/png",
+      ContentType: type,
       Expires: 600,
       ACL: "public-read",
     }

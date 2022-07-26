@@ -4,7 +4,14 @@ import { MultiSelect, SelectItem } from '@mantine/core';
 
 let data : SelectItem[] = []
 
-export default function VinylAdder(){
+interface Props {
+  values: string[]
+  setValues: any
+}
+
+export default function VinylAdder(props:Props){
+  const { values, setValues } = props
+
   const vinyls = trpc.useQuery(['getAllVinyls'])
   console.log(vinyls)
 
@@ -20,6 +27,8 @@ export default function VinylAdder(){
 
         <MultiSelect
           data={data}
+          value={values}
+          onChange={(a) => setValues(a)}
           searchable
           transition="pop-top-left"
           placeholder="Is there a vinyl release?"

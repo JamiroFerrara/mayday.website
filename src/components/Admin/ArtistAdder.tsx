@@ -4,7 +4,14 @@ import { MultiSelect, SelectItem } from '@mantine/core';
 
 let data : SelectItem[] = []
 
-export default function AristAdder(){
+interface Props {
+  values: string[]
+  setValues: any
+}
+
+export default function AristAdder(props:Props){
+  const { values, setValues } = props
+
   const artists = trpc.useQuery(['getAllArtists'])
   // console.log(artists)
 
@@ -20,6 +27,8 @@ export default function AristAdder(){
 
         <MultiSelect
           data={data}
+          value={values}
+          onChange={(a) => setValues(a)}
           label="Pick the artists that worked on the track!"
           searchable
           transition="pop-top-left"

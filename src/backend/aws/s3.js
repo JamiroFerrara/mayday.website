@@ -5,12 +5,14 @@ const CLOUDFRONT_URL="https://d2cojv32t8nxxy.cloudfront.net/"
 
 export const uploadImage = async (file, name, folder) => {
   const fileName = folder + "/" + name + ".png"
+  const blob = dataURItoBlob(file);
+
   let {data} = await axios.post('/api/aws/uploadFile', {
-    name: fileName
+    name: fileName,
+    type: blob.type,
   });
 
   const url = data.url;
-  const blob = dataURItoBlob(file);
 
   //Uploading the file
   await axios.put(url, blob, {
