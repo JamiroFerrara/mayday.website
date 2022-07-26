@@ -7,19 +7,17 @@ interface Props {
   className?: string
   title: string
   description?: string
-  Image?: string | ArrayBuffer | null
-  setImage:any 
 }
 
 export default function AdminDropzone(props:Props) {
-  const { className, title, description, Image, setImage } = props
-  const [isUrl, setIsUrl] = useState<boolean>(false)
+  const { className, title, description} = props
+  const [Image, setImage] = useState<string | ArrayBuffer | null>(null)
   const theme = useMantineTheme();
   console.log(Image);
 
   function onFileDrop(files: any){
     const reader = new FileReader();
-    reader.onload = function () { setImage(reader.result); };
+    reader.onload = function () { setImage(reader.result);};
     reader.readAsDataURL(files[0]);
   }
 
