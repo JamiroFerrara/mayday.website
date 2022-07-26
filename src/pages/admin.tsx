@@ -4,11 +4,12 @@ import BannerDropzone from '../components/Admin/Dropzone/BannerDropzone'
 import ArtworkDropzone from '../components/Admin/Dropzone/ArtworkDropzone'
 import ArtistAdder from '../components/Admin/ArtistAdder'
 import VinylReleaseAdder from '../components/Admin/VinylReleaseAdder'
-import { uploadImage} from '../backend/aws/s3'
-import { useState } from 'react'
+import { uploadBanner} from '../backend/aws/s3'
+import { useState, useRef } from 'react'
 
 export default function AdminPage() {
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
+  const trackName = useRef<HTMLInputElement>(null)
 
   return (
     <div className="pMain">
@@ -38,7 +39,7 @@ export default function AdminPage() {
 
             <div className="h-2"></div>
 
-            <Input placeholder='Track name'/>
+            <Input ref={trackName} placeholder='Track name'/>
 
             <div className="h-2"></div>
 
@@ -67,7 +68,7 @@ export default function AdminPage() {
         <div className="h-4"></div>
 
         <div className='flex-row justify-center'>
-          <div onClick={() => uploadImage(banner)} className='w-full btn-dark'>Upload!</div>
+          <div onClick={() => uploadBanner(banner, trackName.current?.value)} className='w-full btn-dark'>Upload!</div>
         </div>
 
       </div>
