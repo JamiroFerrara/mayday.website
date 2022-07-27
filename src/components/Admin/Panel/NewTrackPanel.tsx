@@ -7,10 +7,10 @@ import VinylReleaseAdder from '../Input/VinylReleaseAdder'
 import { uploadFile } from '../../../backend/aws/s3'
 import { useState, useRef } from 'react'
 import { trpc } from '../../../utils/trpc'
+import { PuffLoader } from 'react-spinners'
 
 export default function NewTrackPanel() {
   const addTrack = trpc.useMutation(['addTrack'])
-  console.log(addTrack);
 
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
@@ -49,6 +49,17 @@ export default function NewTrackPanel() {
       price: parseFloat(price),
       vinyls: vinyls,
     })
+  }
+
+  if(addTrack.status === 'loading') {
+    return (
+      <div className="pMain">
+        <div className="pMain w-11/12 h-11/12 flex justify-center rounded-xl border-2 border-black bg-zinc-900 p-8">
+          <PuffLoader color={"#FFF"}/>
+          <div className="m-4">Uploading Track..</div>
+        </div>
+      </div>
+    )
   }
 
   return (
