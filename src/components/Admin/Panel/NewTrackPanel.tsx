@@ -14,7 +14,7 @@ export default function NewTrackPanel() {
 
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
-  const [track, setTrack] = useState<string | ArrayBuffer | null>(null)
+  const [track, setTrack] = useState<any>(null)
   const [artists, setArtists] = useState([])
   const [vinyls, setVinyls] = useState<string[]>([])
   const trackNameRef = useRef<HTMLInputElement>(null)
@@ -64,7 +64,7 @@ export default function NewTrackPanel() {
 
   return (
     <div className="pMain">
-      <div className="w-11/12 rounded-xl border-2 border-black bg-zinc-900 p-8">
+      <div className="w-11/12 max-w-screen-2xl rounded-xl border-2 border-black bg-zinc-900 p-8">
         <div className="title">Create a new track</div>
 
         <BannerDropzone

@@ -14,12 +14,13 @@ interface Props {
 export default function WavDropzone(props:Props) {
   const { className, title, description, Audio, setAudio } = props;
   const theme = useMantineTheme();
+  var dropzoneTitle = Audio?.name ?? "";
 
   function onFileDrop(files: any){
-    // setAudio(files[0].name)
-    const reader = new FileReader();
-    reader.onload = function () { setAudio(reader.result); };
-    reader.readAsDataURL(files[0]);
+    setAudio(files[0])
+    // const reader = new FileReader();
+    // reader.onload = function () { setAudio(reader.result); };
+    // reader.readAsDataURL(files[0]);
   }
 
   return (
@@ -27,10 +28,9 @@ export default function WavDropzone(props:Props) {
       className={'bg-zinc-900 hover:bg-zinc-800 ' + className} 
       onDrop={(files) => onFileDrop(files)}
       onReject={(files) => console.log('rejected files', files)}
-      maxSize={3 * 1024 ** 2}
       accept={['audio/wav']}
     >
-      {(status) => children(status, theme, Audio, title, description)}
+      {(status) => children(status, theme, dropzoneTitle, title, description)}
     </Dropzone>
   );
 }
@@ -38,14 +38,14 @@ export default function WavDropzone(props:Props) {
 function children(status: DropzoneStatus, theme: MantineTheme, audio: any, title: string, description: string | undefined){
   if (audio){
     return (
-      <Group position="center" spacing="xl" style={{ minHeight: 220, pointerEvents: 'none' }}>
+      <Group position="center" spacing="xl" style={{ minHeight: 150, pointerEvents: 'none' }}>
         {/* <div className='flex flex-row justify-center'>Uploaded!</div> */}
         <div>{audio}</div>
       </Group>
     )
   } else {
     return (
-      <Group position="center" style={{ minHeight: 200, pointerEvents: 'none' }}>
+      <Group position="center" style={{ minHeight: 150, pointerEvents: 'none' }}>
         <ImageUploadIcon className='' status={status} style={{ color: getIconColor(status, theme) }} size={80} />
 
         <div>

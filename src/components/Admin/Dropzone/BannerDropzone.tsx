@@ -46,7 +46,7 @@ function children(status: DropzoneStatus, theme: MantineTheme, image: any, title
     )
   } else {
     return (
-      <Group position="center" style={{ minHeight: 200, pointerEvents: 'none' }}>
+      <Group position="center" style={{ minHeight: 150, pointerEvents: 'none' }}>
         <ImageUploadIcon className='' status={status} style={{ color: getIconColor(status, theme) }} size={80} />
 
         <div>
