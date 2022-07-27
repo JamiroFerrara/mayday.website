@@ -4,13 +4,14 @@ import BannerDropzone from '../Dropzone/BannerDropzone'
 import ArtworkDropzone from '../Dropzone/ArtworkDropzone'
 import ArtistAdder from '../Input/ArtistAdder'
 import VinylReleaseAdder from '../Input/VinylReleaseAdder'
-import { uploadFile } from '../../../backend/aws/s3'
+import { uploadFile, uploadAudio } from '../../../backend/aws/s3'
 import { useState, useRef } from 'react'
 import { trpc } from '../../../utils/trpc'
 import { PuffLoader } from 'react-spinners'
 
 export default function NewTrackPanel() {
   const addTrack = trpc.useMutation(['addTrack'])
+  const [loading, setLoading] = useState(false)
 
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
@@ -24,6 +25,7 @@ export default function NewTrackPanel() {
   const descriptionRef = useRef<HTMLTextAreaElement>(null)
 
   async function handleUpload() {
+    setLoading(true)
     const trackName = trackNameRef.current?.value
     const bpm = bpmRef.current?.value
     const price = priceRef.current?.value
@@ -38,7 +40,7 @@ export default function NewTrackPanel() {
 
     const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
     const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
-    const trackUrl = await uploadFile(track, trackName, 'Tracks', 'wav')
+    const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
     addTrack.mutate({
       title: trackName!,
       artists: artistsId,
@@ -49,9 +51,11 @@ export default function NewTrackPanel() {
       price: parseFloat(price),
       vinyls: vinyls,
     })
+
+    setLoading(false);
   }
 
-  if(addTrack.status === 'loading') {
+  if(loading === true) {
     return (
       <div className="pMain">
         <div className="pMain w-11/12 h-11/12 flex justify-center rounded-xl border-2 border-black bg-zinc-900 p-8">
