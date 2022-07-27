@@ -34,8 +34,7 @@ model Comment {
 model Track{
   id        String @id @default(cuid())
   title     String
-  artist    Artist @relation(fields: [artistId], references: [id])
-  artistId  Int
+  artists   TracksOnArtists[]
   description String
   url       String
   waveData   String?
@@ -49,7 +48,7 @@ model Artist {
   artistName String
   name String
   surname String
-  Tracks Track[]
+  tracks TracksOnArtists[]
 }
 
 model TracksOnVinyl {
@@ -59,6 +58,15 @@ model TracksOnVinyl {
   vinylId   String  @unique
   track     Track   @relation(fields: [trackId], references: [id])
   vinyl     Vinyl   @relation(fields: [vinylId], references: [id])
+}
+
+model TracksOnArtists {
+  id        String @id @default(cuid())
+  createdAt DateTime @default(now())
+  trackId   String
+  artistId  Int   @unique
+  track     Track   @relation(fields: [trackId], references: [id])
+  artist    Artist  @relation(fields: [artistId], references: [id])
 }
 
 model Vinyl {

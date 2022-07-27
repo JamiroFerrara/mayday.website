@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { trpc } from '../../utils/trpc'
+import { trpc } from '../../../utils/trpc'
 import { MultiSelect, SelectItem } from '@mantine/core';
 
 let data : SelectItem[] = []

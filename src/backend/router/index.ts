@@ -64,7 +64,7 @@ const addTrack = createRouter()
   .mutation('addTrack', {
     input: z.object({ 
       title: z.string(),
-      artistId: z.number(),
+      artistId: z.array(z.number()),
       description: z.string(),
       price: z.number(),
       url: z.string(),
@@ -88,7 +88,11 @@ const getAllTracks = createRouter()
     async resolve() {
       const tracks = await prisma.track.findMany({
         include: {
-          artist: true
+          artists: {
+            include: {
+              artist: true
+            }
+          },
         }
       })
       return {
