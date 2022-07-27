@@ -3,7 +3,7 @@ import st from '../../styles/Layout.module.css'
 import { Track, TracksOnArtists, Artist } from '@prisma/client'
 
 interface Props {
-  tracks: (Track & TracksOnArtists[] & {artists: Artist })[] | undefined
+  tracks: any
 }
 
 export default function AudioPlaylist(props:Props){
