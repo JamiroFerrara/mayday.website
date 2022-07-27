@@ -64,9 +64,10 @@ const addTrack = createRouter()
   .mutation('addTrack', {
     input: z.object({ 
       title: z.string(),
-      artistId: z.array(z.number()),
-      description: z.string(),
       price: z.number(),
+      artists: z.array(z.number()),
+      vinyls: z.array(z.string()),
+      description: z.string(),
       url: z.string(),
       artworkUrl: z.string(),
       bannerUrl: z.string(),
@@ -74,11 +75,35 @@ const addTrack = createRouter()
     async resolve({ input }) {
       const track = await prisma.track.create({
         data: {
-          ...input,
+          title: input.title,
+          description: input.description,
+          price: input.price,
+          url: input.url,
+          artworkUrl: input.artworkUrl,
+          bannerUrl: input.bannerUrl,
         }
       })
+
+      input.vinyls.forEach(async (vinyl) => {
+        await prisma.tracksOnVinyl.create({
+          data: {
+            trackId: track.id,
+            vinylId: vinyl.trim(),
+          }
+        })
+      })
+
+      input.artists.forEach(async (artistId) => {
+        await prisma.tracksOnArtists.create({
+          data: {
+            trackId: track.id,
+            artistId: artistId,
+          }
+        })
+      })
+
       return {
-        success: true, track: track
+        success: true, track: track, vinyls: input.vinyls
       };
     },
   });

@@ -13,7 +13,7 @@ export default function VinylAdder(props:Props){
   const { values, setValues } = props
 
   const vinyls = trpc.useQuery(['getAllVinyls'])
-  console.log(vinyls)
+  // console.log(vinyls)
 
   useEffect(()=> {
     vinyls.data?.vinyls.map((vinyl) => {

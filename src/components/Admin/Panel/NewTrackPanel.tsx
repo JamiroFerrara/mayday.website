@@ -6,16 +6,17 @@ import ArtistAdder from '../Input/ArtistAdder'
 import VinylReleaseAdder from '../Input/VinylReleaseAdder'
 import { uploadFile } from '../../../backend/aws/s3'
 import { useState, useRef } from 'react'
-import {trpc} from '../../../utils/trpc'
+import { trpc } from '../../../utils/trpc'
 
 export default function NewTrackPanel() {
   const addTrack = trpc.useMutation(['addTrack'])
+  console.log(addTrack);
 
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
   const [track, setTrack] = useState<string | ArrayBuffer | null>(null)
   const [artists, setArtists] = useState([])
-  const [vinyls, setVinyls] = useState([])
+  const [vinyls, setVinyls] = useState<string[]>([])
   const trackNameRef = useRef<HTMLInputElement>(null)
   const bpmRef = useRef<HTMLInputElement>(null)
   const priceRef = useRef<HTMLInputElement>(null)
@@ -28,18 +29,26 @@ export default function NewTrackPanel() {
     const price = priceRef.current?.value
     const genre = genreRef.current?.value
     const description = descriptionRef.current?.value
-    console.log(price)
+    let artistsId = artists.map((v) => parseInt(v))
 
-    if ( !trackName || !artists || !bpm || !price || !genre || !description) {
+    if (!trackName || !artists || !bpm || !price || !genre || !description) {
       alert('Please fill out all fields')
       return
     }
 
-    const bannerUrl = await uploadFile(banner, trackName, 'Banners')
-    const artworkUrl = await uploadFile(artwork, trackName, 'Artwork')
-    const trackUrl = await uploadFile(track, trackName, 'Tracks', "wav")
-    const ret = addTrack.mutate({title: trackName!, artistId: artists, description: description!, price: parseInt(price!), url: trackUrl, artworkUrl: artworkUrl, bannerUrl: bannerUrl})
-    console.log(ret);
+    const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
+    const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
+    const trackUrl = await uploadFile(track, trackName, 'Tracks', 'wav')
+    addTrack.mutate({
+      title: trackName!,
+      artists: artistsId,
+      description: description!,
+      url: trackUrl,
+      artworkUrl: artworkUrl,
+      bannerUrl: bannerUrl,
+      price: parseFloat(price),
+      vinyls: vinyls,
+    })
   }
 
   return (
@@ -70,7 +79,7 @@ export default function NewTrackPanel() {
           />
 
           <div className="ml-4 flex w-full flex-col">
-            <ArtistAdder values={artists} setValues={setArtists}/>
+            <ArtistAdder values={artists} setValues={setArtists} />
 
             <div className="h-2"></div>
 
@@ -91,13 +100,18 @@ export default function NewTrackPanel() {
 
             <div className="h-2"></div>
 
-            <Textarea ref={descriptionRef} autosize minRows={3} placeholder="Description" />
+            <Textarea
+              ref={descriptionRef}
+              autosize
+              minRows={3}
+              placeholder="Description"
+            />
           </div>
         </div>
 
         <div className="h-2"></div>
 
-        <VinylReleaseAdder values={vinyls} setValues={setVinyls}/>
+        <VinylReleaseAdder values={vinyls} setValues={setVinyls} />
 
         <div className="h-4"></div>
 
