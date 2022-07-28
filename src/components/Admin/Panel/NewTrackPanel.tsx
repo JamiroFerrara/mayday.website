@@ -37,7 +37,6 @@ export default function NewTrackPanel() {
       const price = priceRef.current?.value
       const description = descriptionRef.current?.value
       let artistsId = artists.map((v) => parseInt(v))
-      console.log(genres);
 
       if (!trackName || !artists || !bpm || !price || !genres || !description) {
         FillOutAllDataError();

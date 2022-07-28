@@ -53,6 +53,36 @@ const addTrack = createRouter()
     },
   });
 
+const deleteTrack = createRouter()
+  .mutation('deleteTrack', {
+    input: z.object({
+      id: z.string(),
+    }),
+    async resolve({ input }) {
+      await prisma.track.delete({
+        where: {
+          id: input.id,
+        },
+      });
+
+      await prisma.tracksOnVinyl.deleteMany({
+        where: {
+          trackId: input.id,
+        },
+      });
+
+      await prisma.tracksOnArtists.deleteMany({
+        where: {
+          trackId: input.id,
+        },
+      });
+
+      return {
+        success: true,
+      };
+    }
+  });
+
 const getAllTracks = createRouter()
   .query('getAllTracks', {
     async resolve() {
@@ -107,6 +137,7 @@ export const appRouter = createRouter()
   .merge(getAllVinyls)
   .merge(addTrack)
   .merge(getAllGenres)
+  .merge(deleteTrack)
   ;
 
 export type AppRouter = typeof appRouter;

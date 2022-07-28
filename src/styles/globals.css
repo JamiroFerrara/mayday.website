@@ -26,6 +26,9 @@ html { height: 10px;} body {min-height: 100%;}
     .main {
         @apply flex flex-col justify-center items-center mt-10
     }
+    .pMainPanel{
+      @apply w-11/12 max-w-screen-2xl rounded-xl border-2 border-black bg-zinc-900 p-8
+    }
     .footer-icons {
         @apply transition cursor-pointer hover:translate-y-1 hover:text-red-900;
     }
