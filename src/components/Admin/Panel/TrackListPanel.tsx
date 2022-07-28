@@ -36,20 +36,21 @@ export default function TrackListPanel(props: Props) {
     <div className="pMain">
       <div className="pMainPanel">
         <div ref={parent} className="w-full">
-          {tracks.data?.tracks.map((track) => (
-            <div className="mb-4 flex w-full justify-between rounded border border-zinc-500 p-4 transition hover:border-zinc-300">
-              <div className="self-center">
-                <p className="">
-                  {track.artists[0].artist.artistName + ' - ' + track.title}
-                </p>
+          {tracks.data?.tracks.map((track, key) => (
+            <div onClick={() => removeTrack.mutate({id: track.id})} key={key} className="mb-4 flex cursor-pointer w-full justify-between rounded border border-zinc-500 p-4 transition hover:border-red-600">
+                <div className="self-center">
+                  <p className="text-xl text-zinc-300">
+                    {track.artists.map((artist) => (artist.artist.artistName)).join(', ')}
+                  </p>
+
+                  <p className="">
+                    {track.title}
+                  </p>
+                </div>
+
+                <p className="text-xl self-center">{track.price + " €"}</p>
+
               </div>
-              <div
-                onClick={() => removeTrack.mutate({id: track.id})}
-                className="cursor-pointer text-xl hover:text-red-700"
-              >
-                x
-              </div>
-            </div>
           ))}
         </div>
 
