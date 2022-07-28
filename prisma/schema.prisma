@@ -20,6 +20,14 @@ model Track{
   artworkUrl String
   bannerUrl String
   vinyls    TracksOnVinyl[]
+  genreId   String?
+  genre     Genre? @relation(fields: [genreId], references: [id])
+}
+
+model Genre {
+  id        String @id @default(cuid())
+  name      String
+  tracks    Track[]
 }
 
 model Artist {
