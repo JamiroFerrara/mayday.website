@@ -4,12 +4,14 @@ import BannerDropzone from '../Dropzone/BannerDropzone'
 import ArtworkDropzone from '../Dropzone/ArtworkDropzone'
 import ArtistAdder from '../Input/ArtistAdder'
 import VinylReleaseAdder from '../Input/VinylReleaseAdder'
+import GenreAdder from '../Input/GenreAdder'
 import { uploadFile, uploadAudio } from '../../../backend/aws/s3'
 import { useState, useRef } from 'react'
 import { trpc } from '../../../utils/trpc'
 import { PuffLoader } from 'react-spinners'
 import UseAnimations from 'react-useanimations';
 import alertTriangle from 'react-useanimations/lib/alertTriangle'
+import { FillOutAllDataError } from '../../../utils/notifications'
 
 export default function NewTrackPanel() {
   const addTrack = trpc.useMutation(['addTrack'])
@@ -21,27 +23,28 @@ export default function NewTrackPanel() {
   const [track, setTrack] = useState<any>(null)
   const [artists, setArtists] = useState([])
   const [vinyls, setVinyls] = useState<string[]>([])
+  const [genres, setGenres] = useState<string[]>([])
   const trackNameRef = useRef<HTMLInputElement>(null)
   const bpmRef = useRef<HTMLInputElement>(null)
   const priceRef = useRef<HTMLInputElement>(null)
-  const genreRef = useRef<HTMLInputElement>(null)
   const descriptionRef = useRef<HTMLTextAreaElement>(null)
 
   async function handleUpload() {
     try
     {
-      setLoading(true)
       const trackName = trackNameRef.current?.value
       const bpm = bpmRef.current?.value
       const price = priceRef.current?.value
-      const genre = genreRef.current?.value
       const description = descriptionRef.current?.value
       let artistsId = artists.map((v) => parseInt(v))
+      console.log(genres);
 
-      if (!trackName || !artists || !bpm || !price || !genre || !description) {
-        alert('Please fill out all fields')
+      if (!trackName || !artists || !bpm || !price || !genres || !description) {
+        FillOutAllDataError();
         return
       }
+
+      setLoading(true)
 
       const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
       const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
@@ -55,6 +58,7 @@ export default function NewTrackPanel() {
         bannerUrl: bannerUrl,
         price: parseFloat(price),
         vinyls: vinyls,
+        genre: genres[0]
       })
 
       setLoading(false);
@@ -121,15 +125,19 @@ export default function NewTrackPanel() {
 
             <div className="h-2"></div>
 
+            <GenreAdder values={genres} setValues={setGenres}/>
+
+            <div className="h-2"></div>
+
             <div className="flex flex-row space-x-2">
-              <NumberInput ref={bpmRef} value={160} placeholder="BPM" />
+              <NumberInput className='w-1/2' ref={bpmRef} value={160} placeholder="BPM" />
               <NumberInput
+                className='w-1/2'
                 ref={priceRef}
                 placeholder="Price ¢"
                 defaultValue={1.99}
                 precision={2}
               />
-              <Input ref={genreRef} placeholder="Genre" />
             </div>
 
             <div className="h-2"></div>

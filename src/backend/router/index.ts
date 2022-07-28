@@ -10,6 +10,7 @@ const addTrack = createRouter()
       price: z.number(),
       artists: z.array(z.number()),
       vinyls: z.array(z.string()),
+      genre: z.string(),
       description: z.string(),
       url: z.string(),
       artworkUrl: z.string(),
@@ -24,6 +25,7 @@ const addTrack = createRouter()
           url: input.url,
           artworkUrl: input.artworkUrl,
           bannerUrl: input.bannerUrl,
+          genreId: input.genre,
         }
       })
 
@@ -89,11 +91,22 @@ const getAllVinyls = createRouter()
     },
   });
 
+const getAllGenres = createRouter()
+  .query('getAllGenres', {
+    async resolve() {
+      const genres = await prisma.genre.findMany({ })
+      return {
+        success: true, genres: genres
+      };
+    },
+  });
+
 export const appRouter = createRouter()
   .merge(getAllTracks)
   .merge(getAllArtists)
   .merge(getAllVinyls)
   .merge(addTrack)
+  .merge(getAllGenres)
   ;
 
 export type AppRouter = typeof appRouter;

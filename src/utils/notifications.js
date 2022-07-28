@@ -67,6 +67,16 @@ export function CartClearedNotification(){
   })
 }
 
+// Admin
+// -------------------------------------
+export function FillOutAllDataError(){
+  showNotification({
+    title: "Fill out all data!",
+    message: 'Please fill out entire form before submitting!',
+    styles: (theme) => (getErrorStyle(theme)),
+  })
+}
+
 function getDefaultStyle(theme){
   return (
     {
@@ -75,6 +85,26 @@ function getDefaultStyle(theme){
         borderColor: theme.colors.dark[6],
 
         '&::before': { backgroundColor: theme.white },
+      },
+
+      title: { color: theme.white },
+      description: { color: theme.white },
+      closeButton: {
+        color: theme.white,
+        '&:hover': { backgroundColor: theme.colors.dark[3] },
+      },
+    }
+  )
+}
+
+function getErrorStyle(theme){
+  return (
+    {
+      root: {
+        backgroundColor: theme.colors.dark[6],
+        borderColor: theme.colors.dark[6],
+
+        '&::before': { backgroundColor: theme.colors.red[6] },
       },
 
       title: { color: theme.white },
