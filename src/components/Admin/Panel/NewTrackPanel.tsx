@@ -8,10 +8,13 @@ import { uploadFile, uploadAudio } from '../../../backend/aws/s3'
 import { useState, useRef } from 'react'
 import { trpc } from '../../../utils/trpc'
 import { PuffLoader } from 'react-spinners'
+import UseAnimations from 'react-useanimations';
+import alertTriangle from 'react-useanimations/lib/alertTriangle'
 
 export default function NewTrackPanel() {
   const addTrack = trpc.useMutation(['addTrack'])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const [banner, setBanner] = useState<string | ArrayBuffer | null>(null)
   const [artwork, setArtwork] = useState<string | ArrayBuffer | null>(null)
@@ -25,34 +28,39 @@ export default function NewTrackPanel() {
   const descriptionRef = useRef<HTMLTextAreaElement>(null)
 
   async function handleUpload() {
-    setLoading(true)
-    const trackName = trackNameRef.current?.value
-    const bpm = bpmRef.current?.value
-    const price = priceRef.current?.value
-    const genre = genreRef.current?.value
-    const description = descriptionRef.current?.value
-    let artistsId = artists.map((v) => parseInt(v))
+    try
+    {
+      setLoading(true)
+      const trackName = trackNameRef.current?.value
+      const bpm = bpmRef.current?.value
+      const price = priceRef.current?.value
+      const genre = genreRef.current?.value
+      const description = descriptionRef.current?.value
+      let artistsId = artists.map((v) => parseInt(v))
 
-    if (!trackName || !artists || !bpm || !price || !genre || !description) {
-      alert('Please fill out all fields')
-      return
+      if (!trackName || !artists || !bpm || !price || !genre || !description) {
+        alert('Please fill out all fields')
+        return
+      }
+
+      const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
+      const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
+      const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
+      addTrack.mutate({
+        title: trackName!,
+        artists: artistsId,
+        description: description!,
+        url: trackUrl,
+        artworkUrl: artworkUrl,
+        bannerUrl: bannerUrl,
+        price: parseFloat(price),
+        vinyls: vinyls,
+      })
+
+      setLoading(false);
+    } catch (e) {
+      setError(true);
     }
-
-    const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
-    const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
-    const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
-    addTrack.mutate({
-      title: trackName!,
-      artists: artistsId,
-      description: description!,
-      url: trackUrl,
-      artworkUrl: artworkUrl,
-      bannerUrl: bannerUrl,
-      price: parseFloat(price),
-      vinyls: vinyls,
-    })
-
-    setLoading(false);
   }
 
   if(loading === true) {
@@ -61,6 +69,17 @@ export default function NewTrackPanel() {
         <div className="pMain w-11/12 h-11/12 flex justify-center rounded-xl border-2 border-black bg-zinc-900 p-8">
           <PuffLoader color={"#FFF"}/>
           <div className="m-4">Uploading Track..</div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error === true) {
+    return (
+      <div className="pMain">
+        <div className="pMain w-11/12 h-11/12 flex justify-center rounded-xl border-2 border-black bg-zinc-900 p-8">
+          <UseAnimations animation={alertTriangle} loop={true} size={80} strokeColor={"#FFF"}/>
+          <div className="title">There was an error uploading track.. :(</div>
         </div>
       </div>
     )

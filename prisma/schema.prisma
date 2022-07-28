@@ -9,34 +9,6 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model Profile {
-  id     String  @id @default(cuid())
-  bio    String?
-  userId String  @unique
-  owner  User    @relation(fields: [userId], references: [id])
-}
-
-model User {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  Username  String
-  Password  String
-  Email     String
-  Profile   Profile?
-}
-
-model Comment {
-  id        String @id @default(cuid())
-  createdAt DateTime @default(now())
-  content   String 
-}
-
-model Temp {
-  id        String @id @default(cuid())
-  createdAt DateTime @default(now())
-  content   String
-}
-
 model Track{
   id        String @id @default(cuid())
   title     String
