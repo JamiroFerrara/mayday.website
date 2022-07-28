@@ -46,3 +46,33 @@ export const uploadAudio = async (file, name, folder, type) => {
 
   return CLOUDFRONT_URL + encodeURIComponent(fileName.trim());
 }
+
+export const deleteTrack = async (trackUrl, bannerUrl, artworkUrl) => {
+  try {
+    var trackName = trackUrl.replace(CLOUDFRONT_URL, "");
+    var bannerName = bannerUrl.replace(CLOUDFRONT_URL, "");
+    var artworkName = artworkUrl.replace(CLOUDFRONT_URL, "");
+    trackName = decodeURIComponent(trackName);
+    bannerName = decodeURIComponent(bannerName);
+    artworkName = decodeURIComponent(artworkName);
+    console.log(trackName, bannerName, artworkName);
+
+    await deleteFile(trackName.trim());
+    await deleteFile(bannerName.trim());
+    await deleteFile(artworkName.trim());
+
+    console.log("Deleted");
+
+    return "Files Deleted!"
+  } catch (error) {
+    return error;
+  }
+}
+
+export const deleteFile = async (fileName) => {
+  let {data} = await axios.post('/api/aws/deleteFile', {
+    name: fileName,
+  });
+
+  return data;
+}

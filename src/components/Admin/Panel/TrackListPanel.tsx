@@ -1,6 +1,7 @@
 import { trpc } from '../../../utils/trpc'
 import { PuffLoader } from 'react-spinners'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { deleteTrack } from '../../../backend/aws/s3'
 
 interface Props {
   setShowNewTrackPanel: any
@@ -19,6 +20,15 @@ export default function TrackListPanel(props: Props) {
         success: true,
         tracks: tracks.data?.tracks.filter((track) => track.id != id),
       })
+
+      //Delete from S3
+      // const file = tracks.data?.tracks.filter((track) => track.id === id)
+      // if (file) {
+        // const trackUrl = file[0].url
+        // const bannerUrl = file[0].bannerUrl
+        // const artworkUrl = file[0].artworkUrl
+        // deleteTrack(trackUrl, bannerUrl, artworkUrl)
+      // }
     },
   })
 
