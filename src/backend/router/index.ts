@@ -25,7 +25,7 @@ const addTrack = createRouter()
           url: input.url,
           artworkUrl: input.artworkUrl,
           bannerUrl: input.bannerUrl,
-          genreId: input.genre,
+          genreId: input.genre
         }
       })
 
