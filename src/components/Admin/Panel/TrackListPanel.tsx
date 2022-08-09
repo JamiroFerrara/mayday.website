@@ -25,10 +25,7 @@ export default function TrackListPanel(props: Props) {
       //Delete from S3
       const file = tracks.data?.tracks.filter((track) => track.id === id)
       if (file) {
-        const trackUrl = file[0].url
-        const bannerUrl = file[0].bannerUrl
-        const artworkUrl = file[0].artworkUrl
-        deleteTrack(trackUrl, bannerUrl, artworkUrl)
+        deleteTrack(file[0].url, file[0].bannerUrl, file[0].artworkUrl)
       }
     },
   })

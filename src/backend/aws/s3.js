@@ -69,6 +69,22 @@ export const deleteTrack = async (trackUrl, bannerUrl, artworkUrl) => {
   }
 }
 
+export const deleteQuad = async (quadUrl) => {
+  try {
+    // var quadName = quadUrl.replace(CLOUDFRONT_URL, "");
+    // quadName = decodeURIComponent(quadName);
+    // console.log(quadName);
+
+    let res = await deleteFile(quadUrl.trim());
+
+    console.log(res);
+
+    return "File Deleted!"
+  } catch (error){
+    return error;
+  }
+}
+
 export const deleteFile = async (fileName) => {
   let {data} = await axios.post('/api/aws/deleteFile', {
     name: fileName,
