@@ -3,7 +3,7 @@ import S3 from 'aws-sdk/clients/s3';
 
 // Create S3 instance
 const s3 = new S3({
-  accessKeyId: process.env.S3_ACCCESS_KEY,
+  accessKeyId: process.env.S3_ACCESS_KEY,
   secretAccessKey: process.env.S3_SECRET_KEY,
   region: "eu-west-3",
   signatureVersion: "v4",
