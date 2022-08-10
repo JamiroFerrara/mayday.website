@@ -62,6 +62,8 @@ export default function TrackListPanel(props: Props) {
           ))}
         </div>
 
+        {tracks.data?.tracks.length === 0 ? (<div className='w-full text-center mb-4'>No tracks found</div>) : null}
+
         <button
           onClick={() => setShowNewTrackPanel(true)}
           className="btn-dark w-full"
