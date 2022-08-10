@@ -35,6 +35,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       Expires: 600,
     }
 
+    console.log(process.env.S3_ACCCESS_KEY, process.env.S3_SECRET_KEY);
+
     // Generate presigned URL
     const url = await s3.getSignedUrlPromise("putObject", fileParams);
     res.status(200).json({url});
