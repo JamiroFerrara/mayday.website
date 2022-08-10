@@ -11,7 +11,7 @@ export default function SandboxPage() {
   //
 
   function handleClick(){
-    deleteQuad('Artwork/aaaa.png');
+    deleteQuad('dbwlp.png');
   }
 
   return (
