@@ -33,7 +33,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       Key: name,
       ContentType: type,
       Expires: 600,
-      ACL: "public-read",
     }
 
     // Generate presigned URL
