@@ -80,7 +80,7 @@ export default function NewTrackPanel(props: Props) {
       setError(true);
     }
 
-    setShowNewTrackPanel(false)
+    // setShowNewTrackPanel(false)
   }
 
   if(loading === true) {
