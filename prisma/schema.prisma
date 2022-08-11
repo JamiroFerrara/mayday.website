@@ -16,6 +16,7 @@ model Track{
   price     Decimal @default(1.99)
   description String
   url        String
+  mp3        String?
   waveData   String?
   artworkUrl String
   bannerUrl String
