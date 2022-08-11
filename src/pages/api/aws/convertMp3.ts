@@ -16,7 +16,7 @@ let transcoder_config = {
       pipelineId: '1660160312369-5q82e9',
       outputKeyPrefix: 'mp3/', // put the video into the transcoded folder
       presets: [ // Comes from AWS console
-        {presetId: '1351620000001-300020', suffix: '_mp3'},
+        {presetId: '1351620000001-300020', suffix: '.mp3'},
       ]
     }
   }
@@ -53,6 +53,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   transcoder.createJob(params, (err, data) => {
     if (err) {
       console.log(err, err.stack); // an error occurred
+      res.status(400).json({});
     } else {
       let jobId = data.Job?.Id;
       console.log(`JobId: ${jobId}`, data);
