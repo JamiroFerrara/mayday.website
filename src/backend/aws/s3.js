@@ -44,6 +44,8 @@ export const uploadAudio = async (file, name, folder, type) => {
     },
   });
 
+
+
   return CLOUDFRONT_URL + encodeURIComponent(fileName.trim());
 }
 
