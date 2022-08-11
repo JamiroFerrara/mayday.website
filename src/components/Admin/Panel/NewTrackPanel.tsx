@@ -13,6 +13,7 @@ import UseAnimations from 'react-useanimations';
 import alertTriangle from 'react-useanimations/lib/alertTriangle'
 import { FillOutAllDataError } from '../../../utils/notifications'
 import BackButton from '../../../components/Ui/BackButton'
+import { convertToMp3 } from '../../../backend/aws/elasticTranscoder'
 
 interface Props {
   setShowNewTrackPanel: any
@@ -55,6 +56,8 @@ export default function NewTrackPanel(props: Props) {
       const bannerUrl = await uploadFile(banner, trackName, 'Banners', 'png')
       const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
       const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
+      const mp3Url = await convertToMp3("Tracks/" + trackName + ".wav")
+
       addTrack.mutate({
         title: trackName!,
         artists: artistsId,
