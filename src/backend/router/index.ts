@@ -22,6 +22,7 @@ const addTrack = createRouter()
           title: input.title,
           description: input.description,
           price: input.price,
+          mp3: "fuck",
           url: input.url,
           artworkUrl: input.artworkUrl,
           bannerUrl: input.bannerUrl,
