@@ -60,6 +60,7 @@ export const deleteTrack = async (trackUrl, bannerUrl, artworkUrl) => {
     console.log(trackName, bannerName, artworkName);
 
     await deleteFile(trackName.trim());
+    await deleteFile("mp3/" + trackName.trim());
     await deleteFile(bannerName.trim());
     await deleteFile(artworkName.trim());
 
