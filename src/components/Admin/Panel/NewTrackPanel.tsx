@@ -60,7 +60,7 @@ export default function NewTrackPanel(props: Props) {
       const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
       const mp3Url = await convertToMp3("Tracks/" + trackName + ".wav")
 
-      console.log(artistsId)
+      console.log(addTrack)
 
       addTrack.mutate({
         title: trackName!,

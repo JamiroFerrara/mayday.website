@@ -11,6 +11,7 @@ interface Props {
 export default function TrackListPanel(props: Props) {
   const { setShowNewTrackPanel } = props
   const tracks = trpc.useQuery(['getAllTracks'])
+  console.log(tracks);
   const [parent] = useAutoAnimate<HTMLDivElement>()
 
   const tctx = trpc.useContext()
