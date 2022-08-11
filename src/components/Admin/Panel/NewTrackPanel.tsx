@@ -46,6 +46,8 @@ export default function NewTrackPanel(props: Props) {
       const description = descriptionRef.current?.value
       let artistsId = artists.map((v) => parseInt(v))
 
+      console.log(artists);
+
       if (!trackName || !artists || !bpm || !price || !genres || !description) {
         FillOutAllDataError();
         return
@@ -57,6 +59,8 @@ export default function NewTrackPanel(props: Props) {
       const artworkUrl = await uploadFile(artwork, trackName, 'Artwork', 'png')
       const trackUrl = await uploadAudio(track, trackName, 'Tracks', 'wav')
       const mp3Url = await convertToMp3("Tracks/" + trackName + ".wav")
+
+      console.log(artistsId)
 
       addTrack.mutate({
         title: trackName!,

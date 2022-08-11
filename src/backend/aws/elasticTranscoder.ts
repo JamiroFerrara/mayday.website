@@ -7,5 +7,5 @@ export async function convertToMp3(name: String){
     name: name
   })
 
-  return CLOUDFRONT_URL + encodeURIComponent(name.trim());
+  return CLOUDFRONT_URL + encodeURIComponent("mp3/" + name.trim() + ".mp3")
 }
