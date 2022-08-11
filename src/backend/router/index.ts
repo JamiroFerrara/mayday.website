@@ -13,7 +13,6 @@ const addTrack = createRouter()
       genre: z.string(),
       description: z.string(),
       url: z.string(),
-      mp3Url: z.string(),
       artworkUrl: z.string(),
       bannerUrl: z.string(),
     }),
@@ -24,7 +23,6 @@ const addTrack = createRouter()
           description: input.description,
           price: input.price,
           url: input.url,
-          mp3: input.mp3Url,
           artworkUrl: input.artworkUrl,
           bannerUrl: input.bannerUrl,
           genreId: input.genre
