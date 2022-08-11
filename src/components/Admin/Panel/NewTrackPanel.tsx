@@ -12,8 +12,15 @@ import { PuffLoader } from 'react-spinners'
 import UseAnimations from 'react-useanimations';
 import alertTriangle from 'react-useanimations/lib/alertTriangle'
 import { FillOutAllDataError } from '../../../utils/notifications'
+import BackButton from '../../../components/Ui/BackButton'
 
-export default function NewTrackPanel() {
+interface Props {
+  setShowNewTrackPanel: any
+}
+
+export default function NewTrackPanel(props: Props) {
+  const { setShowNewTrackPanel } = props
+
   const addTrack = trpc.useMutation(['addTrack'])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -64,6 +71,8 @@ export default function NewTrackPanel() {
     } catch (e) {
       setError(true);
     }
+
+    setShowNewTrackPanel(false)
   }
 
   if(loading === true) {
@@ -91,7 +100,12 @@ export default function NewTrackPanel() {
   return (
     <div className="pMain">
       <div className="w-11/12 max-w-screen-2xl rounded-xl border-2 border-black bg-zinc-900 p-8">
-        <div className="title">Create a new track</div>
+
+        <div className='flex flex-row title w-full justify-between'>
+          <BackButton onClick={() => setShowNewTrackPanel(false)}/>
+          <div className="">Create a new track</div>
+          <div></div>
+        </div>
 
         <BannerDropzone
           title="Drag track banner here!"

@@ -13,7 +13,7 @@ export default function AdminPage() {
 
   if(showNewTrackPanel === true) {
     return (
-      <NewTrackPanel/>
+      <NewTrackPanel setShowNewTrackPanel={setShowNewTrackPanel}/>
     )
   }
 
