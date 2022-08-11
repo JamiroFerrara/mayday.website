@@ -67,6 +67,7 @@ export default function NewTrackPanel(props: Props) {
         artists: artistsId,
         description: description!,
         url: trackUrl,
+        mp3: mp3Url,
         artworkUrl: artworkUrl,
         bannerUrl: bannerUrl,
         price: parseFloat(price),
