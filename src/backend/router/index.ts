@@ -26,33 +26,33 @@ const addTrack = createRouter()
           title: input.title,
           description: input.description,
           price: input.price,
-          mp3: input.mp3,
+          mp3: "test",
           url: input.url,
           artworkUrl: input.artworkUrl,
-          bannerUrl: input.bannerUrl,
-          genreId: input.genre
+          bannerUrl: "test",
+          genreId: "cl64tojqe0024p2uoms823uoh"
         }
       })
 
-      console.log(track);
+      // console.log(track);
 
-      input.vinyls.map(async (vinyl) => {
-        await prisma.tracksOnVinyl.create({
-          data: {
-            trackId: track.id,
-            vinylId: vinyl.trim(),
-          }
-        })
-      })
+      // input.vinyls.map(async (vinyl) => {
+        // await prisma.tracksOnVinyl.create({
+          // data: {
+            // trackId: track.id,
+            // vinylId: vinyl.trim(),
+          // }
+        // })
+      // })
 
-      input.artists.map(async (artistId) => {
-        await prisma.tracksOnArtists.create({
-          data: {
-            trackId: track.id,
-            artistId: artistId,
-          }
-        })
-      })
+      // input.artists.map(async (artistId) => {
+        // await prisma.tracksOnArtists.create({
+          // data: {
+            // trackId: track.id,
+            // artistId: artistId,
+          // }
+        // })
+      // })
 
       return {
         success: true, track: track, vinyls: input.vinyls
