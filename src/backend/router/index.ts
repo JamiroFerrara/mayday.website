@@ -18,6 +18,9 @@ const addTrack = createRouter()
       bannerUrl: z.string(),
     }),
     async resolve({ input }) {
+
+      console.log("Track mutation started", input)
+
       const track = await prisma.track.create({
         data: {
           title: input.title,
@@ -30,6 +33,8 @@ const addTrack = createRouter()
           genreId: input.genre
         }
       })
+
+      console.log(track);
 
       input.vinyls.forEach(async (vinyl) => {
         await prisma.tracksOnVinyl.create({
