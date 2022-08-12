@@ -21,33 +21,38 @@ const addTrack = createRouter()
 
       console.log("Track mutation started", input)
 
-    const track = await prisma.track.create({
-      data: {
-        title: "test",
-        description: "test",
-        price: 0,
-        mp3: "test",
-        url: "test",
-        artworkUrl: "test",
-        bannerUrl: "test",
-        genreId: "cl64tojqe0024p2uoms823uoh"
-      }
-    })
+      const track = await prisma.track.create({
+        data: {
+          title: input.title,
+          description: input.description,
+          price: input.price,
+          mp3: input.mp3,
+          url: input.url,
+          artworkUrl: input.artworkUrl,
+          bannerUrl: input.bannerUrl,
+          genreId: input.genre
+        }
+      })
 
-    await prisma.tracksOnVinyl.create({
-      data: {
-        trackId: track.id,
-        vinylId: "cl5ph0j860029jbi5d88m8ue1",
-      }
-    })
+      console.log(track);
 
-    await prisma.tracksOnArtists.create({
-      data: {
-        trackId: track.id,
-        artistId: 1,
-      }
-    })
+      input.vinyls.map(async (vinyl) => {
+        await prisma.tracksOnVinyl.create({
+          data: {
+            trackId: track.id,
+            vinylId: vinyl.trim(),
+          }
+        })
+      })
 
+      input.artists.map(async (artistId) => {
+        await prisma.tracksOnArtists.create({
+          data: {
+            trackId: track.id,
+            artistId: artistId,
+          }
+        })
+      })
 
       return {
         success: true, track: track, vinyls: input.vinyls
