@@ -4,16 +4,18 @@ import { useRef, useState, useEffect } from 'react'
 import { trpc } from '../utils/trpc'
 import {useRouter} from 'next/router'
 import { convertToMp3} from '../backend/aws/elasticTranscoder'
+import {prisma} from '../backend/utils/prisma'
+import axios from 'axios'
 
 export default function SandboxPage() {
 
-  function handleCLick(){
-    convertToMp3('quad.wav');
+  async function handleCLick(){
+    await axios.post('/api/test/createTrack', {});
   }
 
   return (
     <>
-      <button onClick={() => handleCLick()} className='btn'>Convert to mp3</button>
+      <button onClick={() => handleCLick()} className='btn'>Create test track</button>
     </>
   )
 }
