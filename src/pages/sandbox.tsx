@@ -10,7 +10,9 @@ import axios from 'axios'
 export default function SandboxPage() {
 
   async function handleCLick(){
-    await axios.post('/api/test/createTrack', {});
+    await axios.post('/api/test/createTrack', {}).then(res => {
+      console.log(res);
+    })
   }
 
   return (
