@@ -36,7 +36,7 @@ const addTrack = createRouter()
 
       console.log(track);
 
-      input.vinyls.map(async (vinyl) => {
+      input.vinyls.forEach(async (vinyl) => {
         await prisma.tracksOnVinyl.create({
           data: {
             trackId: track.id,
@@ -45,7 +45,7 @@ const addTrack = createRouter()
         })
       })
 
-      input.artists.map(async (artistId) => {
+      input.artists.forEach(async (artistId) => {
         await prisma.tracksOnArtists.create({
           data: {
             trackId: track.id,
