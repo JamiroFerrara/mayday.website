@@ -75,6 +75,19 @@ export default function NewTrackPanel(props: Props) {
         genre: genres[0]
       })
 
+      console.log({
+        title: trackName!,
+        artists: artistsId,
+        description: description!,
+        url: trackUrl,
+        mp3: mp3Url,
+        artworkUrl: artworkUrl,
+        bannerUrl: bannerUrl,
+        price: parseFloat(price),
+        vinyls: vinyls,
+        genre: genres[0]
+      })
+
       setLoading(false);
     } catch (e) {
       setError(true);
