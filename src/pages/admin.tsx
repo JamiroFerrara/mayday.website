@@ -4,8 +4,8 @@ import TrackListPanel from '../components/Admin/Panel/TrackListPanel'
 import {useState } from 'react'
 
 export default function AdminPage() {
-  const [showNewTrackPanel, setShowNewTrackPanel] = useState(false)
-  const [login, setLogin] = useState(false)
+  // const [showNewTrackPanel, setShowNewTrackPanel] = useState(false)
+  // const [login, setLogin] = useState(false)
 
   // if (login === false){
     // return <LoginPanel setLogin={setLogin}/>
@@ -13,7 +13,7 @@ export default function AdminPage() {
 
   // if(showNewTrackPanel === true) {
     return (
-      <NewTrackPanel setShowNewTrackPanel={setShowNewTrackPanel}/>
+      <NewTrackPanel />
     )
   // }
 

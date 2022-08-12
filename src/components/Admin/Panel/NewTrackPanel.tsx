@@ -16,7 +16,7 @@ import BackButton from '../../../components/Ui/BackButton'
 import { convertToMp3 } from '../../../backend/aws/elasticTranscoder'
 
 interface Props {
-  setShowNewTrackPanel: any
+  setShowNewTrackPanel?: any
 }
 
 export default function NewTrackPanel(props: Props) {
