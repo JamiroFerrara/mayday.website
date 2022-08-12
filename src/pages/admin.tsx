@@ -7,17 +7,17 @@ export default function AdminPage() {
   const [showNewTrackPanel, setShowNewTrackPanel] = useState(false)
   const [login, setLogin] = useState(false)
 
-  if (login === false){
-    return <LoginPanel setLogin={setLogin}/>
-  }
+  // if (login === false){
+    // return <LoginPanel setLogin={setLogin}/>
+  // }
 
-  if(showNewTrackPanel === true) {
+  // if(showNewTrackPanel === true) {
     return (
       <NewTrackPanel setShowNewTrackPanel={setShowNewTrackPanel}/>
     )
-  }
+  // }
 
-  return (
-    <TrackListPanel setShowNewTrackPanel={setShowNewTrackPanel}/>
-  )
+  // return (
+    // <TrackListPanel setShowNewTrackPanel={setShowNewTrackPanel}/>
+  // )
 }
