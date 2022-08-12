@@ -39,14 +39,14 @@ const addTrack = createRouter()
       await prisma.tracksOnVinyl.create({
         data: {
           trackId: track.id,
-          vinylId: "cl5ph0j860029jbi5d88m8ue1",
+          vinylId: input.vinyls[0],
         }
       })
 
       await prisma.tracksOnArtists.create({
         data: {
           trackId: track.id,
-          artistId: 1,
+          artistId: input.artists[0],
         }
       })
 
