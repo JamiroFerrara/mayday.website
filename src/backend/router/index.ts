@@ -22,16 +22,16 @@ const addTrack = createRouter()
       console.log("Track mutation started", input)
 
       const track = await prisma.track.create({
-      data: {
-        title: "test",
-        description: "test",
-        price: 0,
-        mp3: "test",
-        url: "test",
-        artworkUrl: "test",
-        bannerUrl: "test",
-        genreId: "cl64tojqe0024p2uoms823uoh"
-      }
+        data: {
+          title: "test",
+          description: "test",
+          price: 0,
+          mp3: "test",
+          url: "test",
+          artworkUrl: "test",
+          bannerUrl: "test",
+          genreId: "cl64tojqe0024p2uoms823uoh"
+        }
       })
 
       // console.log(track);
